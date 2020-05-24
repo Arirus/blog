@@ -1,0 +1,858 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>从 NestedScrolling 到 Behavior · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="View 的一些整理 从Debug来看工作流程.html" />
+    
+    
+    <link rel="prev" href="View 的一些整理 参考系与滑动.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Android 基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basic/Android 组件 Service 基础.html">
+            
+                <a href="../basic/Android 组件 Service 基础.html">
+            
+                    
+                    Service 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                <a href="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                    
+                    IntentService 与 JobIntentService
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="View 的一些整理 参考系与滑动.html">
+            
+                <a href="View 的一些整理 参考系与滑动.html">
+            
+                    
+                    参考系与滑动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                <a href="View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                    
+                    从 NestedScrolling 到 Behavior
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="View 的一些整理 从Debug来看工作流程.html">
+            
+                <a href="View 的一些整理 从Debug来看工作流程.html">
+            
+                    
+                    从Debug来看工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="View 的一些整理 从Debug来看事件分发.html">
+            
+                <a href="View 的一些整理 从Debug来看事件分发.html">
+            
+                    
+                    从Debug来看事件分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="View 的一些整理 绘制.html">
+            
+                <a href="View 的一些整理 绘制.html">
+            
+                    
+                    绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="View 的一些整理 嵌套滑动的解决方案.html">
+            
+                <a href="View 的一些整理 嵌套滑动的解决方案.html">
+            
+                    
+                    嵌套滑动的解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="View 的一些整理 属性动画.html">
+            
+                <a href="View 的一些整理 属性动画.html">
+            
+                    
+                    属性动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="View 的一些整理 ZoomImageView .html">
+            
+                <a href="View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="View 的一些整理 ZoomImageView .html">
+            
+                <a href="View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapters/2.md">
+            
+                <span>
+            
+                    
+                    2. 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapters/3.md">
+            
+                <span>
+            
+                    
+                    3. 实现 hello world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapters/4.md">
+            
+                <span>
+            
+                    
+                    4. webpack 的配置文件 webpack.config.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapters/5.md">
+            
+                <span>
+            
+                    
+                    5. 使用第一个 webpack 插件 html-webpack-plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapters/6.md">
+            
+                <span>
+            
+                    
+                    6. 使用 loader 处理 CSS 和 Sass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapters/7.md">
+            
+                <span>
+            
+                    
+                    7. 初识 webpack-dev-server
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >从 NestedScrolling 到 Behavior</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;">&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;</h3>
+<p>&#x8FD9;&#x6B21;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x5E94;&#x8BE5;&#x662F;&#x5F88;&#x4E45;&#x4E4B;&#x524D;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x4E86;&#xFF0C;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x76F8;&#x5173;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E4B;&#x524D;&#x7ADF;&#x7136;&#x6CA1;&#x6709;&#x8BA4;&#x771F;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x90A3;&#x5C31;&#x6B63;&#x597D;&#x8FD9;&#x6B21;&#x597D;&#x597D;&#x5199;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x628A;&#x8FD9;&#x91CC;&#x68B3;&#x7406;&#x4E00;&#x4E0B;&#x3002;&#x672C;&#x6587;&#x91C7;&#x7528;&#x7684;&#x6E90;&#x7801;&#x5747;&#x6765;&#x81EA; API 26 &#x7684;&#x5B98;&#x65B9;&#x6E90;&#x7801;&#x3002;&#x672C;&#x6587;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x7684; Material Design &#x63A7;&#x4EF6;&#xFF0C;&#x5047;&#x8BBE;&#x8BFB;&#x8005;&#x77E5;&#x9053;&#xFF0C;&#x5E76;&#x4F1A;&#x5927;&#x81F4;&#x4F7F;&#x7528;&#x3002;&#x672C;&#x7BC7;&#x7ED3;&#x5408;&#x300A;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x300B;&#x4E00;&#x8D77;&#x770B;&#xFF0C;&#x6548;&#x679C;&#x66F4;&#x597D;&#x3002;</p>
+<h3 id="nestedscrolling-&#x673A;&#x5236;">NestedScrolling &#x673A;&#x5236;</h3>
+<p>&#x6ED1;&#x52A8;&#x7684;&#x6E90;&#x8FDC;&#x6D41;&#x957F;&#x54B1;&#x4EEC;&#x5C31;&#x4E0D;&#x8BF4;&#x4E86;&#xFF0C;&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x6765;&#x8BF4;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x3002;&#x7AD9;&#x5728;&#x4E4B;&#x524D;&#x7684; <code>View &#x4E8B;&#x4EF6;&#x5206;&#x53D1;</code> &#x7684;&#x89D2;&#x5EA6;&#x6765;&#x8BF4;&#xFF0C;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x662F;&#x5F88;&#x795E;&#x5947;&#x7684;&#xFF0C;&#x6BD5;&#x7ADF;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x52A8;&#x4F5C;&#x88AB;&#x7236;&#x63A7;&#x4EF6;&#x62E6;&#x622A;&#x4E86;&#xFF0C;&#x5B50;&#x63A7;&#x4EF6;&#x662F;&#x6CA1;&#x6CD5;&#x7EE7;&#x7EED;&#x89E6;&#x53D1;&#x7684;&#x3002;&#x4F46;&#x662F; NestedScrolling &#x5374;&#x7ED9;&#x4E86;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x600E;&#x6837;&#x8BA9;&#x7236;&#x5B50;&#x63A7;&#x4EF6;&#x5173;&#x4E8E;&#x8BE5;&#x8C01;&#x6ED1;&#x52A8;&#x8FDB;&#x884C;&#x6C9F;&#x901A;&#x3002;&#x5305;&#x5BFC;&#x5165;&#x4E5F;&#x4E0D;&#x8BF4;&#x4E86;&#xFF0C;&#x6BD5;&#x7ADF;&#x8FD9;&#x4E9B;&#x5927;&#x5BB6;&#x5E94;&#x8BE5;&#x90FD;&#x61C2;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x6765;&#x8BF4;&#x8BF4; NestedScrolling &#x673A;&#x5236;&#x3002;</p>
+<h4 id="&#x76F8;&#x5173;&#x63A5;&#x53E3;&#x4E0E;&#x7C7B;">&#x76F8;&#x5173;&#x63A5;&#x53E3;&#x4E0E;&#x7C7B;</h4>
+<p>NestedScrolling &#x673A;&#x5236;&#x4E2D;&#xFF0C;&#x6709;4&#x4E2A;&#x76F8;&#x5173;&#x63A5;&#x53E3;&#x548C;&#x7C7B;&#xFF1A;</p>
+<pre><code>NestedScrollingChild //&#x5B50;&#x63A7;&#x4EF6;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;
+NestedScrollingParent //&#x7236;&#x63A7;&#x4EF6;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;
+
+NestedScrollingChildHelper //&#x5B50;&#x63A7;&#x4EF6;&#x8F85;&#x52A9;&#x7C7B;
+NestedScrollingParentHelper //&#x7236;&#x63A7;&#x4EF6;&#x8F85;&#x52A9;&#x7C7B;
+</code></pre><p>&#x6211;&#x4EEC;&#x6765;&#x5BF9;&#x6BD4;&#x4E0B;&#x7236;&#x5B50;&#x63A7;&#x4EF6;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>NestedScrollingChild</th>
+<th>NestedScrollingParent</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void setNestedScrollingEnabled(boolean enabled);<br> boolean isNestedScrollingEnabled();</td>
+<td></td>
+<td>&#x5B50; View &#x8BBE;&#x7F6E;/&#x662F;&#x5426;&#x652F;&#x6301;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;</td>
+</tr>
+<tr>
+<td>boolean startNestedScroll(int axes);<br> void stopNestedScroll();</td>
+<td>boolean onStartNestedScroll(View child, View target, int nestedScrollAxes);<br> public void onNestedScrollAccepted(View child, View target, int nestedScrollAxes); <br> public void onStopNestedScroll(View target);</td>
+<td>&#x7236;&#x5B50;&#x63A7;&#x4EF6;&#x5F00;&#x59CB;/&#x505C;&#x6B62;&#x652F;&#x6301;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;<br>axes &#x7684;&#x503C;&#x4EE3;&#x8868;&#x65B9;&#x5411;</td>
+</tr>
+<tr>
+<td>boolean hasNestedScrollingParent();</td>
+<td></td>
+<td>&#x5B50;&#x63A7;&#x4EF6;&#x5F53;&#x524D;&#x662F;&#x5426;&#x6709;&#x652F;&#x6301;&#x6ED1;&#x52A8;&#x5D4C;&#x5957;&#x7684;&#x7236;&#x63A7;&#x4EF6;</td>
+</tr>
+<tr>
+<td>boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow);<br>boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow);</td>
+<td>void onNestedPreScroll(View target, int dx, int dy, int[] consumed); <br> void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed);</td>
+<td>&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x76F8;&#x5173;&#x51FD;&#x6570;</td>
+</tr>
+<tr>
+<td>boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed);<br> boolean dispatchNestedPreFling(float velocityX, float velocityY);</td>
+<td>boolean onNestedPreFling(View target, float velocityX, float velocityY);<br> boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed);</td>
+<td>&#x60EF;&#x6027;&#x6ED1;&#x52A8;&#x76F8;&#x5173;&#x51FD;&#x6570;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6765;&#xFF0C;NestedScrollingChild &#x4E0E; NestedScrollingParent &#x7684;&#x51FD;&#x6570;&#x5927;&#x90E8;&#x5206;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#x3002;&#x6709;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#xFF1A;
+<code>boolean startNestedScroll(int axes)</code> &#x4E2D;&#x7684;&#x53C2;&#x6570;&#x8868;&#x793A;&#x6ED1;&#x52A8;&#x65B9;&#x5411;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x503C;&#xFF1A;SCROLL_AXIS_HORIZONTAL &#x548C; SCROLL_AXIS_VERTICAL&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">int</span> nestedScrollAxis = ViewCompat.SCROLL_AXIS_NONE;
+<span class="hljs-keyword">if</span> (canScrollHorizontally) {
+    nestedScrollAxis |= ViewCompat.SCROLL_AXIS_HORIZONTAL;
+}
+<span class="hljs-keyword">if</span> (canScrollVertically) {
+    nestedScrollAxis |= ViewCompat.SCROLL_AXIS_VERTICAL;
+}
+startNestedScroll(nestedScrollAxis);
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x662F; RecyclerView &#x4E2D;&#x5BF9;&#x4E8E;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684;&#x8BBE;&#x7F6E;&#x3002;
+<code>boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow);</code> &#x8FD9;&#x4E2A;&#x51FD;&#x6570;f&#x53D1;&#x751F;&#x5728;&#x5B50;&#x63A7;&#x4EF6;&#x6ED1;&#x52A8;&#x4E4B;&#x524D;&#xFF0C;&#x7ED9;&#x5D4C;&#x5957;&#x7684;&#x7236;&#x63A7;&#x4EF6;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x6ED1;&#x52A8;&#x4E8B;&#x4EF6;&#x7684;&#x673A;&#x4F1A;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E5F;&#x5C31;&#x662F;&#x5B50;&#x63A7;&#x4EF6;&#x5BF9;&#x4E8E;&#x7236;&#x63A7;&#x4EF6;&#x7684;<code>&#x6C9F;&#x901A;</code>&#x3002;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x4E86; true &#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x7236;&#x63A7;&#x4EF6;&#x63A5;&#x53D7;&#x8FD9;&#x4E2A;&#x6ED1;&#x52A8;&#x8BE2;&#x95EE;&#xFF0C;&#x8FDB;&#x884C;&#x4E86;&#x6ED1;&#x52A8;&#xFF0C;<code>dx</code> <code>dy</code> &#x5206;&#x522B;&#x8868;&#x793A;&#x672C;&#x6B21;&#x6ED1;&#x52A8;&#x7684;&#x50CF;&#x7D20;&#xFF0C;<code>consumed</code> &#x8F93;&#x51FA;&#x7236;&#x63A7;&#x4EF6;&#x603B;&#x5171;&#x6D88;&#x8D39;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;<code>offsetInWindow</code>&#x8F93;&#x51FA;&#x5B50;&#x63A7;&#x4EF6;&#x5728;&#x6B64;&#x8FC7;&#x7A0B;&#x4F4D;&#x7F6E;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x770B; RecyclerView &#x5173;&#x4E8E;&#x8FD9;&#x91CC;&#x7684;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">case</span> MotionEvent.ACTION_MOVE: {
+    ....
+    <span class="hljs-keyword">if</span> (dispatchNestedPreScroll(dx, dy, mScrollConsumed, mScrollOffset)) {
+        dx -= mScrollConsumed[<span class="hljs-number">0</span>];
+        dy -= mScrollConsumed[<span class="hljs-number">1</span>];
+        vtev.offsetLocation(mScrollOffset[<span class="hljs-number">0</span>], mScrollOffset[<span class="hljs-number">1</span>]);
+        <span class="hljs-comment">// Updated the nested offsets</span>
+        mNestedOffsets[<span class="hljs-number">0</span>] += mScrollOffset[<span class="hljs-number">0</span>];
+        mNestedOffsets[<span class="hljs-number">1</span>] += mScrollOffset[<span class="hljs-number">1</span>];
+    }
+  ...
+}
+</code></pre>
+<p>&#x5728; onTouchEvent &#x4E2D;&#x7684;&#x6ED1;&#x52A8;&#x64CD;&#x4F5C;&#xFF0C;&#x8BE2;&#x95EE;&#x7236;&#x63A7;&#x4EF6;&#x662F;&#x5426;&#x8981;&#x6D88;&#x8D39;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x5BF9;&#x5269;&#x4F59;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;<code>boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow);</code> &#x5B50;&#x63A7;&#x4EF6;&#x5728;&#x6D88;&#x8D39;&#x5B8C;&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x8BE2;&#x95EE;&#x7236;&#x63A7;&#x4EF6;&#x662F;&#x5426;&#x8FD8;&#x8981;&#x8FDB;&#x884C;&#x4F59;&#x4E0B;&#x7684;&#x6ED1;&#x52A8;&#xFF0C;&#x6765;&#x6D88;&#x8D39; <code>Unconsumed</code>&#x3002;&#x4E3A;&#x8F93;&#x51FA;&#x53C2;&#x6570;&#xFF0C;offsetInWindow &#x7528;&#x4E8E;&#x5B50;view&#x83B7;&#x53D6;&#x7236;view&#x4F4D;&#x7F6E;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x540C;&#x6837;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x4E0B; RecyclerView &#x5173;&#x4E8E;&#x6B64;&#x5904;&#x7684;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">scrollByInternal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, MotionEvent ev)</span> </span>{
+  ...
+  <span class="hljs-keyword">if</span> (dispatchNestedScroll(consumedX, consumedY, unconsumedX, unconsumedY, mScrollOffset)) {
+      <span class="hljs-comment">// Update the last touch co-ords, taking any scroll offset into account</span>
+      mLastTouchX -= mScrollOffset[<span class="hljs-number">0</span>];
+      mLastTouchY -= mScrollOffset[<span class="hljs-number">1</span>];
+      <span class="hljs-keyword">if</span> (ev != <span class="hljs-keyword">null</span>) {
+          ev.offsetLocation(mScrollOffset[<span class="hljs-number">0</span>], mScrollOffset[<span class="hljs-number">1</span>]);
+      }
+      mNestedOffsets[<span class="hljs-number">0</span>] += mScrollOffset[<span class="hljs-number">0</span>];
+      mNestedOffsets[<span class="hljs-number">1</span>] += mScrollOffset[<span class="hljs-number">1</span>];
+  }
+  ...
+}
+</code></pre>
+<p>NestedScrollingParent &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5927;&#x90E8;&#x5206;&#x662F;&#x548C; NestedScrollingChild &#x4E2D;&#x7684;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x8FD9;&#x91CC;&#x8BF4;&#x4E00;&#x70B9;&#x7684;&#x5C31;&#x662F;&#xFF1A;<code>child</code> &#x4E0E; <code>target</code> &#x7684;&#x533A;&#x522B;&#xFF0C;&#x524D;&#x8005;&#x662F;&#x7236;&#x63A7;&#x4EF6;&#x7684;&#x76F4;&#x63A5;&#x5B50;&#x63A7;&#x4EF6;&#x91CC;&#x9762;&#x5305;&#x62EC;&#x4E86;&#x540E;&#x8005;&#xFF0C;&#x540E;&#x8005;&#x662F;&#x5B9E;&#x73B0;&#x4E86; NestedScrollingChild &#x7684;&#x5B50;&#x63A7;&#x4EF6;&#x3002;&#x6240;&#x4EE5;&#x5BF9;&#x4E8E; NestedScrolling &#x673A;&#x5236;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x8981;&#x6C42; NestedScrollingParent &#x76F4;&#x63A5;&#x5B50;&#x63A7;&#x4EF6;&#x5B9E;&#x73B0;&#x4E86; NestedScrollingChild &#x63A5;&#x53E3;&#xFF0C;&#x5141;&#x8BB8;&#x975E;&#x76F4;&#x63A5;&#x5B50;&#x63A7;&#x4EF6;&#x3002;</p>
+<h4 id="nestedscrollingchildhelper-&#x4E0E;-nestedscrollingparenthelper">NestedScrollingChildHelper &#x4E0E; NestedScrollingParentHelper</h4>
+<p>&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x4E86; NestedScrollingChild &#x4E0E; NestedScrollingParent &#x7684;&#x76F8;&#x5173;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x7A76;&#x7ADF;&#x8981;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x91CC;&#x9762;&#x7684;&#x51FD;&#x6570;&#x5462;&#xFF1F;Google &#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A; helper &#x7C7B;&#xFF0C;&#x6765;&#x534F;&#x52A9;&#x6211;&#x4EEC;&#x5B8C;&#x6210;&#x8BF7;&#x6C42;&#x4F20;&#x9012;&#x7B49;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedScrollingChildHelper</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> View mView;
+    <span class="hljs-keyword">private</span> ViewParent mNestedScrollingParent;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> mIsNestedScrollingEnabled;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span>[] mTempNestedScrollConsumed;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedScrollingChildHelper</span><span class="hljs-params">(View view)</span> </span>{
+        mView = view;
+    }
+  ... <span class="hljs-comment">//&#x6E90;&#x7801;&#x8F83;&#x591A;&#x5C31;&#x4E0D;&#x5168;&#x90E8;&#x8D34;&#x51FA;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x7FFB;&#x770B;</span>
+}
+</code></pre>
+<p>NestedScrollingChildHelper &#x5B9E;&#x73B0;&#x4E86; NestedScrollingChild &#x5168;&#x90E8;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528; NestedScrollingChild &#x65F6;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5168;&#x90E8;&#x8C03;&#x7528; helper &#x6765;&#x8FDB;&#x884C;&#x5B9E;&#x73B0;&#x3002;&#x4F8B;&#x5982;&#xFF0C;startNestedScroll &#x5C31;&#x662F;&#x5411;&#x4E0A;&#x904D;&#x5386;&#x770B;&#x770B;&#x6709;&#x6CA1;&#x6709;&#x5408;&#x9002;&#x7684; Parent &#x652F;&#x6301;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#xFF1B;dispatchNestedScroll &#x91CC;&#x5219;&#x662F;&#x95F4;&#x63A5;&#x8C03;&#x7528; NestedScrollingParent &#x7684; onNestedScroll &#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedScrollingParentHelper</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ViewGroup mViewGroup;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> mNestedScrollAxes;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedScrollingParentHelper</span><span class="hljs-params">(ViewGroup viewGroup)</span> </span>{
+        mViewGroup = viewGroup;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedScrollAccepted</span><span class="hljs-params">(View child, View target, <span class="hljs-keyword">int</span> axes)</span> </span>{
+        mNestedScrollAxes = axes;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNestedScrollAxes</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> mNestedScrollAxes;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStopNestedScroll</span><span class="hljs-params">(View target)</span> </span>{
+        mNestedScrollAxes = <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<p>NestedScrollingParentHelper &#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x53EA;&#x6709;&#x8FD9;3&#x4E2A;&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5B9E;&#x73B0;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0; onNestedScroll &#x7B49;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x540E;&#x8005;&#x7684;&#x5B9E;&#x73B0;&#x5C06;&#x662F;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x8981;&#x91CD;&#x8981;&#x8BA8;&#x8BBA;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="nestedscrolling-&#x5B9E;&#x73B0;">NestedScrolling &#x5B9E;&#x73B0;</h3>
+<h4 id="view-&#x4E0E;-viewgroup-&#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;">View &#x4E0E; ViewGroup &#x7684;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;</h4>
+<p>&#x5728; API 21 &#x4E4B;&#x540E;&#xFF0C;View &#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x4E86; NestedScrollingChild &#x65B9;&#x6CD5;&#xFF0C;ViewGroup &#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x4E86; NestedScrollingParent &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A; API 21 &#x4E4B;&#x540E;&#x7684;&#x63A7;&#x4EF6;&#x90FD;&#x662F;&#x9ED8;&#x8BA4;&#x652F;&#x6301;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684;&#x3002;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x7684;&#x65F6;&#x5019; mini &#x662F;21&#x4EE5;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x4E0D;&#x4F7F;&#x7528; helper &#x7C7B;&#xFF0C;&#x76F4;&#x63A5;&#x91CD;&#x5199; view &#x4E2D;&#x7684;&#x76F8;&#x5E94;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x5176;&#x5185;&#x90E8;&#x4EE3;&#x7801;&#x662F;&#x600E;&#x6837;&#x5B9E;&#x73B0;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onStartNestedScroll</span><span class="hljs-params">(View child, View target, <span class="hljs-keyword">int</span> nestedScrollAxes)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedScrollAccepted</span><span class="hljs-params">(View child, View target, <span class="hljs-keyword">int</span> axes)</span> </span>{
+        mNestedScrollAxes = axes;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStopNestedScroll</span><span class="hljs-params">(View child)</span> </span>{
+        <span class="hljs-comment">// Stop any recursive nested scrolling.</span>
+        stopNestedScroll();
+        mNestedScrollAxes = <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedScroll</span><span class="hljs-params">(View target, <span class="hljs-keyword">int</span> dxConsumed, <span class="hljs-keyword">int</span> dyConsumed,
+            <span class="hljs-keyword">int</span> dxUnconsumed, <span class="hljs-keyword">int</span> dyUnconsumed)</span> </span>{
+        <span class="hljs-comment">// Re-dispatch up the tree by default</span>
+        dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, <span class="hljs-keyword">null</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedPreScroll</span><span class="hljs-params">(View target, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy, <span class="hljs-keyword">int</span>[] consumed)</span> </span>{
+        <span class="hljs-comment">// Re-dispatch up the tree by default</span>
+        dispatchNestedPreScroll(dx, dy, consumed, <span class="hljs-keyword">null</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onNestedFling</span><span class="hljs-params">(View target, <span class="hljs-keyword">float</span> velocityX, <span class="hljs-keyword">float</span> velocityY, <span class="hljs-keyword">boolean</span> consumed)</span> </span>{
+        <span class="hljs-comment">// Re-dispatch up the tree by default</span>
+        <span class="hljs-keyword">return</span> dispatchNestedFling(velocityX, velocityY, consumed);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onNestedPreFling</span><span class="hljs-params">(View target, <span class="hljs-keyword">float</span> velocityX, <span class="hljs-keyword">float</span> velocityY)</span> </span>{
+        <span class="hljs-comment">// Re-dispatch up the tree by default</span>
+        <span class="hljs-keyword">return</span> dispatchNestedPreFling(velocityX, velocityY);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNestedScrollAxes</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> mNestedScrollAxes;
+    }
+</code></pre>
+<p>ViewGroup &#x4F5C;&#x4E3A; NestedScrollingParent &#x4E2D;&#x9ED8;&#x8BA4;&#x662F;&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#xFF0C;onStartNestedScroll &#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86; false&#x3002;&#x540C;&#x65F6; onNestedScroll &#x7B49;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x76F4;&#x63A5;&#x5411;&#x4E0A;&#x4E00;&#x5C42;&#x7EE7;&#x7EED;&#x8BE2;&#x95EE;&#x6709;&#x6CA1;&#x6709;&#x63A5;&#x53D7;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684;&#x63A7;&#x4EF6;&#xFF0C;&#x5B83;&#x672C;&#x8EAB;&#x53EA;&#x662F;&#x8D77;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x4F20;&#x9012;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x4E2A; ViewGroup &#x672C;&#x8EAB;&#x6CA1;&#x6709;&#x5F00;&#x542F;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684; Parent &#x529F;&#x80FD;&#xFF0C;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x7684;&#x5C06;&#x4E8B;&#x4EF6;&#x5411;&#x4E0A;&#x5C42;&#x4F20;&#x9012;&#x3002;&#x56E0;&#x6B64;&#x81EA;&#x5DF1;&#x5982;&#x679C;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A; NestedScrollingParent &#x4E00;&#x5B9A;&#x8981;&#x5B9E;&#x73B0;&#x4E0A;&#x9762;&#x7684;5&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x76F8;&#x6BD4;&#x4E8E; ViewGroup View&#xFF0C;&#x4E2D;&#x5219;&#x5B9E;&#x73B0;&#x4E86;&#x5168;&#x90E8;&#x7684; NestedScrollingChild &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x6709;&#x4E86;&#x8BE6;&#x7EC6;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#x901A;&#x8FC7;&#x5BF9;&#x6BD4;&#x53D1;&#x73B0;&#xFF0C;&#x4E8C;&#x8005;&#x5728;&#x5B9E;&#x73B0;&#x4E0A;&#x6CA1;&#x6709;&#x592A;&#x5927;&#x5DEE;&#x522B;&#xFF0C;&#x51E0;&#x4E4E;&#x4E00;&#x6478;&#x4E00;&#x6837;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684; NestedScrollingChild&#xFF0C;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x4E8E; View &#x662F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x662F;&#x5EFA;&#x7ACB;&#x5728;&#x6700;&#x5C0F;&#x652F;&#x6301;&#x7248;&#x672C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;21&#xFF0C;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x4F7F;&#x7528; Helper &#x7C7B;&#x8FDB;&#x884C;&#x652F;&#x6301;&#x7684;&#x3002;</p>
+<h4 id="&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;">&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;</h4>
+<p>&#x672C;&#x8282;&#x6211;&#x4EEC;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x5BF9;&#x513F;&#x7B80;&#x5355;&#x7684;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7236;&#x5B50;&#x63A7;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedScrollingChildView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatTextView</span> </span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> lastY;
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span>[] offset = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span>[] consumed = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">2</span>];
+
+    ... <span class="hljs-comment">//&#x7701;&#x7565;&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+  <span class="hljs-meta">@TargetApi</span>(<span class="hljs-number">21</span>)
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onTouchEvent</span><span class="hljs-params">(MotionEvent event)</span> </span>{
+    <span class="hljs-keyword">switch</span> (event.getAction()){
+      <span class="hljs-keyword">case</span> MotionEvent.ACTION_DOWN:
+        lastY = (<span class="hljs-keyword">int</span>) event.getRawY();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> MotionEvent.ACTION_MOVE:
+        <span class="hljs-keyword">int</span> y = (<span class="hljs-keyword">int</span>) (event.getRawY());
+        <span class="hljs-keyword">int</span> dy = y - lastY;
+        lastY = y;
+
+        <span class="hljs-keyword">if</span> (startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL) <span class="hljs-comment">//&#x5982;&#x679C;&#x627E;&#x5230;&#x4E86;&#x652F;&#x6301;&#x5D4C;&#x5957;&#x6EDA;&#x52A8;&#x7684;&#x7236;&#x7C7B;</span>
+            &amp;&amp; dispatchNestedPreScroll(<span class="hljs-number">0</span>, dy, consumed, offset)) {<span class="hljs-comment">//&#x7236;&#x7C7B;&#x63A5;&#x53D7;&#x4E86;&#x6ED1;&#x52A8;&#x7684;&#x8BF7;&#x6C42;</span>
+
+          <span class="hljs-keyword">int</span> remain = dy - consumed[<span class="hljs-number">1</span>];<span class="hljs-comment">//&#x83B7;&#x53D6;&#x6EDA;&#x52A8;&#x7684;&#x5269;&#x4F59;&#x8DDD;&#x79BB;</span>
+          <span class="hljs-keyword">if</span> (remain != <span class="hljs-number">0</span>) scrollBy(<span class="hljs-number">0</span>, -remain);
+
+        } <span class="hljs-keyword">else</span> {
+          scrollBy(<span class="hljs-number">0</span>, -dy);
+        }
+        <span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+  }
+
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedScrollingParentLayout</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">LinearLayout</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">NestedScrollingParent</span> </span>{
+.... <span class="hljs-comment">//&#x7701;&#x7565;&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onStartNestedScroll</span><span class="hljs-params">(View child, View target, <span class="hljs-keyword">int</span> nestedScrollAxes)</span> </span>{
+    <span class="hljs-keyword">if</span> (target <span class="hljs-keyword">instanceof</span> NestedScrollingChildView ) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+  }
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedPreScroll</span><span class="hljs-params">(View target, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy, <span class="hljs-keyword">int</span>[] consumed)</span> </span>{
+      scrollBy(<span class="hljs-number">0</span>, -dy/<span class="hljs-number">2</span> ); <span class="hljs-comment">//&#x7236;&#x63A7;&#x4EF6;&#x6D88;&#x8017;&#x4E00;&#x534A;&#x7684;&#x6ED1;&#x52A8;&#x8DDD;&#x79BB;</span>
+      consumed[<span class="hljs-number">1</span>] = dy/<span class="hljs-number">2</span> ;
+  }
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x4FBF;&#x81EA;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x63A7;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x89E6;&#x6478;&#x5B50;&#x63A7;&#x4EF6;&#x5E76;&#x8FDB;&#x884C;&#x6ED1;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7236;&#x63A7;&#x4EF6;&#x4E5F;&#x4F1A;&#x8FDB;&#x884C;&#x6ED1;&#x52A8;&#xFF08;&#x901F;&#x5EA6;&#x662F;&#x5B50;&#x63A7;&#x4EF6;&#x7684;&#x4E00;&#x534A;&#xFF09;&#x3002;
+&#x8FD9;&#x79CD;&#x7B97;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x505A;&#x6210;&#x5728;&#x67D0;&#x4E00;&#x8303;&#x56F4;&#x5185;&#x7236;&#x63A7;&#x4EF6;&#x6ED1;&#x52A8;&#xFF0C;&#x53E6;&#x4E00;&#x8303;&#x56F4;&#x5185;&#x5B50;&#x63A7;&#x4EF6;&#x6ED1;&#x52A8;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x6839;&#x636E;&#x7236;&#x5B50;&#x63A7;&#x4EF6;&#x7684; <code>ScrollY</code> &#x6765;&#x505A;&#x60F3;&#x8981;&#x7684;&#x5224;&#x65AD;&#x4FEE;&#x6539;&#x3002;</p>
+<h3 id="behavior-&#x673A;&#x5236;">Behavior &#x673A;&#x5236;</h3>
+<p>&#x4E0A;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x4E86;&#x89E3;&#x4E86; NestedScrolling &#x7684;&#x539F;&#x7406;&#xFF0C;&#x5E76;&#x505A;&#x4E86;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5F53;&#x7136;&#x6CA1;&#x8FDB;&#x884C;&#x590D;&#x6742;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x672C;&#x8282;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B; Behavior &#x7684;&#x673A;&#x5236;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Behavior</span>&lt;<span class="hljs-title">V</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">View</span>&gt; </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">layoutDependsOn</span><span class="hljs-params">(CoordinatorLayout parent, V child, View dependency)</span> 
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDependentViewChanged</span><span class="hljs-params">(CoordinatorLayout parent, V child, View dependency)</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onStartNestedScroll</span><span class="hljs-params">(View child, View target, <span class="hljs-keyword">int</span> nestedScrollAxes)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedPreScroll</span><span class="hljs-params">(View target, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy, <span class="hljs-keyword">int</span>[] consumed)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onNestedPreFling</span><span class="hljs-params">(View target, <span class="hljs-keyword">float</span> velocityX, <span class="hljs-keyword">float</span> velocityY)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onNestedScroll</span><span class="hljs-params">(View target, <span class="hljs-keyword">int</span> dxConsumed, <span class="hljs-keyword">int</span> dyConsumed, <span class="hljs-keyword">int</span> dxUnconsumed, <span class="hljs-keyword">int</span> dyUnconsumed)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onNestedFling</span><span class="hljs-params">(View target, <span class="hljs-keyword">float</span> velocityX, <span class="hljs-keyword">float</span> velocityY, <span class="hljs-keyword">boolean</span> consumed)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStopNestedScroll</span><span class="hljs-params">(View target)</span>
+    <span class="hljs-comment">//&#x8FD9;&#x91CC;&#x53EA;&#x662F;&#x5217;&#x51FA;&#x4E86;&#x51E0;&#x4E2A;&#x5173;&#x952E;&#x7684;&#x65B9;&#x6CD5;&#x3002;</span>
+}
+</span></code></pre>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053; behavior &#x90FD;&#x662F;&#x914D;&#x5408;&#x63A7;&#x4EF6;&#xFF0C;&#x5E94;&#x7528;&#x5728; CoordinatorLayout &#x7684;&#x5185;&#x90E8;&#x3002;&#x800C; CoordinatorLayout &#x4E2D;&#x7684;&#x5B50;&#x63A7;&#x4EF6;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x5F71;&#x54CD;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x9760;&#x5F97; Behavior&#x3002;&#x76F8;&#x4E92;&#x5F71;&#x54CD;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#xFF1A;</p>
+<pre><code>&#x7531;&#x4E8E;&#x67D0;&#x4E2A;&#x63A7;&#x4EF6;&#x4F4D;&#x7F6E;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5BF9;&#x4E8E;&#x522B;&#x7684;&#x63A7;&#x4EF6;&#x9020;&#x6210;&#x7684;&#x5F71;&#x54CD;&#x3002;
+&#x7531;&#x4E8E;&#x67D0;&#x4E2A;&#x63A7;&#x4EF6;&#x6ED1;&#x52A8;&#xFF08;&#x5185;&#x5BB9;&#x4F4D;&#x7F6E;&#x7684;&#x53D8;&#x5316;&#xFF09;&#xFF0C;&#x5BF9;&#x4E8E;&#x522B;&#x7684;&#x63A7;&#x4EF6;&#x9020;&#x6210;&#x7684;&#x5F71;&#x54CD;&#x3002;
+</code></pre><p>&#x7B2C;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x53C2;&#x7167;&#x7269;&#x53D8;&#x5316;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x63A7;&#x4EF6;&#x672C;&#x8EAB;&#x4E5F;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#xFF0C;&#x4EE5; AppBarLayout.BehaviorScrollingViewBehavior &#x4E3A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ScrollingViewBehavior</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HeaderScrollingViewBehavior</span> </span>{
+    ...
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">layoutDependsOn</span><span class="hljs-params">(CoordinatorLayout parent, View child, View dependency)</span> </span>{
+        <span class="hljs-comment">// We depend on any AppBarLayouts</span>
+        <span class="hljs-keyword">return</span> dependency <span class="hljs-keyword">instanceof</span> AppBarLayout;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDependentViewChanged</span><span class="hljs-params">(CoordinatorLayout parent, View child,
+            View dependency)</span> </span>{
+        offsetChildAsNeeded(parent, child, dependency);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">offsetChildAsNeeded</span><span class="hljs-params">(CoordinatorLayout parent, View child, View dependency)</span> </span>{
+        <span class="hljs-keyword">final</span> CoordinatorLayout.Behavior behavior =
+                ((CoordinatorLayout.LayoutParams) dependency.getLayoutParams()).getBehavior();
+        <span class="hljs-keyword">if</span> (behavior <span class="hljs-keyword">instanceof</span> Behavior) {
+            <span class="hljs-comment">// Offset the child, pinning it to the bottom the header-dependency, maintaining</span>
+            <span class="hljs-comment">// any vertical gap and overlap</span>
+            <span class="hljs-keyword">final</span> Behavior ablBehavior = (Behavior) behavior;
+            ViewCompat.offsetTopAndBottom(child, (dependency.getBottom() - child.getTop())
+                    + ablBehavior.mOffsetDelta
+                    + getVerticalLayoutGap()
+                    - getOverlapPixelsForOffset(dependency));
+        }
+    }
+    ...
+}
+</code></pre>
+<p>&#x9996;&#x5148;&#x5224;&#x65AD;&#xFF0C;dependency &#x662F;&#x5426;&#x662F;&#x662F; AppBarLayout&#xFF0C;&#x5982;&#x679C;&#x662F;&#x7684;&#x8BDD;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x4F9D;&#x8D56;&#x5BF9;&#x8C61;&#x3002;&#x6BCF;&#x6B21;&#x540E;&#x8005;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x90FD;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x81EA;&#x5DF1;&#xFF0C;&#x8FD9;&#x91CC;&#x4FBF;&#x662F;&#x81EA;&#x5DF1;&#x7684;&#x5728;y&#x65B9;&#x5411;&#x4E0A;&#x4EA7;&#x751F;&#x504F;&#x79FB;&#x3002;
+&#x7B2C;&#x4E8C;&#x79CD;&#xFF0C;&#x5219;&#x662F;&#x7C7B;&#x4F3C;&#x4E8E; NestedScrolling &#x673A;&#x5236;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x540E;&#x8005;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x5F53;&#x5B50;&#x63A7;&#x4EF6;&#x8981;&#x8FDB;&#x884C;&#x6ED1;&#x52A8;&#x65F6;&#xFF0C;&#x5411;&#x7236;&#x63A7;&#x4EF6;&#x8BE2;&#x95EE;&#x662F;&#x5426;&#x8981;&#x6D88;&#x8017;&#x6ED1;&#x52A8;&#x4E8B;&#x4EF6;&#xFF0C;&#x5F53;&#x6ED1;&#x52A8;&#x5B8C;&#x6210;&#x518D;&#x6B21;&#x8BE2;&#x95EE;&#x7236;&#x63A7;&#x4EF6;&#xFF0C;&#x8FD8;&#x6709;&#x4EC0;&#x4E48;&#x8981;&#x505A;&#x7684;&#x3002;&#x6D41;&#x7A0B;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<h4 id="behavior-&#x5B9E;&#x73B0;">Behavior &#x5B9E;&#x73B0;</h4>
+<pre><code class="lang-java">public class ToolbarRecyclerBehavior extends CoordinatorLayout.Behavior&lt;Toolbar&gt; {
+  private Context mContext;
+
+  public ToolbarRecyclerBehavior() {
+  }
+
+  public ToolbarRecyclerBehavior(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    mContext = context;
+
+    final TypedArray styledAttributes =
+        mContext.getTheme().obtainStyledAttributes(new int[] { android.R.attr.actionBarSize });
+    mActionBarSize = (int) styledAttributes.getDimension(0, 0);
+    styledAttributes.recycle();
+  }
+
+  int mActionBarSize;
+
+  float mStart;
+
+  @Override
+  public boolean layoutDependsOn(CoordinatorLayout parent, Toolbar child, View dependency) {
+    return dependency instanceof RecyclerView;
+  }
+
+  @Override
+  public boolean onDependentViewChanged(CoordinatorLayout parent, Toolbar child, View dependency) {
+    if (mStart == 0) mStart = dependency.getY();
+
+    double perccent = dependency.getY() / mStart;
+    int y = (int) (child.getHeight() * (-perccent));
+    child.setY(y);
+    dependency.setPadding(0, (int) (mActionBarSize * (1 - perccent)), 0, 0);
+
+    return true;
+  }
+}
+
+// xml &#x6587;&#x4EF6;
+&lt;android.support.design.widget.CoordinatorLayout ...&gt;
+  &lt;android.support.design.widget.AppBarLayout
+        ...
+      &gt;
+    &lt;android.support.design.widget.CollapsingToolbarLayout
+        ...
+        &gt;
+      &lt;ImageView
+        ...
+          /&gt;
+    &lt;/android.support.design.widget.CollapsingToolbarLayout&gt;
+  &lt;/android.support.design.widget.AppBarLayout&gt;
+
+  &lt;android.support.v7.widget.RecyclerView
+      android:id=&quot;@+id/recycler&quot;
+      app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;
+      android:layout_height=&quot;match_parent&quot;&gt;
+
+  &lt;/android.support.v7.widget.RecyclerView&gt;
+
+  &lt;android.support.v7.widget.Toolbar
+      ...
+      app:layout_behavior=&quot;@string/toolbarbehavior&quot;
+      /&gt;
+&lt;/android.support.design.widget.CoordinatorLayout&gt;
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; <code>Behavior</code> &#xFF0C;&#x8FD9;&#x4E2A;&#x7528;&#x4E8E; &#x914D;&#x5408; AppBarLayout &#x548C; CollapsingToolbarLayout &#x5BF9; Toolbar &#x7684;&#x9690;&#x85CF;&#x6216;&#x8005;&#x663E;&#x793A;&#x8BBE;&#x7F6E;&#x3002;</p>
+<h3 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h3>
+<p>&#x672C;&#x7BC7;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE; NestedScrolling &#x673A;&#x5236;&#x5165;&#x624B;&#xFF0C;&#x4E86;&#x89E3;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x5206;&#x6790;&#x4E86;&#x6E90;&#x7801;&#x4E2D;&#x5BF9;&#x4E8E;&#x5D4C;&#x5957;&#x6ED1;&#x52A8;&#x7684;&#x5E94;&#x7528;&#x3002;&#x518D;&#x5230; Behavior &#x7684;&#x539F;&#x7406;&#xFF0C;&#x5176;&#x5B9E;&#x8D28;&#x5C31;&#x662F;&#x5728; NestedScrolling &#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x4E86;&#x6269;&#x5C55;&#x3002;&#x672C;&#x7BC7;&#x7684;&#x5185;&#x5BB9;&#x5230;&#x6B64;&#x7ED3;&#x675F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="View 的一些整理 参考系与滑动.html" class="navigation navigation-prev " aria-label="Previous page: 参考系与滑动">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="View 的一些整理 从Debug来看工作流程.html" class="navigation navigation-next " aria-label="Next page: 从Debug来看工作流程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"date":"2018-09-11T09:08:39.000Z","tags":["嵌套滑动","自定义","Android","用法"],"title":"从 NestedScrolling 到 Behavior","level":"1.3.2","depth":2,"next":{"title":"从Debug来看工作流程","level":"1.3.3","depth":2,"path":"view/View 的一些整理 从Debug来看工作流程.md","ref":"view/View 的一些整理 从Debug来看工作流程.md","articles":[]},"previous":{"title":"参考系与滑动","level":"1.3.1","depth":2,"path":"view/View 的一些整理 参考系与滑动.md","ref":"view/View 的一些整理 参考系与滑动.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"view/View 的一些整理 从 NestedScrolling 到 Behavior .md","mtime":"2018-12-18T13:10:46.568Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-24T15:30:22.692Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
