@@ -1,0 +1,1254 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>绑定 Service · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Android 跨进程通信 手写跨进程 .html" />
+    
+    
+    <link rel="prev" href="Android 跨进程通信 启动 App .html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Android 基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basic/Android 组件 Service 基础.html">
+            
+                <a href="../basic/Android 组件 Service 基础.html">
+            
+                    
+                    Service 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                <a href="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                    
+                    IntentService 与 JobIntentService
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../view/View 的一些整理 参考系与滑动.html">
+            
+                <a href="../view/View 的一些整理 参考系与滑动.html">
+            
+                    
+                    参考系与滑动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                <a href="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                    
+                    从 NestedScrolling 到 Behavior
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                    
+                    从Debug来看工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                    
+                    从Debug来看事件分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../view/View 的一些整理 绘制.html">
+            
+                <a href="../view/View 的一些整理 绘制.html">
+            
+                    
+                    绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                <a href="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                    
+                    嵌套滑动的解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../view/View 的一些整理 属性动画.html">
+            
+                <a href="../view/View 的一些整理 属性动画.html">
+            
+                    
+                    属性动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../view/View 的一些整理 ZoomImageView .html">
+            
+                <a href="../view/View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    网络基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../network/网络基础 TCP IP HTTP.html">
+            
+                <a href="../network/网络基础 TCP IP HTTP.html">
+            
+                    
+                    TCP/IP HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../network/网络基础 HTTPS Socket WebSocket.html">
+            
+                <a href="../network/网络基础 HTTPS Socket WebSocket.html">
+            
+                    
+                    HTTPS Socket WebSocket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    Retrofit源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                    
+                    Sample篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    Dagger2 用法以及一些思考
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    Android 跨线程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../thread/Android 跨线程通信 Java 多线程.html">
+            
+                <a href="../thread/Android 跨线程通信 Java 多线程.html">
+            
+                    
+                    Java 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../thread/Android 跨线程通信 Handler .html">
+            
+                <a href="../thread/Android 跨线程通信 Handler .html">
+            
+                    
+                    Handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    Android 跨进程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="Android 跨进程通信 Parcel .html">
+            
+                <a href="Android 跨进程通信 Parcel .html">
+            
+                    
+                    Parcel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="Android 跨进程通信 Binder AIDL .html">
+            
+                <a href="Android 跨进程通信 Binder AIDL .html">
+            
+                    
+                    Binder与AIDL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="Android 跨进程通信 启动 App .html">
+            
+                <a href="Android 跨进程通信 启动 App .html">
+            
+                    
+                    启动 App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="7.1.4" data-path="Android 跨进程通信 绑定 Service .html">
+            
+                <a href="Android 跨进程通信 绑定 Service .html">
+            
+                    
+                    绑定 Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="Android 跨进程通信 手写跨进程 .html">
+            
+                <a href="Android 跨进程通信 手写跨进程 .html">
+            
+                    
+                    手写跨进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Rxjava朝花夕拾
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                    
+                    概念篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                    
+                    基本操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                    
+                    进阶操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                    
+                    原理总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                    
+                    Rxjava2.X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                    
+                    背压篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" >
+            
+                <span>
+            
+                    
+                    从Butterknife看APT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../butterknife/从Butterknife看APT 反射.html">
+            
+                <a href="../butterknife/从Butterknife看APT 反射.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../butterknife/从Butterknife看APT 注解.html">
+            
+                <a href="../butterknife/从Butterknife看APT 注解.html">
+            
+                    
+                    注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" >
+            
+                <span>
+            
+                    
+                    玩儿
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../linux/玩儿 Linux基本操作.html">
+            
+                <a href="../linux/玩儿 Linux基本操作.html">
+            
+                    
+                    Linux基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="../linux/玩儿 Linux常用命令.html">
+            
+                <a href="../linux/玩儿 Linux常用命令.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.3" data-path="../linux/玩儿 Linux网络工具.html">
+            
+                <a href="../linux/玩儿 Linux网络工具.html">
+            
+                    
+                    Linux网络工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.4" data-path="../linux/玩儿 Vim初体验.html">
+            
+                <a href="../linux/玩儿 Vim初体验.html">
+            
+                    
+                    Vim初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1.1" data-path="../other/编码 加密与 Hash.html">
+            
+                <a href="../other/编码 加密与 Hash.html">
+            
+                    
+                    编码 加密与 Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.2" data-path="../other/Material Design 常用控件小结.html">
+            
+                <a href="../other/Material Design 常用控件小结.html">
+            
+                    
+                    Material Design 常用控件小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >绑定 Service</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;">&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;</h1>
+<p>&#x4E0A;&#x4E00;&#x7BC7;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x4E86;&#x4ECE; Launcher &#x542F;&#x52A8;&#x4E00;&#x4E2A; App &#x6574;&#x4F53;&#x7684;&#x6D41;&#x7A0B;&#x3002;&#x672C;&#x7BC7;&#x6211;&#x4EEC;&#x5C31;&#x4EFF;&#x7167;&#x4E0A;&#x7BC7;&#x4E00;&#x7BC7;&#x7684;&#x5206;&#x6790;&#x65B9;&#x6CD5;&#x6765;&#x5206;&#x6790; Service &#x7ED1;&#x5B9A;&#x662F;&#x600E;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#x3002;&#x672C;&#x7BC7;&#x91C7;&#x7528;&#x7684;&#x6E90;&#x7801;&#x7248;&#x672C;&#x662F; API 27&#x3002;</p>
+<p><img src="BindService.png" alt="&#x8DE8;&#x8FDB;&#x7A0B;&#x7ED1;&#x5B9A;&#x670D;&#x52A1;"></p>
+<!--more-->
+<h1 id="&#x5411;-activitymanagerservice-&#x53D1;&#x51FA;&#x8BF7;&#x6C42;">&#x5411; ActivityManagerService &#x53D1;&#x51FA;&#x8BF7;&#x6C42;</h1>
+<p>&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5728; Activity &#x4E2D;&#x8C03;&#x7528; bindService &#x65B9;&#x6CD5;&#x3002;&#x7531;&#x4E8E; Activity &#x7EE7;&#x627F;&#x4E8E; ContextImpl&#xFF0C;&#x56E0;&#x6B64;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E86; ContextImpl.bindServiceCommon &#x65B9;&#x6CD5;:</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">bindServiceCommon</span><span class="hljs-params">(Intent service, ServiceConnection conn, <span class="hljs-keyword">int</span> flags, Handler handler, UserHandle user)</span> </span>{
+    IServiceConnection sd;
+    sd = mPackageInfo.getServiceDispatcher(conn, getOuterContext(), handler, flags);
+    ...
+    <span class="hljs-keyword">int</span> res = ActivityManager.getService().bindService(
+    mMainThread.getApplicationThread(), getActivityToken(), service,
+    service.resolveTypeIfNeeded(getContentResolver()),
+    sd, flags, getOpPackageName(), user.getIdentifier());
+    ...
+}
+</code></pre>
+<p>&#x5C06; ServiceConnection &#x8F6C;&#x6362;&#x6210; IServiceConnection, &#x5E76;&#x76F4;&#x63A5;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x9012;&#x7ED9;&#x4E86; ActivityManagerService.bindService &#x6765;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#x64CD;&#x505A;&#x3002;</p>
+<h1 id="activitymanagerservice-&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;">ActivityManagerService &#x521B;&#x5EFA;&#x8FDB;&#x7A0B;</h1>
+<p>ActivityManagerService &#x4E2D;&#x7ECF;&#x8FC7;&#x8C03;&#x7528;&#x8F6C;&#x5230; ActiveServices.bindServiceLocked &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">bindServiceLocked</span><span class="hljs-params">(IApplicationThread caller, IBinder token, Intent service,
+String resolvedType, <span class="hljs-keyword">final</span> IServiceConnection connection, <span class="hljs-keyword">int</span> flags,
+String callingPackage, <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> userId)</span></span>{
+   ...
+    <span class="hljs-keyword">if</span> ((flags&amp;Context.BIND_AUTO_CREATE) != <span class="hljs-number">0</span>) {
+        s.lastActivity = SystemClock.uptimeMillis();
+        <span class="hljs-keyword">if</span> (bringUpServiceLocked(s, service.getFlags(), callerFg, <span class="hljs-keyword">false</span>,
+                permissionsReviewRequired) != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+    }
+    ... 
+    requestServiceBindingLocked(s, b.intent, callerFg, <span class="hljs-keyword">false</span>);
+    ...
+}
+</code></pre>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684; flag &#x5305;&#x542B; BIND_AUTO_CREATE&#xFF0C;&#x5219;&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x6B64; Service &#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x6210;&#x529F;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> String <span class="hljs-title">bringUpServiceLocked</span><span class="hljs-params">(ServiceRecord r, <span class="hljs-keyword">int</span> intentFlags, <span class="hljs-keyword">boolean</span> execInFg,
+<span class="hljs-keyword">boolean</span> whileRestarting, <span class="hljs-keyword">boolean</span> permissionsReviewRequired)</span></span>{
+    ...
+    app = mAm.getProcessRecordLocked(procName, r.appInfo.uid, <span class="hljs-keyword">false</span>);
+    <span class="hljs-keyword">if</span> (app != <span class="hljs-keyword">null</span> &amp;&amp; app.thread != <span class="hljs-keyword">null</span>) {
+        ...
+        realStartServiceLocked(r, app, execInFg);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+    ...
+    <span class="hljs-keyword">if</span> (app == <span class="hljs-keyword">null</span> &amp;&amp; !permissionsReviewRequired) {
+        mAm.startProcessLocked(procName, r.appInfo, <span class="hljs-keyword">true</span>, intentFlags,
+                    hostingType, r.name, <span class="hljs-keyword">false</span>, isolated, <span class="hljs-keyword">false</span>);
+        ...
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4F1A;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6240;&#x9700;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x76F4;&#x63A5; realStartServiceLocked &#x8C03;&#x7528;&#x4F1A;&#x8C03;&#x7528; app.thread.scheduleCreateService &#x65B9;&#x6CD5;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E0A;&#x4E00;&#x7BC7;&#x7684; app.thread.scheduleCreateActivity &#x5C31;&#x662F;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x4E86; Service&#xFF0C;&#x5982;&#x679C;&#x8FDB;&#x7A0B;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8981;&#x5148;&#x901A;&#x8FC7;&#x8C03;&#x7528; startProcessLocked &#x521B;&#x5EFA;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x3002;&#x5C31;&#x8DDF;&#x4E0A;&#x4E00;&#x7BC7;&#x7684;&#x601D;&#x8DEF;&#x4E00;&#x6837;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x8FD8;&#x4EE5;&#x7B2C;&#x4E8C;&#x79CD;&#x60C5;&#x51B5;&#x4E3A;&#x4F8B;&#xFF0C;&#x5047;&#x5982;&#x6CA1;&#x6709;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#xFF0C;&#x5219;&#x4F1A;&#x5148;&#x521B;&#x5EFA;&#x8FDB;&#x7A0B;&#xFF0C;&#x521B;&#x5EFA;&#x65B0;&#x7684; ActivityThread&#xFF0C;&#x5C06; ApplicationThread &#x548C; AMS &#x5411;&#x7ED1;&#x5B9A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">attachApplicationLocked</span><span class="hljs-params">(IApplicationThread thread,
+<span class="hljs-keyword">int</span> pid)</span> </span>{
+    ProcessRecord app;
+    ...
+    app.makeActive(thread, mProcessStats);
+    ...
+    thread.bindApplication(processName, appInfo, providers,
+        app.instr.mClass,
+        profilerInfo, app.instr.mArguments,
+        app.instr.mWatcher,
+        app.instr.mUiAutomationConnection, testMode,
+        mBinderTransactionTrackingEnabled, enableTrackAllocation,
+        isRestrictedBackupMode || !normalMode, app.persistent,
+        <span class="hljs-keyword">new</span> Configuration(getGlobalConfiguration()), app.compat,
+        getCommonServicesLocked(app.isolated),
+        mCoreSettingsObserver.getCoreSettingsLocked(),
+        buildSerial);
+    ...
+    <span class="hljs-keyword">if</span> (mStackSupervisor.attachApplicationLocked(app)) {
+        didSomething = <span class="hljs-keyword">true</span>;
+    }
+    ...
+    <span class="hljs-comment">// Find any services that should be running in this process...</span>
+    <span class="hljs-keyword">if</span> (!badApp) {
+        <span class="hljs-keyword">try</span> {
+            didSomething |= mServices.attachApplicationLocked(app, processName);
+            checkTime(startTime, <span class="hljs-string">&quot;attachApplicationLocked: after mServices.attachApplicationLocked&quot;</span>);
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            Slog.wtf(TAG, <span class="hljs-string">&quot;Exception thrown starting services in &quot;</span> + app, e);
+            badApp = <span class="hljs-keyword">true</span>;
+        }
+    }
+}
+</code></pre>
+<p>AMS.attachApplicationLocked &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x4E0A;&#x7BC7;&#x5DF2;&#x7ECF;&#x5206;&#x6790;&#x8FC7;&#x4E86;&#xFF0C;&#x8FD9;&#x6B21;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x53C8;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x6B21;&#x6CA1;&#x6709; Activity &#x9700;&#x8981;&#x6DFB;&#x52A0;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A; Service &#x9700;&#x8981;&#x64CD;&#x4F5C;&#xFF0C;&#x4FBF;&#x8C03;&#x7528;&#x4E86; ActiveServices.attachApplicationLocked &#x65B9;&#x6CD5;&#xFF0C;&#x5C06; Services &#x548C; Application &#x5411;&#x5173;&#x8054;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">attachApplicationLocked</span><span class="hljs-params">(ProcessRecord proc, String processName)</span></span>{
+    <span class="hljs-keyword">if</span> (mPendingServices.size() &gt; <span class="hljs-number">0</span>) {
+        ServiceRecord sr = <span class="hljs-keyword">null</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;mPendingServices.size(); i++) {
+            sr = mPendingServices.get(i);
+            ...
+            realStartServiceLocked(sr, proc, sr.createdFromFg);
+            ...
+        }
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x8C03;&#x7528;&#xFF0C;&#x4FBF;&#x50CF; bringUpServiceLocked &#x65B9;&#x6CD5;&#x4E00;&#x6837;&#x8C03;&#x7528;&#x4E86; realStartServiceLocked &#x65B9;&#x6CD5;&#x6765;&#x542F;&#x52A8; Service&#x3002;</p>
+<h1 id="applicationthread-&#x521B;&#x5EFA;&#x670D;&#x52A1;">ApplicationThread &#x521B;&#x5EFA;&#x670D;&#x52A1;</h1>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">realStartServiceLocked</span><span class="hljs-params">(ServiceRecord r,
+ProcessRecord app, <span class="hljs-keyword">boolean</span> execInFg)</span></span>{
+    ...
+    app.thread.scheduleCreateService(r, r.serviceInfo,
+        mAm.compatibilityInfoForPackageLocked(r.serviceInfo.applicationInfo),
+        app.repProcState);
+    ...
+    requestServiceBindingsLocked(r, execInFg);
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x4FBF;&#x5C06;&#x521B;&#x5EFA; Service &#x7684;&#x4EFB;&#x52A1;&#x53D1;&#x9001;&#x7ED9;&#x4E86; ApplicationThread &#x53D1;&#x9001;&#x4E86;&#x8FC7;&#x53BB;&#x3002;&#x6700;&#x540E;&#x90FD;&#x662F; ApplicationThread &#x901A;&#x77E5; ActivityThread &#x6765;&#x505A;&#x4E8B;&#x60C5;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleCreateService</span><span class="hljs-params">(CreateServiceData data)</span> </span>{
+    ...
+    java.lang.ClassLoader cl = packageInfo.getClassLoader();
+    service = (Service) cl.loadClass(data.info.name).newInstance();
+    ...
+    ContextImpl context = ContextImpl.createAppContext(<span class="hljs-keyword">this</span>, packageInfo);
+    context.setOuterContext(service);
+
+    Application app = packageInfo.makeApplication(<span class="hljs-keyword">false</span>, mInstrumentation);
+    service.attach(context, <span class="hljs-keyword">this</span>, data.info.name, data.token, app,
+            ActivityManager.getService());
+    service.onCreate();
+    mServices.put(data.token, service);
+    ActivityManager.getService().serviceDoneExecuting(data.token, SERVICE_DONE_EXECUTING_ANON, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+}
+</code></pre>
+<p>&#x4EE3;&#x7801;&#x5F88;&#x6E05;&#x6670;&#x4E86;&#xFF0C;&#x521B;&#x5EFA; Service &#x548C; Context &#x7ED1;&#x5B9A;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x8BF4;&#x660E;&#x8FD0;&#x884C;&#x7684;&#x7EBF;&#x7A0B;&#x5C31;&#x662F;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF0C;&#x5C06; Service &#x4FDD;&#x5B58;&#x5230; HashMap &#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x901A;&#x77E5; AMS &#x5B8C;&#x6210;&#x4E86;&#x521B;&#x5EFA;&#x3002;&#x7531;&#x4E8E;&#x8DE8;&#x8FDB;&#x7A0B;&#x662F;&#x540C;&#x6B65;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x5F53; ActivityThread &#x521B;&#x5EFA;&#x5B8C;&#x6210;&#x4E86; Service &#x4E4B;&#x540E;&#xFF0C;realStartServiceLocked &#x65B9;&#x6CD5;&#x4E2D;&#x7684; requestServiceBindingsLocked &#x624D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x5230;&#x3002;&#x90A3;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x518D;&#x770B;&#x770B;&#x7ED1;&#x5B9A;&#x8FD9;&#x91CC;&#x662F;&#x600E;&#x4E48;&#x505A;&#x7684;&#x3002;</p>
+<h1 id="applicationthread-&#x7ED1;&#x5B9A;&#x670D;&#x52A1;">ApplicationThread &#x7ED1;&#x5B9A;&#x670D;&#x52A1;</h1>
+<p>ActivitServices &#x4E2D;&#x76F4;&#x63A5;&#x8C03;&#x7528; ServiceRecord &#x8FDB;&#x7A0B;&#x6240;&#x5728;&#x7684; Applications &#x7684; scheduleBindService&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">requestServiceBindingLocked</span><span class="hljs-params">(ServiceRecord r, IntentBindRecord i,            <span class="hljs-keyword">boolean</span> execInFg, <span class="hljs-keyword">boolean</span> rebind)</span></span>{
+    ...
+    r.app.thread.scheduleBindService(r, i.intent.getIntent(), rebind, r.app.repProcState);
+    ...
+}
+</code></pre>
+<p>&#x5F53;&#x7136;&#x6700;&#x540E;&#x8FD8;&#x662F;&#x518D; ActivityThread &#x4E2D;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleBindService</span><span class="hljs-params">(BindServiceData data)</span> </span>{
+    Service s = mServices.get(data.token);
+    ...
+    <span class="hljs-keyword">if</span> (s != <span class="hljs-keyword">null</span>) {
+        ...
+        <span class="hljs-keyword">if</span> (!data.rebind) {
+            IBinder binder = s.onBind(data.intent);
+            ActivityManager.getService().publishService(
+                    data.token, data.intent, binder);
+        } <span class="hljs-keyword">else</span> {
+            s.onRebind(data.intent);
+            ActivityManager.getService().serviceDoneExecuting(
+                    data.token, SERVICE_DONE_EXECUTING_ANON, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        }
+        ensureJitEnabled();
+        ...
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x628A; Service &#x548C;&#x8C03;&#x7528;&#x8005;&#x7684; Intent &#x7ED1;&#x5B9A;&#x4E86;&#x8D77;&#x6765;&#x3002;&#x6700;&#x540E;&#x8FD8;&#x5C06; onBind &#x8FD4;&#x56DE;&#x7684; IBinder &#x8FD4;&#x56DE;&#x7ED9;&#x4E86; AMS&#xFF0C;&#x8FDB;&#x800C;&#x8C03;&#x7528;&#x4E86; ActivitServices.publishServiceLocked &#x3002;&#x6700;&#x540E;&#x6211;&#x4EEC;&#x770B;&#x4E0B; ActivitServices &#x662F;&#x600E;&#x4E48;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">publishServiceLocked</span><span class="hljs-params">(ServiceRecord r, Intent intent, IBinder service)</span> </span>{
+    ...
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> conni=r.connections.size()-<span class="hljs-number">1</span>; conni&gt;=<span class="hljs-number">0</span>; conni--) {
+        ArrayList&lt;ConnectionRecord&gt; clist = r.connections.valueAt(conni);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;clist.size(); i++) {
+            ConnectionRecord c = clist.get(i);
+            ...
+            <span class="hljs-keyword">try</span> {
+                c.conn.connected(r.name, service, <span class="hljs-keyword">false</span>);
+            } <span class="hljs-keyword">catch</span> (Exception e) {
+               ...
+            }
+        }
+    }
+    ...
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x5176;&#x5B9E;&#x8C03;&#x7528;&#x7684;&#x662F;&#xFF1A;ConnectionRecord.IServiceConnection.connected &#x65B9;&#x6CD5;&#xFF0C;&#x800C; IServiceConnection &#x53C8;&#x662F; ServiceConnection &#x8F6C;&#x6362;&#x6765;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x662F; ServiceConnection &#x4E0E; IBinder &#x5EFA;&#x7ACB;&#x4E86;&#x8054;&#x7CFB;&#xFF0C;&#x81F3;&#x6B64;&#x8DE8;&#x8FDB;&#x7A0B;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A; Service &#x5C31;&#x6B64;&#x7ED3;&#x675F;&#x4E86;&#x3002;</p>
+<h1 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h1>
+<p>&#x6574;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x4F1A;&#x4E86;&#x4E0A;&#x4E00;&#x7BC7;&#x7684;&#x5206;&#x6790;&#x518D;&#x770B;&#x7ED1;&#x5B9A; Service &#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x611F;&#x89C9;&#x4F1A;&#x6E05;&#x6670;&#x4E0D;&#x5C11;&#xFF0C;&#x6BD5;&#x7ADF;&#x4E5F;&#x662F;&#x7531;&#x4E8E;&#x4E0D;&#x9700;&#x8981;&#x64CD;&#x4F5C; Activity &#x6574;&#x4F53;&#x6765;&#x8BF4;&#x4EE3;&#x7801;&#x601D;&#x8DEF;&#x4F1A;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#x4E00;&#x4E9B;&#x3002;&#x672C;&#x7BC7;&#x7684;&#x5185;&#x5BB9;&#x5230;&#x6B64;&#x7ED3;&#x675F;&#xFF0C;&#x4E0B;&#x7BC7;&#x518D;&#x89C1;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Android 跨进程通信 启动 App .html" class="navigation navigation-prev " aria-label="Previous page: 启动 App">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Android 跨进程通信 手写跨进程 .html" class="navigation navigation-next " aria-label="Next page: 手写跨进程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"date":"2018-11-21T06:12:01.000Z","tags":["底层","Android","跨进程通信"],"title":"绑定 Service","level":"7.1.4","depth":2,"next":{"title":"手写跨进程","level":"7.1.5","depth":2,"path":"binder/Android 跨进程通信 手写跨进程 .md","ref":"binder/Android 跨进程通信 手写跨进程 .md","articles":[]},"previous":{"title":"启动 App","level":"7.1.3","depth":2,"path":"binder/Android 跨进程通信 启动 App .md","ref":"binder/Android 跨进程通信 启动 App .md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binder/Android 跨进程通信 绑定 Service .md","mtime":"2020-05-25T05:50:08.658Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-25T06:03:59.345Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1337 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Binder与AIDL · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Android 跨进程通信 启动 App .html" />
+    
+    
+    <link rel="prev" href="Android 跨进程通信 Parcel .html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Android 基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../basic/Android 组件 Service 基础.html">
+            
+                <a href="../basic/Android 组件 Service 基础.html">
+            
+                    
+                    Service 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                <a href="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                    
+                    IntentService 与 JobIntentService
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../view/View 的一些整理 参考系与滑动.html">
+            
+                <a href="../view/View 的一些整理 参考系与滑动.html">
+            
+                    
+                    参考系与滑动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                <a href="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                    
+                    从 NestedScrolling 到 Behavior
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                    
+                    从Debug来看工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                    
+                    从Debug来看事件分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../view/View 的一些整理 绘制.html">
+            
+                <a href="../view/View 的一些整理 绘制.html">
+            
+                    
+                    绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                <a href="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                    
+                    嵌套滑动的解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../view/View 的一些整理 属性动画.html">
+            
+                <a href="../view/View 的一些整理 属性动画.html">
+            
+                    
+                    属性动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../view/View 的一些整理 ZoomImageView .html">
+            
+                <a href="../view/View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    网络基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../network/网络基础 TCP IP HTTP.html">
+            
+                <a href="../network/网络基础 TCP IP HTTP.html">
+            
+                    
+                    TCP/IP HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../network/网络基础 HTTPS Socket WebSocket.html">
+            
+                <a href="../network/网络基础 HTTPS Socket WebSocket.html">
+            
+                    
+                    HTTPS Socket WebSocket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    Retrofit源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                    
+                    Sample篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    OkHttp源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    Dagger2 用法以及一些思考
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    Android 跨线程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../thread/Android 跨线程通信 Java 多线程.html">
+            
+                <a href="../thread/Android 跨线程通信 Java 多线程.html">
+            
+                    
+                    Java 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../thread/Android 跨线程通信 Handler .html">
+            
+                <a href="../thread/Android 跨线程通信 Handler .html">
+            
+                    
+                    Handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    Android 跨进程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="Android 跨进程通信 Parcel .html">
+            
+                <a href="Android 跨进程通信 Parcel .html">
+            
+                    
+                    Parcel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="7.1.2" data-path="Android 跨进程通信 Binder AIDL .html">
+            
+                <a href="Android 跨进程通信 Binder AIDL .html">
+            
+                    
+                    Binder与AIDL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="Android 跨进程通信 启动 App .html">
+            
+                <a href="Android 跨进程通信 启动 App .html">
+            
+                    
+                    启动 App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="Android 跨进程通信 绑定 Service .html">
+            
+                <a href="Android 跨进程通信 绑定 Service .html">
+            
+                    
+                    绑定 Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="Android 跨进程通信 手写跨进程 .html">
+            
+                <a href="Android 跨进程通信 手写跨进程 .html">
+            
+                    
+                    手写跨进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Rxjava朝花夕拾
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                    
+                    概念篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                    
+                    基本操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                    
+                    进阶操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                    
+                    原理总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                    
+                    Rxjava2.X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                    
+                    背压篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" >
+            
+                <span>
+            
+                    
+                    从Butterknife看APT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../butterknife/从Butterknife看APT 反射.html">
+            
+                <a href="../butterknife/从Butterknife看APT 反射.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../butterknife/从Butterknife看APT 注解.html">
+            
+                <a href="../butterknife/从Butterknife看APT 注解.html">
+            
+                    
+                    注解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" >
+            
+                <span>
+            
+                    
+                    玩儿
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../linux/玩儿 Linux基本操作.html">
+            
+                <a href="../linux/玩儿 Linux基本操作.html">
+            
+                    
+                    Linux基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="../linux/玩儿 Linux常用命令.html">
+            
+                <a href="../linux/玩儿 Linux常用命令.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.3" data-path="../linux/玩儿 Linux网络工具.html">
+            
+                <a href="../linux/玩儿 Linux网络工具.html">
+            
+                    
+                    Linux网络工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.4" data-path="../linux/玩儿 Vim初体验.html">
+            
+                <a href="../linux/玩儿 Vim初体验.html">
+            
+                    
+                    Vim初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1.1" data-path="../other/编码 加密与 Hash.html">
+            
+                <a href="../other/编码 加密与 Hash.html">
+            
+                    
+                    编码 加密与 Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.2" data-path="../other/Material Design 常用控件小结.html">
+            
+                <a href="../other/Material Design 常用控件小结.html">
+            
+                    
+                    Material Design 常用控件小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Binder与AIDL</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;">&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;</h1>
+<p>&#x4E0A;&#x7BC7;&#xFF0C;&#x6211;&#x4EEC;&#x63A5;&#x89E6;&#x4E86; Parcel&#xFF0C;Android &#x94A6;&#x5B9A;&#x7684; IPC &#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x4F53;&#xFF0C;&#x90A3;&#x4E48;&#x4ECA;&#x5929;&#x6211;&#x4EEC;&#x5C31;&#x5F00;&#x59CB;&#x771F;&#x6B63;&#x7684;&#x63A5;&#x89E6;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x3002;&#x597D;&#x4E86;&#xFF0C;&#x8FD9;&#x5C31;&#x5F00;&#x59CB;&#x4E86;&#xFF0C;&#x672C;&#x7BC7;&#x5927;&#x90E8;&#x5206;&#x4E1C;&#x897F;&#x90FD;&#x662F;&#x53C2;&#x770B;&#x4E86;&#x7F57;&#x5347;&#x9633;&#x8001;&#x5E08;&#x548C;&#x7530;&#x7EF4;&#x6570;&#x8001;&#x5E08;&#x7684;&#x76F8;&#x5173;&#x6750;&#x6599;&#x5305;&#x62EC;&#x4F46;&#x4E0D;&#x9650;&#x4E8E;&#x535A;&#x5BA2;&#x548C;&#x4E66;&#x7C4D;&#xFF0C;&#x8FD9;&#x91CC;&#x518D;&#x6B21;&#x8868;&#x793A;&#x611F;&#x8C22;&#x3002;</p>
+<h1 id="&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;">&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;</h1>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x4E0D;&#x540C;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#xFF0C;&#x6570;&#x636E;&#x4E0D;&#x5171;&#x4EAB;&#xFF1B;&#x8FD9;&#x4E48;&#x505A;&#x7684;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x5F53;&#x7136;&#x662F;&#x51FA;&#x4E8E;&#x5B89;&#x5168;&#x7684;&#x8003;&#x8651;&#xFF0C;&#x4E0D;&#x7136;&#x4F60;&#x901A;&#x8FC7; Web &#x6765;&#x770B;&#x4E0B;&#x4E00;&#x4E9B;&#x4E0D;&#x53EF;&#x63CF;&#x8FF0;&#x7684;&#x7F51;&#x7AD9;&#xFF0C;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684; App &#x90FD;&#x77E5;&#x9053;&#x4E86;&#xFF0C;&#x5C31;&#x8DDF;&#x5F53;&#x5E74;&#x9648;&#x8001;&#x5E08;&#x4E00;&#x6837;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5FC5;&#x987B;&#x7684;&#x662F;&#x76F8;&#x4E92;&#x9694;&#x79BB;&#x7684;&#xFF0C;&#x65E2;&#x7136;&#x6709;&#x9694;&#x9602;&#x90A3;&#x4E5F;&#x5FC5;&#x987B;&#x6709;&#x6865;&#x6881;&#xFF0C;&#x4E0D;&#x7136;&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x4E92;&#x76F8;&#x4E0D;&#x77E5;&#x9053;&#xFF0C;&#x4F60;&#x8FDE;&#x526A;&#x8D34;&#x677F;&#x90FD;&#x7528;&#x4E0D;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x6865;&#x6881;&#x5C31;&#x662F;&#x8DE8;&#x8FDB;&#x7A0B;&#x673A;&#x5236;&#x3002;&#x800C;&#x8FD9;&#x4E2A;&#x673A;&#x5236;&#x5728; Android &#x4E0A;&#x5C31;&#x662F; Binder &#x673A;&#x5236;&#x3002;</p>
+<p>Android &#x4F7F;&#x7528;&#x7684; Linux &#x5185;&#x6838;&#x62E5;&#x6709;&#x7740;&#x975E;&#x5E38;&#x591A;&#x7684;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x673A;&#x5236;&#xFF0C;&#x6BD4;&#x5982;&#x7BA1;&#x9053;&#xFF0C;System V&#xFF0C;Socket &#x7B49;&#xFF1B;&#x4E3A;&#x4EC0;&#x4E48;&#x8FD8;&#x9700;&#x8981;&#x5355;&#x72EC;&#x641E;&#x4E00;&#x4E2A; Binder &#x51FA;&#x6765;&#x5462;&#xFF1F;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x70B9;&#xFF0C;&#x6027;&#x80FD;&#x548C;&#x5B89;&#x5168;&#x3002;&#x5728;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;&#x5E7F;&#x6CDB;&#x5730;&#x4F7F;&#x7528;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x80AF;&#x5B9A;&#x5BF9;&#x901A;&#x4FE1;&#x673A;&#x5236;&#x672C;&#x8EAB;&#x63D0;&#x51FA;&#x4E86;&#x4E25;&#x683C;&#x7684;&#x8981;&#x6C42;&#xFF1B;Binder &#x76F8;&#x5BF9;&#x4E8E;&#x4F20;&#x7EDF;&#x7684; Socket &#x65B9;&#x5F0F;&#xFF0C;&#x66F4;&#x52A0;&#x9AD8;&#x6548;&#xFF1B;&#x53E6;&#x5916;&#xFF0C;&#x4F20;&#x7EDF;&#x7684;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x65B9;&#x5F0F;&#x5BF9;&#x4E8E;&#x901A;&#x4FE1;&#x53CC;&#x65B9;&#x7684;&#x8EAB;&#x4EFD;&#x5E76;&#x6CA1;&#x6709;&#x505A;&#x51FA;&#x4E25;&#x683C;&#x7684;&#x9A8C;&#x8BC1;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x4E0A;&#x5C42;&#x534F;&#x8BAE;&#x4E0A;&#x8FDB;&#x884C;&#x67B6;&#x8BBE;&#xFF1B;&#x6BD4;&#x5982; Socket &#x901A;&#x4FE1; ip &#x5730;&#x5740;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x624B;&#x52A8;&#x586B;&#x5165;&#x7684;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4F2A;&#x9020;&#xFF1B;&#x800C; Binder &#x673A;&#x5236;&#x4ECE;&#x534F;&#x8BAE;&#x672C;&#x8EAB;&#x5C31;&#x652F;&#x6301;&#x5BF9;&#x901A;&#x4FE1;&#x53CC;&#x65B9;&#x505A;&#x8EAB;&#x4EFD;&#x6821;&#x68C0;&#xFF0C;&#x56E0;&#x800C;&#x5927;&#x5927;&#x63D0;&#x5347;&#x4E86;&#x5B89;&#x5168;&#x6027;&#x3002;&#x8FD9;&#x4E2A;&#x4E5F;&#x662F; Android &#x6743;&#x9650;&#x6A21;&#x578B;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
+<!--more-->
+<h1 id="binder">Binder</h1>
+<p>Binder &#x7684;&#x901A;&#x4FE1;&#x6A21;&#x578B;&#x662F;&#x4F20;&#x7EDF;&#x7684; Client - Server &#x6A21;&#x578B;&#xFF0C;&#x5373;&#x4E00;&#x7AEF;&#x5411;&#x53E6;&#x4E00;&#x7AEF;&#x8FDB;&#x884C;&#x8BF7;&#x6C42;&#xFF0C;&#x53E6;&#x4E00;&#x7AEF;&#x8FDB;&#x884C;&#x56DE;&#x590D;&#x3002;&#x5F53;&#x7136;&#x5728;&#x8FD9;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E24;&#x4E2A;&#x89D2;&#x8272;&#x4E0D;&#x662F;&#x7EDD;&#x5BF9;&#x7684;&#x4E0D;&#x53D8;&#x7684;&#x3002;&#x5176;&#x539F;&#x7406;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="binder.png" alt="Binder &#x901A;&#x4FE1;&#x6A21;&#x578B;"></p>
+<p>&#x6709;&#x5173; Binder &#x7684;&#x901A;&#x4FE1;&#x6A21;&#x578B;&#x7F51;&#x4E0A;&#x6709;&#x4E00;&#x4E2A;&#x6253;&#x7535;&#x8BDD;&#x7684;&#x4E3E;&#x4F8B;&#x5219;&#x662F;&#x975E;&#x5E38;&#x5F62;&#x8C61;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x8D58;&#x8FF0;&#x4E86;&#x3002;&#x56E0;&#x6B64; Binder &#x8DE8;&#x8FDB;&#x7A0B;&#x539F;&#x7406;&#x53EF;&#x4EE5;&#x5927;&#x81F4;&#x63CF;&#x8FF0;&#x4E3A;&#x4EE5;&#x4E0B;&#x7684;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>Server &#x7ECF;&#x8FC7; Binder &#x9A71;&#x52A8;&#x7684;&#x5305;&#x88C5;&#xFF0C;&#x5230; ServiceManager &#x4E2D;&#x8FDB;&#x884C;&#x6CE8;&#x518C;&#xFF0C;ServiceManager &#x4E2D;&#x5176;&#x5B9E;&#x6301;&#x6709;&#x7684;&#x4E5F;&#x4E0D;&#x662F; Server &#x7684;&#x672C;&#x4F53;&#x53EA;&#x662F;&#x5B83;&#x7684;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x3002;</li>
+<li>Client &#x60F3;&#x8C03;&#x7528;&#x67D0;&#x4E2A; Server &#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53BB; ServiceManager &#x4E2D;&#x67E5;&#x8BE2;&#x3002;&#x540C;&#x65F6; ServiceManager &#x4F1A;&#x628A;&#x4E00;&#x4E2A; Server &#x7684;&#x4EE3;&#x7406;&#x8FD4;&#x56DE;&#x7ED9; Client&#x3002;</li>
+<li>Client &#x4E0D;&#x77E5;&#x9053;&#x62FF;&#x5230;&#x7684;&#x662F;&#x4EE3;&#x7406;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E86;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x628A;&#x53C2;&#x6570;&#x505A;&#x4E00;&#x4E9B;&#x5305;&#x88C5;&#x7136;&#x540E;&#x76F4;&#x63A5;&#x8F6C;&#x53D1;&#x7ED9; Binder &#x9A71;&#x52A8;&#x3002;</li>
+<li>Binder &#x9A71;&#x52A8;&#x6536;&#x5230;&#x53D1;&#x73B0;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x4E2A;&#x4EE3;&#x7406;&#xFF0C;&#x76F4;&#x63A5;&#x5C31;&#x627E;&#x5230;&#x539F;&#x59CB; Server &#xFF0C;&#x901A;&#x77E5;&#x5176;&#x5C06;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x3002;</li>
+<li>&#x6536;&#x5230; Server &#x65B9;&#x6CD5;&#x7ED3;&#x679C;&#x7684; Binder &#x5C06;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9; Client&#x3002;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x5C31;&#x7ED3;&#x675F;&#x4E86;&#x3002;</li>
+</ul>
+<p>&#x4E00;&#x53E5;&#x8BDD;&#x603B;&#x7ED3;&#x5C31;&#x662F;&#xFF1A;Client &#x8FDB;&#x7A0B;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x6301;&#x6709;&#x4E86; Server &#x7AEF;&#x7684;&#x4EE3;&#x7406;&#xFF1B;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x534F;&#x52A9;&#x9A71;&#x52A8;&#x5B8C;&#x6210;&#x4E86;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x3002;</p>
+<h2 id="binder-&#x89D2;&#x8272;&#x533A;&#x5206;">Binder &#x89D2;&#x8272;&#x533A;&#x5206;</h2>
+<p>Binder &#x5728;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x5883;&#x4E0B;&#xFF0C;&#x6240;&#x4EE3;&#x8868;&#x7684;&#x5B9A;&#x4F4D;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x3002;&#x5F15;&#x7528;&#x7530;&#x7EF4;&#x6570;&#x8001;&#x5E08;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x901A;&#x5E38;&#x6709;&#x4E0B;&#x9762;4&#x4E2A;&#x533A;&#x5206;&#xFF1A;</p>
+<ul>
+<li>&#x901A;&#x5E38;&#x610F;&#x4E49;&#x4E0B;&#xFF0C;Binder &#x6307;&#x7684;&#x662F;&#x4E00;&#x79CD;&#x901A;&#x4FE1;&#x673A;&#x5236;&#xFF1B;&#x6211;&#x4EEC;&#x8BF4; AIDL &#x4F7F;&#x7528; Binder &#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x6307;&#x7684;&#x5C31;&#x662F; Binder &#x8FD9;&#x79CD; IPC &#x673A;&#x5236;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E; Server &#x8FDB;&#x7A0B;&#x6765;&#x8BF4;&#xFF0C;Binder &#x6307;&#x7684;&#x662F; Binder &#x672C;&#x5730;&#x5BF9;&#x8C61;( Binder )</li>
+<li>&#x5BF9;&#x4E8E; Client &#x6765;&#x8BF4;&#xFF0C;Binder &#x6307;&#x7684;&#x662F; Binder &#x4EE3;&#x7406;&#x5BF9;&#x8C61;( BinderProxy )&#xFF0C;&#x5B83;&#x53EA;&#x662F; Binder &#x672C;&#x5730;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x8FDC;&#x7A0B;&#x4EE3;&#x7406;&#xFF1B;&#x5BF9;&#x8FD9;&#x4E2A; Binder &#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7;&#x9A71;&#x52A8;&#x6700;&#x7EC8;&#x8F6C;&#x53D1;&#x5230; Binder &#x672C;&#x5730;&#x5BF9;&#x8C61;&#x4E0A;&#x53BB;&#x5B8C;&#x6210;&#xFF1B;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x62E5;&#x6709; Binder &#x5BF9;&#x8C61;&#x7684;&#x4F7F;&#x7528;&#x8005;&#x800C;&#x8A00;&#xFF0C;&#x5B83;&#x65E0;&#x987B;&#x5173;&#x5FC3;&#x8FD9;&#x662F;&#x4E00;&#x4E2A; Binder &#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x8FD8;&#x662F; Binder &#x672C;&#x5730;&#x5BF9;&#x8C61;&#xFF1B;&#x5BF9;&#x4E8E;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x64CD;&#x4F5C;&#x548C;&#x5BF9;&#x672C;&#x5730;&#x5BF9;&#x8C61;&#x7684;&#x64CD;&#x4F5C;&#x5BF9;&#x5B83;&#x6765;&#x8BF4;&#x6CA1;&#x6709;&#x533A;&#x522B;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x800C;&#x8A00;&#xFF0C;Binder &#x662F;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x9012;&#x7684;&#x5BF9;&#x8C61;&#xFF1B;Binder &#x9A71;&#x52A8;&#x4F1A;&#x5BF9;&#x5177;&#x6709;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x9012;&#x80FD;&#x529B;&#x7684;&#x5BF9;&#x8C61;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;&#xFF1A;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x548C;&#x672C;&#x5730;&#x5BF9;&#x8C61;&#x7684;&#x8F6C;&#x6362;&#x3002;</li>
+</ul>
+<p>&#x91CC;&#x9762;&#x7684;&#x4E00;&#x53E5;&#x603B;&#x7ED3;&#x5F88;&#x5230;&#x4F4D;&#xFF1A;Binder&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x8DE8;&#x8FDB;&#x7A0B;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x5B9E;&#x4F53;&#xFF08;&#x672C;&#x5730;&#x5BF9;&#x8C61;&#xFF09;&#x4F4D;&#x4E8E;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C;&#x800C;&#x5B83;&#x7684;&#x5F15;&#x7528;&#xFF08;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF09;&#x5374;&#x904D;&#x5E03;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E4B;&#x4E2D;&#x3002;Binder&#x6A21;&#x7CCA;&#x4E86;&#x8FDB;&#x7A0B;&#x8FB9;&#x754C;&#xFF0C;&#x6DE1;&#x5316;&#x4E86;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x8FC7;&#x7A0B;&#xFF0C;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x4EFF;&#x4F5B;&#x8FD0;&#x884C;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7A0B;&#x5E8F;&#x4E4B;&#x4E2D;&#x3002;</p>
+<h2 id="java-&#x5C42;-binder-&#x5BF9;&#x8C61;">Java &#x5C42; Binder &#x5BF9;&#x8C61;</h2>
+<p>Binder &#x5728; Java &#x5C42;&#x7684;&#x5206;&#x7C7B;&#x7279;&#x522B;&#x7EC6;&#xFF0C;&#x5305;&#x62EC;&#x63A5;&#x53E3;&#x548C;&#x7C7B;&#x6709;&#x597D;&#x51E0;&#x4E2A;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x7ED3;&#x5408; Binder &#x7684;&#x89D2;&#x8272;&#x533A;&#x5206;&#x8FDB;&#x884C;&#x5206;&#x522B;&#x8BF4;&#x660E;&#x3002;</p>
+<ul>
+<li>IBinder &#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5B83;&#x4EE3;&#x8868;&#x4E86;&#x4E00;&#x79CD;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x8F93;&#x7684;&#x80FD;&#x529B;&#xFF1B;&#x53EA;&#x8981;&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5C31;&#x80FD;&#x5C06;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F20;&#x9012;&#xFF1B;&#x8FD9;&#x662F;&#x9A71;&#x52A8;&#x5E95;&#x5C42;&#x652F;&#x6301;&#x7684;&#xFF1B;&#x5728;&#x8DE8;&#x8FDB;&#x7A0B;&#x6570;&#x636E;&#x6D41;&#x7ECF;&#x9A71;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9A71;&#x52A8;&#x4F1A;&#x8BC6;&#x522B; IBinder &#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4ECE;&#x800C;&#x81EA;&#x52A8;&#x5B8C;&#x6210;&#x4E0D;&#x540C;&#x8FDB;&#x7A0B; Binder &#x672C;&#x5730;&#x5BF9;&#x8C61;&#x4EE5;&#x53CA; Binder &#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x8F6C;&#x6362;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;<code>&#x8FDC;&#x7A0B;&#x670D;&#x52A1;</code>&#x5728;&#x7ED1;&#x5B9A;&#x7684;&#x65F6;&#x5019;&#x548C; onServiceConnected &#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; IBinder &#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x975E; Binder&#x3002;</li>
+<li>IInterface &#x5176;&#x5B9E;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x89D2;&#x8272;&#x533A;&#x5206;&#x4E2D;&#x4E0D;&#x5C5E;&#x4E8E;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x89D2;&#x8272;&#xFF0C;&#x5176;&#x662F;&#x4E00;&#x4E2A;&#x672C;&#x5730; Binder &#x4E0E;&#x8FDC;&#x7A0B; Binder &#x8C03;&#x7528;&#x5951;&#x7EA6;&#xFF0C;&#x4E24;&#x4E2A; Binder &#x5B8C;&#x5168;&#x9075;&#x5FAA;&#x8FD9;&#x4E2A;&#x5951;&#x7EA6;&#xFF08;&#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x5B9E;&#x73B0;&#xFF09;&#xFF0C;AS &#x6839;&#x636E; IInterface &#x6765;&#x751F;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x4E2D;&#x95F4;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>Binder &#x5176;&#x5B9E;&#x5C31;&#x662F; Binder &#x672C;&#x5730;&#x5BF9;&#x8C61;&#x3002;&#x5C31;&#x662F;&#x5728;<code>&#x8FDC;&#x7A0B;&#x670D;&#x52A1;</code>&#x7ED1;&#x5B9A;&#x65F6;&#xFF0C;Service &#x8FD4;&#x56DE;&#x7684; IBinder&#x3002;AIDL &#x4E2D;&#x5176;&#x5B9E;&#x5C31;&#x662F; Stub &#x5BF9;&#x8C61;&#x3002;</li>
+<li>BinderProxy Binder &#x7684;&#x8FDC;&#x7A0B;&#x5BF9;&#x8C61;&#x3002;&#x5C31;&#x662F;&#x5728;<code>&#x8FDC;&#x7A0B;&#x670D;&#x52A1;</code>&#x7ED1;&#x5B9A;&#x65F6;&#xFF0C;onServiceConnected &#x63A5;&#x53D7;&#x7684; IBinder&#x3002;</li>
+</ul>
+<p>&#x57FA;&#x672C;&#x4E0A; Java &#x5C42;&#x7684;&#x5B9E;&#x73B0;&#x8FD8;&#x662F;&#x975E;&#x5E38;&#x6E05;&#x6670;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x7ED3;&#x5408; AIDL &#x6765;&#x5BF9; Binder &#x673A;&#x5236;&#x505A;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#x7684;&#x5206;&#x6790;&#x3002;</p>
+<h1 id="aidl">AIDL</h1>
+<p><a href="https://developer.android.com/guide/components/aidl?hl=zh-cn" target="_blank">Android &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8BED;&#x8A00;( AIDL )</a>&#xFF0C;Android &#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5B83;&#x5B9A;&#x4E49;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x4F7F;&#x7528;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1; (IPC) &#x8FDB;&#x884C;&#x76F8;&#x4E92;&#x901A;&#x4FE1;&#x65F6;&#x90FD;&#x8BA4;&#x53EF;&#x7684;&#x7F16;&#x7A0B;&#x63A5;&#x53E3;&#x3002;AIDL &#x652F;&#x6301;&#x7684;&#x7C7B;&#x578B;&#x4E3A;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#xFF1A;</p>
+<ul>
+<li>&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;int&#xFF0C;long&#xFF0C;char&#xFF0C;boolean&#xFF0C;double&#xFF0C;float&#xFF09;</li>
+<li>String &#x548C; CharSequence</li>
+<li>List &#x53EA;&#x652F;&#x6301; ArrayList&#xFF0C;&#x540C;&#x65F6;&#x5143;&#x7D20;&#x8981;&#x80FD;&#x88AB; AIDL &#x652F;&#x6301;</li>
+<li>Map &#x53EA;&#x652F;&#x6301; HashMap&#xFF0C;&#x540C;&#x65F6;&#x5143;&#x7D20;&#x8981;&#x80FD;&#x88AB; AIDL &#x652F;&#x6301;</li>
+<li>Parcelable &#x5BF9;&#x8C61;</li>
+<li>AIDL &#x6240;&#x6709; AIDL &#x63A5;&#x53E3;&#x672C;&#x8EAB;&#x4E5F;&#x53EF;&#x88AB; AIDL &#x6240;&#x652F;&#x6301;</li>
+</ul>
+<p>&#x672C;&#x6B21;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x6682;&#x65F6;&#x5C31;&#x4EE5;&#x6700;&#x7B80;&#x5355;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x548C; String &#x4F5C;&#x4E3A;&#x4F8B;&#x5B50;&#xFF0C;Parcelable &#x548C; AIDL &#x7C7B;&#x578B;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x6D89;&#x53CA;&#x5230;&#x3002;</p>
+<h2 id="&#x7B80;&#x5355;&#x5B9E;&#x73B0;">&#x7B80;&#x5355;&#x5B9E;&#x73B0;</h2>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x5B8C;&#x4E86; Binder &#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684; AIDL &#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x770B;&#x770B;&#x5B9E;&#x8DF5;&#x4E2D;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x5199;&#xFF0C;&#x5177;&#x4F53;&#x8BE6;&#x7EC6;&#x7684;&#x89C4;&#x5219;&#x8FD8;&#x662F;&#x67E5;&#x9605;&#x6587;&#x6863;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x7ED9;&#x51FA;&#x793A;&#x4F8B;&#x3002;&#x7B80;&#x5355;&#x8D77;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4F7F;&#x7528;<code>&#x8FDC;&#x7A0B;&#x670D;&#x52A1;</code>&#x6765;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#xFF1A;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x5B9A;&#x4E49; AIDL &#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IMyAidlInterface</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getPid</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">basicTypes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> anInt, <span class="hljs-keyword">long</span> aLong, <span class="hljs-keyword">boolean</span> aBoolean, <span class="hljs-keyword">float</span> aFloat,
+            <span class="hljs-keyword">double</span> aDouble, String aString)</span></span>;
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; AIDL &#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE; int &#x503C;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;6&#x4E2A;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x8FD4;&#x56DE;&#x4E3A;&#x7A7A;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C;&#x521B;&#x5EFA; Service&#xFF0C;&#x5B9E;&#x73B0; Binder &#x63A5;&#x53E3;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BackRemoteService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>{
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> IBinder <span class="hljs-title">onBind</span><span class="hljs-params">(Intent intent)</span> </span>{
+    <span class="hljs-keyword">return</span> mBinder;
+  }
+
+  <span class="hljs-keyword">private</span> IMyAidlInterface.Stub mBinder = <span class="hljs-keyword">new</span> IMyAidlInterface.Stub() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPid</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> RemoteException </span>{
+      <span class="hljs-keyword">return</span> getPid();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">basicTypes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> anInt, <span class="hljs-keyword">long</span> aLong, <span class="hljs-keyword">boolean</span> aBoolean, <span class="hljs-keyword">float</span> aFloat, <span class="hljs-keyword">double</span> aDouble,
+        String aString)</span> <span class="hljs-keyword">throws</span> RemoteException </span>{
+      Log.i(ARIRUS, <span class="hljs-string">&quot;basicTypes: &quot;</span>+anInt+<span class="hljs-string">&quot; &quot;</span>+aLong+<span class="hljs-string">&quot; &quot;</span>+aBoolean+<span class="hljs-string">&quot; &quot;</span>+aFloat+<span class="hljs-string">&quot; &quot;</span>+aDouble+<span class="hljs-string">&quot; &quot;</span>+aString);
+    }
+  };
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x751F;&#x6210;&#x7684; IMyAidlInterface.Stub &#x5B9E;&#x4F8B;&#xFF0C;&#x4F5C;&#x4E3A;&#x7684; Binder &#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x516C;&#x5F00;&#x8BE5;&#x63A5;&#x53E3;&#x3002;</p>
+<pre><code class="lang-java">Intent intent = <span class="hljs-keyword">new</span> Intent(<span class="hljs-keyword">this</span>, BackRemoteService.class);
+bindService(intent, <span class="hljs-keyword">new</span> ServiceConnection() {
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onServiceConnected</span><span class="hljs-params">(ComponentName name, IBinder service)</span> </span>{
+    IMyAidlInterface remoteService = IMyAidlInterface.Stub.asInterface(service);
+    <span class="hljs-keyword">try</span> {
+    remoteService.basicTypes(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-keyword">true</span>,<span class="hljs-number">4f</span>,<span class="hljs-number">5</span>,<span class="hljs-string">&quot;hello ipc&quot;</span>);
+    Log.i(<span class="hljs-string">&quot;onServiceConnected&quot;</span>,remoteService.getPid());
+    } <span class="hljs-keyword">catch</span> (RemoteException e) {
+    e.printStackTrace();
+    }
+}
+
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onServiceDisconnected</span><span class="hljs-params">(ComponentName name)</span> </span>{
+}
+}, BIND_AUTO_CREATE);
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;&#x4F7F;&#x7528;<code>&#x672C;&#x5730;&#x670D;&#x52A1;</code>&#xFF0C;&#x5C06; IBinder &#x8F6C;&#x6362;&#x6210;&#x81EA;&#x5B9A;&#x4E49;&#x7684; Binder &#xFF0C;&#x5C06; IBinder&#xFF0C;&#x8F6C;&#x6362;&#x6210; IMyAidlInterface&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#xFF0C;&#x5982;&#x5B9E;&#x663E;&#x793A;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x518D;&#x5355;&#x72EC;&#x5C55;&#x793A;&#x4E86;&#x3002;</p>
+<h2 id="imyaidlinterfacejava">IMyAidlInterface.java</h2>
+<p>IMyAidlInterface.java &#x5C31;&#x662F;&#x5951;&#x7EA6; IMyAidlInterface.aidl &#x751F;&#x4EA7;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x5728; Java &#x7AEF;&#x7406;&#x89E3; Binder &#x91CD;&#x8981;&#x90E8;&#x5206;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x5B8F;&#x89C2;&#x7684;&#x770B;&#x4E0B;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x6709;&#x54EA;&#x4E9B;&#x90E8;&#x5206;&#xFF0C;&#x5206;&#x522B;&#x5E72;&#x4E86;&#x4EC0;&#x4E48;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x6765;&#x770B;&#x7EC6;&#x8282;&#xFF0C;&#x7406;&#x6E05;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> cn.arirus.versioncomp.ipc;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CustomAidl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">android</span>.<span class="hljs-title">os</span>.<span class="hljs-title">IInterface</span></span>{
+
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">android</span>.<span class="hljs-title">os</span>.<span class="hljs-title">Binder</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">cn</span>.<span class="hljs-title">arirus</span>.<span class="hljs-title">versioncomp</span>.<span class="hljs-title">ipc</span>.<span class="hljs-title">CustomAidl</span>  </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> java.lang.String DESCRIPTOR = <span class="hljs-string">&quot;cn.arirus.versioncomp.ipc.CustomAidl&quot;</span>;
+    <span class="hljs-comment">/** Construct the stub at attach it to the interface. */</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Stub</span><span class="hljs-params">()</span></span>{<span class="hljs-keyword">this</span>.attachInterface(<span class="hljs-keyword">this</span>, DESCRIPTOR);}
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> cn.arirus.versioncomp.ipc.<span class="hljs-function">CustomAidl <span class="hljs-title">asInterface</span><span class="hljs-params">(android.os.IBinder obj)</span></span>{...}
+
+    <span class="hljs-meta">@Override</span> <span class="hljs-keyword">public</span> android.os.<span class="hljs-function">IBinder <span class="hljs-title">asBinder</span><span class="hljs-params">()</span></span>{<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>}
+
+    <span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onTransact</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code, android.os.Parcel data, android.os.Parcel reply, <span class="hljs-keyword">int</span> flags)</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>{...}
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Proxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">cn</span>.<span class="hljs-title">arirus</span>.<span class="hljs-title">versioncomp</span>.<span class="hljs-title">ipc</span>.<span class="hljs-title">CustomAidl</span></span>{...}
+
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> TRANSACTION_basicTypes = (android.os.IBinder.FIRST_CALL_TRANSACTION + <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> TRANSACTION_getData = (android.os.IBinder.FIRST_CALL_TRANSACTION + <span class="hljs-number">1</span>);
+  }
+  <span class="hljs-comment">/**
+      * Demonstrates some basic types that you can use as parameters
+      * and return values in AIDL.
+      */</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">basicTypes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> anInt, <span class="hljs-keyword">long</span> aLong, <span class="hljs-keyword">boolean</span> aBoolean, <span class="hljs-keyword">float</span> aFloat, <span class="hljs-keyword">double</span> aDouble, java.lang.String aString)</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>;
+
+  <span class="hljs-keyword">public</span> cn.arirus.versioncomp.ipc.<span class="hljs-function">PojoParcel <span class="hljs-title">getData</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, java.lang.String title, cn.arirus.versioncomp.ipc.PojoParcel pojo)</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>;
+}
+</code></pre>
+<p>&#x5C06;&#x7EC6;&#x8282;&#x5C4F;&#x853D;&#x540E;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x6574;&#x4F53;&#x5C55;&#x793A;&#x6E05;&#x6670;&#x4E86;&#x8BB8;&#x591A;&#xFF0C;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3; CustomAidl &#x548C; &#x4E24;&#x4E2A;&#x7C7B; CustomAidl.Stub &#x3001;CustomAidl.Stub.Proxy&#x3002;&#x5176;&#x4E2D; CustomAidl.Stub &#x7EE7;&#x627F;&#x4E8E; Binder &#x56E0;&#x6B64;&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4E0A;&#x6587;&#x8BF4;&#x7684;&#xFF0C;Server &#x7AEF;&#x7684;&#x672C;&#x5730; Binder&#x3002;CustomAidl.Stub.Proxy &#x5F88;&#x503C;&#x5F97;&#x73A9;&#x5473;&#x4E86;&#xFF0C;&#x9996;&#x5148;&#x5B83;&#x662F;&#x4E00;&#x4E2A; private &#x7C7B;&#xFF0C;&#x56E0;&#x6B64;&#x662F;&#x4E0D;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x7684;&#xFF0C;&#x5176;&#x6B21;&#x5B9E;&#x73B0; CustomAidl &#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x672C;&#x8EAB;&#x65E2;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x4E8E; Binder &#x4E5F;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; IBinder &#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x5177;&#x4F53;&#x4F5C;&#x7528;&#x662F;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x4E0B;&#x9762;&#x518D;&#x770B;&#x3002;</p>
+<h2 id="debug-&#x6765;&#x770B;-imyaidlinterfacejava">Debug &#x6765;&#x770B; IMyAidlInterface.java</h2>
+<p>&#x7531;&#x4E8E; IMyAidlInterface.java &#x8F83;&#x4E3A;&#x590D;&#x6742;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x8001;&#x529E;&#x6CD5;&#x4F7F;&#x7528; Debug &#x7684;&#x65B9;&#x5F0F;&#x6765;&#x770B;&#x770B;&#x662F;&#x600E;&#x4E48;&#x4E00;&#x4E2A;&#x6D41;&#x7A0B;&#x3002;</p>
+<h3 id="&#x672C;&#x5730;&#x670D;&#x52A1;">&#x672C;&#x5730;&#x670D;&#x52A1;</h3>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x5B9A;&#x4E49; AIDL &#x6587;&#x4EF6;&#x7684;&#xFF0C;&#x90A3;&#x5047;&#x5982;&#xFF0C;&#x6211;&#x60F3;&#x901A;&#x8FC7; AIDL &#x6765;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x670D;&#x52A1;&#xFF0C;&#x4F1A;&#x662F;&#x4EC0;&#x4E48;&#x6548;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x628A;&#x4E0A;&#x9762; Manifest &#x6587;&#x4EF6; Service &#x7684;&#x6CE8;&#x518C;&#x4FE1;&#x606F;&#x4E2D; process &#x5B57;&#x6BB5;&#x5220;&#x6389;&#x3002;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;&#x8C03;&#x7528;&#x5230; asInterface &#x65B9;&#x6CD5;&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CustomAidl <span class="hljs-title">asInterface</span><span class="hljs-params">(IBinder obj)</span> </span>{
+  <span class="hljs-keyword">if</span> ((obj == <span class="hljs-keyword">null</span>)) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+  }
+  IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
+  <span class="hljs-keyword">if</span> (((iin != <span class="hljs-keyword">null</span>) &amp;&amp; (iin <span class="hljs-keyword">instanceof</span> CustomAidl))) {
+    <span class="hljs-keyword">return</span> ((CustomAidl) iin);
+  }
+  ...
+}
+</code></pre>
+<p>&#x901A;&#x8FC7; Debug &#x4FE1;&#x606F;&#x6765;&#x770B;&#xFF0C;obj &#x5C31;&#x662F; Binder &#x3002;</p>
+<p><img src="local_service_obj.png" alt="local_service_obj"></p>
+<p> &#x5176;&#x5B9E;&#x5C31;&#x662F; CustomAidl.Stub&#xFF0C;&#x56E0;&#x4E3A; CustomAidl.Stub &#x5B9E;&#x73B0;&#x4E86; CustomAidl&#x3002;&#x56E0;&#x6B64;&#x4F1A;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x6211;&#x4EEC;&#x5728; BackRemoteService &#x4E2D;&#x5B9E;&#x73B0;&#x4E86; CustomAidl.Stub &#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5BF9;&#x4E8E;&#x672C;&#x5730;&#x670D;&#x52A1;&#xFF0C;AIDL &#x4F1A;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x7684; CustomAidl.Stub &#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5728;&#x7ED1;&#x5B9A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; AIDL&#xFF0C;&#x5176;&#x5B9E;&#x751F;&#x6210;&#x7684; asInterface &#x65B9;&#x6CD5;&#x4F1A;&#x5224;&#x65AD;&#xFF0C;&#x5982;&#x679C;&#x672C;&#x8EAB;&#x5C31;&#x662F; Binder &#x800C;&#x4E0D;&#x662F;&#x6240;&#x8C13;&#x7684; BinderProxy &#x4EE3;&#x7406;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x91CD;&#x5199;&#x751F;&#x6210;&#x7684; CustomAidl.Stub &#x6765;&#x4F5C;&#x4E3A;&#x672C;&#x5730; Binder &#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;&#x90A3;&#x4E48;&#x5B8C;&#x5168;&#x662F;&#x4E0D;&#x9700;&#x8981; Binder &#x9A71;&#x52A8;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x90FD;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x5F53;&#x4E2D;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#xFF0C;&#x7ED1;&#x5B9A;&#x672C;&#x5730;&#x670D;&#x52A1;&#x4F7F;&#x7528; AIDL&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6548;&#x679C;&#x7684;&#xFF0C;&#x548C;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x751F;&#x6210; Binder &#x662F;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+<h3 id="&#x8FDC;&#x7A0B;&#x670D;&#x52A1;">&#x8FDC;&#x7A0B;&#x670D;&#x52A1;</h3>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x90A3;&#x518D;&#x56DE;&#x5230;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#xFF0C;&#x53C8;&#x4F1A;&#x662F;&#x600E;&#x6837;&#x7684;&#x60C5;&#x51B5;&#x7684;&#xFF1F;&#x6211;&#x4EEC;&#x628A; Manifest &#x6587;&#x4EF6;&#x7684; Service &#x6CE8;&#x518C;&#x4FE1;&#x606F;&#x8FD8;&#x4FEE;&#x6539;&#x56DE;&#x6765;&#xFF0C;&#x91CD;&#x65B0;&#x8FDB;&#x884C; Debug &#x6765;&#x770B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> cn.arirus.versioncomp.ipc.<span class="hljs-function">CustomAidl <span class="hljs-title">asInterface</span><span class="hljs-params">(android.os.IBinder obj)</span></span>{
+  ...
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> cn.arirus.versioncomp.ipc.CustomAidl.Stub.Proxy(obj);
+}
+</code></pre>
+<p>&#x8FD9;&#x6B21;&#x53C2;&#x6570; obj &#x4E0D;&#x518D;&#x662F;&#x4E00;&#x4E2A; Binder &#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A; BinderProxy &#x5BF9;&#x8C61;&#x3002;</p>
+<p><img src="remote_service_obj.png" alt="remote_service_obj"> </p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x8FD9;&#x4E2A; BinderProxy &#x5BF9;&#x8C61;&#x5E76;&#x6CA1;&#x6709;&#x7EE7;&#x627F; CustomAidl &#x63A5;&#x53E3;&#xFF0C;&#x81EA;&#x7136;&#x5224;&#x65AD;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; CustomAidl.Stub.Proxy &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06; BinderProxy &#x4F20;&#x9012;&#x8FC7;&#x53BB;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5927;&#x81F4;&#x77E5;&#x9053;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A; CustomAidl.Stub.Proxy &#x7C7B;&#x5E94;&#x8BE5;&#x5C31;&#x662F;&#x6765;&#x5904;&#x7406; BinderProxy &#x5BF9;&#x8C61;&#x7684;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x7814;&#x7A76;&#x4E0B;&#x8FD9;&#x4E2A; CustomAidl.Stub.Proxy &#x90FD;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x4E8B;&#x513F;&#xFF08;&#x4EE5;&#x4E0B;&#x90FD;&#x7B80;&#x5199;&#x4E3A; Proxy&#xFF09;&#x3002;</p>
+<h4 id="proxy-&#x65B9;&#x6CD5;&#x8C03;&#x7528;">Proxy &#x65B9;&#x6CD5;&#x8C03;&#x7528;</h4>
+<p>&#x7531;&#x4E8E;&#x6211;&#x5728;&#x4E0A;&#x9762;&#x5199;&#x4E86;&#xFF0C;&#x5728;&#x83B7;&#x5F97; CustomAidl &#x5B9E;&#x4F8B;&#xFF0C;&#x8C03;&#x7528;&#x4E86; basicTypes &#x65B9;&#x6CD5;&#x3002;&#x56E0;&#x6B64;&#x4F1A;&#x8C03;&#x7528; Proxy.basicTypes &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">basicTypes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> anInt, <span class="hljs-keyword">long</span> aLong, <span class="hljs-keyword">boolean</span> aBoolean, <span class="hljs-keyword">float</span> aFloat, <span class="hljs-keyword">double</span> aDouble, String aString)</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>{
+  Parcel _data = Parcel.obtain();
+  Parcel _reply = Parcel.obtain();
+  <span class="hljs-keyword">try</span> {
+  _data.writeInterfaceToken(DESCRIPTOR);
+  _data.writeInt(anInt);
+  _data.writeLong(aLong);
+  _data.writeInt(((aBoolean)?(<span class="hljs-number">1</span>):(<span class="hljs-number">0</span>)));
+  _data.writeFloat(aFloat);
+  _data.writeDouble(aDouble);
+  _data.writeString(aString);
+  mRemote.transact(Stub.TRANSACTION_basicTypes, _data, _reply, <span class="hljs-number">0</span>);
+  _reply.readException();
+  }
+  <span class="hljs-keyword">finally</span> {
+  _reply.recycle();
+  _data.recycle();
+  }
+}
+</code></pre>
+<p>&#x4E0A;&#x4E00;&#x7BC7;&#x4E2D;&#x6211;&#x4EEC;&#x8BF4;&#x8FC7;&#x4E86; Parcel &#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x6328;&#x4E2A;&#x628A;&#x53C2;&#x6570;&#x5199;&#x5165;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x5199;&#x5165;&#x5F53;&#x524D; Interface &#x7684; Token &#x4F5C;&#x4E3A;&#x6807;&#x8BC6;&#x3002;&#x6700;&#x540E;&#x8C03;&#x7528;&#x4E86; mRemote.transact &#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A; mRemote &#x5C31;&#x662F;&#x4E00;&#x5F00;&#x59CB;&#x4F20;&#x5165;&#x7684; obj &#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x662F;&#x4E00;&#x4E2A; BinderProxy&#xFF0C;&#x800C; BinderProxy.transact &#x65B9;&#x6CD5;&#x6700;&#x7EC8;&#x5728;&#x53C2;&#x6570;&#x5408;&#x6CD5;&#x6027;&#x68C0;&#x67E5;&#x5B8C;&#x6BD5;&#x540E;&#x5C31;&#x8C03;&#x7528;&#x4E86; native &#x65B9;&#x6CD5;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x7528;&#x7684;&#x7D22;&#x5F15;&#x503C;&#x6765;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x800C;&#x975E;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x60F3;&#x60F3;&#x4E5F;&#x5BF9;&#xFF0C;&#x51FD;&#x6570;&#x540D;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x8DE8;&#x8FDB;&#x7A0B;&#x6CA1;&#x6CD5;&#x4F20;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">transact</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code, Parcel data, Parcel reply, <span class="hljs-keyword">int</span> flags)</span> <span class="hljs-keyword">throws</span> RemoteException </span>{
+    Binder.checkParcel(<span class="hljs-keyword">this</span>, code, data, <span class="hljs-string">&quot;Unreasonably large binder buffer&quot;</span>);
+    ...
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">return</span> transactNative(code, data, reply, flags);
+    } <span class="hljs-keyword">finally</span> {
+        <span class="hljs-keyword">if</span> (tracingEnabled) {
+            Trace.traceEnd(Trace.TRACE_TAG_ALWAYS);
+        }
+    }
+}
+</code></pre>
+<p>&#x81F3;&#x6B64;&#xFF0C;Client &#x7AEF;&#x7684; BinderProxy &#x8C03;&#x7528;&#x5C31;&#x7ED3;&#x675F;&#x4E86;&#x3002;</p>
+<h4 id="stub-&#x65B9;&#x6CD5;&#x8C03;&#x7528;">Stub &#x65B9;&#x6CD5;&#x8C03;&#x7528;</h4>
+<p>Client &#x7AEF;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x5B8C;&#x6210;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x8BE5; Server &#x7AEF;&#x63A5;&#x53D7;&#x8C03;&#x7528;&#x4E86;&#x3002;&#x9996;&#x5148;&#x88AB;&#x8C03;&#x7528;&#x5230;&#x7684;&#x662F; onTransact &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onTransact</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code, android.os.Parcel data, android.os.Parcel reply, <span class="hljs-keyword">int</span> flags)</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>{
+  java.lang.String descriptor = DESCRIPTOR;
+  <span class="hljs-keyword">switch</span> (code){
+    ...
+    <span class="hljs-keyword">case</span> TRANSACTION_basicTypes:{
+      data.enforceInterface(descriptor);
+      <span class="hljs-keyword">int</span> _arg0;
+      _arg0 = data.readInt();
+      <span class="hljs-keyword">long</span> _arg1;
+      _arg1 = data.readLong();
+      <span class="hljs-keyword">boolean</span> _arg2;
+      _arg2 = (<span class="hljs-number">0</span>!=data.readInt());
+      <span class="hljs-keyword">float</span> _arg3;
+      _arg3 = data.readFloat();
+      <span class="hljs-keyword">double</span> _arg4;
+      _arg4 = data.readDouble();
+      java.lang.String _arg5;
+      _arg5 = data.readString();
+      <span class="hljs-keyword">this</span>.basicTypes(_arg0, _arg1, _arg2, _arg3, _arg4, _arg5);
+      reply.writeNoException();
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+    <span class="hljs-keyword">default</span>:{
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onTransact(code, data, reply, flags);
+    }
+  }
+}
+</code></pre>
+<p>&#x5904;&#x4E8E;&#x7B80;&#x5355;&#x8D77;&#x89C1;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x53E6;&#x5916;&#x7684; switch &#x5206;&#x949F;&#x90FD;&#x53BB;&#x6389;&#x4E86;&#xFF0C;&#x53EA;&#x7559; TRANSACTION_basicTypes &#x5206;&#x652F;&#x3002;&#x5148;&#x6765;&#x9A8C;&#x8BC1; Transact &#x662F;&#x5426;&#x4E8E;&#x5F53;&#x524D;&#x76EE;&#x6807; Interface &#x76F8;&#x5339;&#x914D;&#xFF0C;&#x4E2A;&#x4EBA;&#x731C;&#x6D4B;&#x5C31;&#x662F;&#x4F7F;&#x7528; descriptor &#x548C;&#x4E4B;&#x524D; Client &#x7AEF;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x7684; InterfaceToken &#x6765;&#x505A;&#x6BD4;&#x5BF9;&#xFF0C;&#x56E0;&#x6B64;&#x4E4B;&#x524D;&#x7684; Proxy &#x662F;&#x5728; C &#x7AEF;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x73B0;&#x5728; S &#x7AEF;&#x5F53;&#x7136;&#x8981;&#x505A;&#x4E00;&#x4E2A;&#x6821;&#x9A8C;&#x3002;&#x7136;&#x540E;&#x4F9D;&#x6B21;&#x4ECE; Parcel &#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;&#x4E86;&#x672C;&#x8EAB;&#x7684; basicTypes &#x65B9;&#x6CD5;&#xFF0C;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#x4F1A;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x5230;&#x65B9;&#x6CD5;&#x4E2D;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x5C55;&#x793A;&#x4E86;&#x3002;&#x8FD9;&#x6837;&#x5BF9;&#x4E8E; S &#x7AEF;&#x7684;&#x8C03;&#x7528;&#x4E5F;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x662F;&#x5C5E;&#x4E8E; S &#x7AEF;&#x65E0;&#x8FD4;&#x56DE;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x518D;&#x770B;&#x770B;&#x5982;&#x679C;&#xFF0C;&#x662F;&#x6709;&#x8FD4;&#x56DE;&#x7684;&#x8C03;&#x7528;&#x4F1A;&#x662F;&#x600E;&#x6837;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onTransact</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code, android.os.Parcel data, android.os.Parcel reply, <span class="hljs-keyword">int</span> flags)</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>{
+  <span class="hljs-keyword">switch</span> (code){
+    <span class="hljs-keyword">case</span> TRANSACTION_getPid:{
+      data.enforceInterface(descriptor);
+      <span class="hljs-keyword">int</span> _result = <span class="hljs-keyword">this</span>.getPid();
+      reply.writeNoException();
+      reply.writeInt(_result);
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }
+  }
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x662F;&#x8C03;&#x7528;&#x5B9A;&#x4E49;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x8C03;&#x7528;&#x4E86; getPid &#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x5C06; result &#x5199;&#x5165;&#x4E86; reply &#x4E2D;&#xFF0C;&#x5E76;&#x76F4;&#x63A5;&#x7ED3;&#x675F;&#x4E86; onTransact &#x65B9;&#x6CD5;&#x3002;C &#x7AEF;&#x6536;&#x5230;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x4F1A;&#x7ED3;&#x675F;&#x6302;&#x8D77;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getPid</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> android.os.RemoteException</span>{
+  Parcel _data = Parcel.obtain();
+  Parcel _reply = Parcel.obtain();
+  <span class="hljs-keyword">int</span> _result;
+  <span class="hljs-keyword">try</span> {
+    _data.writeInterfaceToken(DESCRIPTOR);
+    mRemote.transact(Stub.TRANSACTION_getPid, _data, _reply, <span class="hljs-number">0</span>);
+    _reply.readException();
+    _result = _reply.readInt();
+  }
+  <span class="hljs-keyword">finally</span> {
+    _reply.recycle();
+    _data.recycle();
+  }
+  <span class="hljs-keyword">return</span> _result;
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x4ECE; _reply &#x4E2D;&#x8BFB;&#x53D6;&#x4E86;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x7ED9;&#x4E86;&#x6700;&#x5916;&#x5C42;&#x7684;&#x8C03;&#x7528;&#x8005;&#x3002;&#x81F3;&#x6B64;&#xFF0C;&#x4E00;&#x6B21;&#x5B8C;&#x6574;&#x7684;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x4FBF;&#x5B8C;&#x6210;&#x4E86;&#x3002;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x901A;&#x8FC7; AIDL &#x7684;&#x7F16;&#x5199;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;C&#x7AEF;&#x8FD8;&#x662F;S&#x7AEF;&#x90FD;&#x53EF;&#x4EE5;&#x50CF;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x4F7F;&#x7528;&#x9700;&#x8981;&#x64CD;&#x4F5C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;Binder &#x7684;&#x76EE;&#x7684;&#x4E5F;&#x5C31;&#x8FBE;&#x5230;&#x4E86;&#x3002;&#x672C;&#x6B21;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x4F20;&#x9012; Parcelable &#x5BF9;&#x8C61;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x4EE5;6&#x4E2A;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8BF7;&#x6C42;&#x3002;&#x522B;&#x6025;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x673A;&#x4F1A;&#x4F1A;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<h1 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h1>
+<p>&#x672C;&#x7BC7;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE;&#x8DE8;&#x8FDB;&#x7A0B;&#x7684;&#x5FC5;&#x8981;&#x6027;&#x5F00;&#x59CB;&#xFF0C;&#x5F15;&#x5165;&#x4E86; Binder &#x7684;&#x901A;&#x4FE1;&#x6A21;&#x578B;&#xFF0C;&#x89E3;&#x91CA;&#x4E86; Binder &#x5728;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x65F6;&#x7684;&#x5177;&#x4F53;&#x4F5C;&#x7528;&#xFF0C;&#x4EE5;&#x53CA;&#x5404;&#x4E2A;&#x89D2;&#x8272;&#x7684;&#x533A;&#x522B;&#x3002;&#x6700;&#x540E;&#x901A;&#x8FC7; AIDL &#x7684;&#x7F16;&#x5199;&#x4F53;&#x4F1A;&#x4E86;&#x4E00;&#x6B21;&#x5B8C;&#x6574;&#x8DE8;&#x8FDB;&#x7A0B;&#x4F53;&#x9A8C;&#x3002;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;Stub &#x5C31;&#x662F;&#x672C;&#x5730; Binder&#xFF0C;&#x800C; Proxy &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8F85;&#x52A9;&#x7C7B;&#xFF0C;&#x5C06;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x4F9D;&#x6B21;&#x5199;&#x5165; Parcel &#xFF0C;&#x6700;&#x540E;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x7ED9;&#x4E86; IBinder &#x7684; transact &#x65B9;&#x6CD5;&#x3002;&#x800C;S&#x7AEF;&#x7684; Binder &#x901A;&#x8FC7; Binder &#x9A71;&#x52A8;&#x5728; onTransact &#x6536;&#x5230;&#x76F8;&#x5E94;&#x53C2;&#x6570;&#xFF0C;&#x8BFB;&#x53D6; Parcel &#x4E2D;&#x7684;&#x771F;&#x5B9E;&#x53C2;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x5B9A;&#x4E49;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x5C06;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x901A;&#x8FC7; _reply &#x8FD4;&#x56DE;&#x4E86;&#x56DE;&#x53BB;&#xFF0C;C &#x7AEF;&#x6536;&#x5230;&#x54CD;&#x5E94;&#xFF0C;&#x83B7;&#x5F97;&#x7ED3;&#x679C;&#xFF0C;&#x8DE8;&#x8FDB;&#x7A0B;&#x5B8C;&#x6BD5;&#x3002;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x770B;&#x5230; transact &#x65B9;&#x6CD5;&#x548C; onTransact &#x624D;&#x662F; AIDL &#x7684;&#x6838;&#x5FC3;&#x3002;&#x672C;&#x7BC7;&#x5185;&#x5BB9;&#x5230;&#x6B64;&#x7ED3;&#x675F;&#x4E0B;&#x7BC7;&#x89C1;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Android 跨进程通信 Parcel .html" class="navigation navigation-prev " aria-label="Previous page: Parcel">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Android 跨进程通信 启动 App .html" class="navigation navigation-next " aria-label="Next page: 启动 App">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"date":"2018-11-15T08:09:24.000Z","tags":["底层","Android","跨进程通信"],"title":"Binder与AIDL","level":"7.1.2","depth":2,"next":{"title":"启动 App","level":"7.1.3","depth":2,"path":"binder/Android 跨进程通信 启动 App .md","ref":"binder/Android 跨进程通信 启动 App .md","articles":[]},"previous":{"title":"Parcel","level":"7.1.1","depth":2,"path":"binder/Android 跨进程通信 Parcel .md","ref":"binder/Android 跨进程通信 Parcel .md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"binder/Android 跨进程通信 Binder AIDL .md","mtime":"2020-05-25T05:51:34.308Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-25T06:03:59.345Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
