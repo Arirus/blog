@@ -1,0 +1,699 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>IntentService 与 JobIntentService · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Android 组件 Service 基础.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Android 基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Android 组件 Service 基础.html">
+            
+                <a href="Android 组件 Service 基础.html">
+            
+                    
+                    Service 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="Android 组件 IntentService 与 JobIntentService .html">
+            
+                <a href="Android 组件 IntentService 与 JobIntentService .html">
+            
+                    
+                    IntentService 与 JobIntentService
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../view/View 的一些整理 参考系与滑动.html">
+            
+                <a href="../view/View 的一些整理 参考系与滑动.html">
+            
+                    
+                    参考系与滑动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                <a href="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                    
+                    从 NestedScrolling 到 Behavior
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                    
+                    从Debug来看工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                    
+                    从Debug来看事件分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../view/View 的一些整理 绘制.html">
+            
+                <a href="../view/View 的一些整理 绘制.html">
+            
+                    
+                    绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                <a href="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                    
+                    嵌套滑动的解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../view/View 的一些整理 属性动画.html">
+            
+                <a href="../view/View 的一些整理 属性动画.html">
+            
+                    
+                    属性动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../view/View 的一些整理 ZoomImageView .html">
+            
+                <a href="../view/View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../view/View 的一些整理 ZoomImageView .html">
+            
+                <a href="../view/View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapters/2.md">
+            
+                <span>
+            
+                    
+                    2. 安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapters/3.md">
+            
+                <span>
+            
+                    
+                    3. 实现 hello world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapters/4.md">
+            
+                <span>
+            
+                    
+                    4. webpack 的配置文件 webpack.config.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapters/5.md">
+            
+                <span>
+            
+                    
+                    5. 使用第一个 webpack 插件 html-webpack-plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapters/6.md">
+            
+                <span>
+            
+                    
+                    6. 使用 loader 处理 CSS 和 Sass
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapters/7.md">
+            
+                <span>
+            
+                    
+                    7. 初识 webpack-dev-server
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >IntentService 与 JobIntentService</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;">&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;</h1>
+<p>&#x4E0A;&#x4E00;&#x7BC7;&#x4E2D;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x4E86;&#xFF0C;Service &#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#xFF0C;&#x4E24;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x3002;&#x672C;&#x7BC7;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x901A;&#x8FC7;&#x6E90;&#x7801;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5BF9; IntentService &#x548C; JobIntentService &#x8FDB;&#x884C;&#x4E0B;&#x603B;&#x7ED3;&#x3002;&#x770B;&#x770B;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x8FD9;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x7684; Service&#x3002;</p>
+<!--more-->
+<h1 id="intentservice">IntentService</h1>
+<h2 id="intentservice-&#x7279;&#x70B9;">IntentService &#x7279;&#x70B9;</h2>
+<p>&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x8BF4;&#x8FC7;&#x4EE5; startService &#x65B9;&#x5F0F;&#x6765;&#x542F;&#x52A8;&#x7684; Service &#x6709;&#x4E24;&#x4E2A;&#x7279;&#x70B9;&#xFF1A;</p>
+<pre><code>1.Service &#x672C;&#x8EAB;&#x8FD0;&#x884C;&#x5728;&#x542F;&#x52A8;&#x7EBF;&#x7A0B;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x4E3B;&#x7EBF;&#x7A0B;&#xFF1B;
+2.Service &#x5728;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#x4E0D;&#x4F1A;&#x4E3B;&#x52A8;&#x6682;&#x505C;&#xFF0C;&#x53EA;&#x6709;&#x4F7F;&#x7528; stopSelf &#x6216;&#x8005; stopService &#x624D;&#x4F1A;&#x4F7F;&#x5F97;&#x670D;&#x52A1;&#x505C;&#x6B62;&#xFF1B;
+</code></pre><p>&#x9488;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x7279;&#x70B9;&#xFF0C;&#x63D0;&#x51FA;&#x4E86; IntentService&#x3002;&#x8FD9;&#x4E2A;&#x7C7B;&#x662F; Service &#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#x3002;&#x5176;&#x539F;&#x7406;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;  HandlerThread &#x548C; Handler &#xFF0C;&#x4F7F;&#x5F97; Service &#x6574;&#x4F53;&#x5DE5;&#x4F5C;&#x5728; HandlerThread &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;,&#x540C;&#x65F6;&#x91CD;&#x5199;&#x4E86; onStartCommand &#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x5982;&#x4F55;&#x5207;&#x6362;&#x5230;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528; Handler &#x673A;&#x5236;&#xFF0C;&#x4F7F;&#x5F97;&#x4E8B;&#x4EF6;&#x4E00;&#x4E2A;&#x4E2A;&#x7684;&#x4F20;&#x9012;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x5168;&#x90E8;&#x5904;&#x7406;&#x7ED3;&#x675F;&#x5B8C;&#x6210;&#x540E;&#x5173;&#x95ED;&#x670D;&#x52A1;&#x3002;&#x8FD9;&#x79CD;<code>&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#x5904;&#x7406;</code>&#x6A21;&#x578B;&#x5F88;&#x9002;&#x5408;&#x4ECE;&#x4E3B;&#x7EBF;&#x7A0B;&#x542F;&#x52A8;&#x7684;&#x9AD8;&#x8D1F;&#x8F7D;&#x4EFB;&#x52A1;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x88AB;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6240;&#x5904;&#x7406;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x53EA;&#x80FD;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;&#x7531;&#x4E8E;&#x5176;&#x6E90;&#x7801;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5927;&#x81F4;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#xFF08;&#x53EF;&#x80FD;&#x662F;&#x6211;&#x770B;&#x8FC7;&#x6700;&#x7B80;&#x5355;&#x7684;&#x6E90;&#x7801;&#x4E86;&#xFF09;&#x3002;</p>
+<h2 id="intentservice-&#x6E90;&#x7801;">IntentService &#x6E90;&#x7801;</h2>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntentService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> Looper mServiceLooper;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> ServiceHandler mServiceHandler;
+    <span class="hljs-keyword">private</span> String mName;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> mRedelivery;
+
+    <span class="hljs-comment">//ServiceHandler &#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4EE5;&#x4E2A; Handler</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ServiceHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Handler</span> </span>{
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ServiceHandler</span><span class="hljs-params">(Looper looper)</span> </span>{
+            <span class="hljs-keyword">super</span>(looper);
+        }
+
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleMessage</span><span class="hljs-params">(Message msg)</span> </span>{
+            onHandleIntent((Intent)msg.obj);
+            stopSelf(msg.arg1);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">IntentService</span><span class="hljs-params">(String name)</span> </span>{
+        <span class="hljs-keyword">super</span>();
+        mName = name;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setIntentRedelivery</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> enabled)</span> </span>{
+        mRedelivery = enabled;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// &#x521B;&#x5EFA;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B; HandlerThread &#x5E76;&#x628A;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684; Looper &#x548C; ServiceHandler &#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x8D77;</span>
+        <span class="hljs-keyword">super</span>.onCreate();
+        HandlerThread thread = <span class="hljs-keyword">new</span> HandlerThread(<span class="hljs-string">&quot;IntentService[&quot;</span> + mName + <span class="hljs-string">&quot;]&quot;</span>);
+        thread.start();
+
+        mServiceLooper = thread.getLooper();
+        mServiceHandler = <span class="hljs-keyword">new</span> ServiceHandler(mServiceLooper);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">(@Nullable Intent intent, <span class="hljs-keyword">int</span> startId)</span> </span>{
+        <span class="hljs-comment">//&#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x65E9;&#x671F;&#x6CA1;&#x6709; onStartCommand &#x7248;&#x672C;&#x7684; Service&#xFF0C;&#x6536;&#x5230;&#x6570;&#x636E;&#x540E;&#x5C01;&#x88C5;&#x5230; Message &#x4E2D;</span>
+        <span class="hljs-comment">// &#x5E76;&#x629B;&#x5230; ServiceHandler &#x4E2D;</span>
+        Message msg = mServiceHandler.obtainMessage();
+        msg.arg1 = startId;
+        msg.obj = intent;
+        mServiceHandler.sendMessage(msg);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">onStartCommand</span><span class="hljs-params">(@Nullable Intent intent, <span class="hljs-keyword">int</span> flags, <span class="hljs-keyword">int</span> startId)</span> </span>{
+        onStart(intent, startId);
+        <span class="hljs-keyword">return</span> mRedelivery ? START_REDELIVER_INTENT : START_NOT_STICKY;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">// &#x670D;&#x52A1;&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06; Looper &#x9000;&#x51FA;&#xFF0C;&#x907F;&#x514D; Thread &#x65E0;&#x6CD5;&#x7ED3;&#x675F;&#xFF0C;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</span>
+        mServiceLooper.quit();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-meta">@Nullable</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> IBinder <span class="hljs-title">onBind</span><span class="hljs-params">(Intent intent)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+
+    <span class="hljs-comment">//&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;</span>
+    <span class="hljs-meta">@WorkerThread</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onHandleIntent</span><span class="hljs-params">(@Nullable Intent intent)</span></span>;
+}
+</code></pre>
+<p>&#x5C06;&#x6CE8;&#x91CA;&#x5220;&#x9664;&#x540E;&#xFF0C;&#x6E90;&#x7801;&#x53EA;&#x6709;&#x8FD9;&#x4E48;&#x591A;&#xFF0C;&#x5728; onCreate &#x65B9;&#x6CD5;&#x65F6;&#xFF0C;Handler &#x88AB;&#x521B;&#x5EFA;&#x8D77;&#x6765;&#xFF0C;&#x540C;&#x65F6;&#x548C; HandlerThread &#x7684; Looper &#x7ED1;&#x5B9A;&#x4E86;&#x4E00;&#x8D77;&#xFF0C;&#x5C31;&#x662F;&#x8BF4; Handler &#x4F1A;&#x4E00;&#x76F4;&#x5904;&#x7406; Looper &#x5FAA;&#x73AF;&#x91CC;&#x7684;&#x6570;&#x636E;&#x3002;&#x6BCF;&#x6B21;&#x6709;&#x65B0;&#x7684; startService &#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x603B;&#x4F1A;&#x8C03;&#x7528;&#x5230; onStart &#x65B9;&#x6CD5;&#x4E2D;&#x7684; <code>mServiceHandler.sendMessage(msg)</code> &#x8FD9;&#x6837;&#x4FBF;&#x628A;&#x4E00;&#x4E2A;&#x4FE1;&#x606F;&#x629B;&#x5230; MessageQuene &#x4E2D;&#xFF0C;&#x7B49;&#x65F6;&#x673A;&#x5408;&#x9002;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x88AB; ServiceHandler &#x7684; handleMessage &#x63A5;&#x53D7;&#x5230;&#xFF0C;&#x540C;&#x65F6;&#x629B;&#x5411; onHandleIntent &#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7531;&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#xFF0C;&#x7528;&#x6765;&#x5904;&#x7406; startService &#x7684;&#x8BF7;&#x6C42;&#x3002;&#x540C;&#x65F6;&#x5728; onHandleIntent &#x65B9;&#x6CD5;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x8C03;&#x7528; stopSelf&#xFF08;startId&#xFF09;&#x6765;&#x7ED3;&#x675F; Service&#x3002;</p>
+<p>&#x539F;&#x7406;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6765;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A; DEMO&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BackIntentService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">IntentService</span> </span>{
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BackIntentService</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">super</span>(<span class="hljs-string">&quot;BackIntentService&quot;</span>);
+  }
+
+  <span class="hljs-meta">@SuppressLint</span>(<span class="hljs-string">&quot;CheckResult&quot;</span>)
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onHandleIntent</span><span class="hljs-params">(@Nullable Intent intent)</span> </span>{
+    Observable.create((ObservableOnSubscribe&lt;Long&gt;) emitter -&gt; {
+      <span class="hljs-keyword">int</span> index = <span class="hljs-number">1</span>;
+      <span class="hljs-keyword">while</span> (index&lt;<span class="hljs-number">10</span>){
+        emitter.onNext(Long.valueOf(index));
+        Thread.sleep(<span class="hljs-number">1000</span>);
+        index++;
+      }
+    }).subscribe(aLong -&gt; {
+      Log.i(ARIRUS, <span class="hljs-string">&quot;onCreate: &quot;</span> + aLong + <span class="hljs-string">&quot; &quot;</span> + isMyServiceRunning(BackIntentService.class));
+    });
+    Log.i(ARIRUS, <span class="hljs-string">&quot;onHandleIntent: &quot;</span>);
+  }
+
+}
+
+log:
+onCreate: <span class="hljs-number">1</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">2</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">3</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">4</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">5</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">6</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">7</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">8</span> <span class="hljs-keyword">true</span>
+onCreate: <span class="hljs-number">9</span> <span class="hljs-keyword">true</span>
+onHandleIntent:
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x7531;&#x4E8E; Observable.intervalRange() &#x4F1A;&#x540E;&#x53F0;&#x53E6;&#x8D77;&#x8BA1;&#x7B97;&#x7EBF;&#x7A0B;&#x6765;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4EA7;&#x751F;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8981;&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#x4E0A;&#x6D41;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x8BA9;&#x5176;&#x4EA7;&#x751F;&#x5E76;&#x5DE5;&#x4F5C;&#x5728;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x3002;&#x6700;&#x540E;&#x5F53;10&#x4E2A;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x7ED3;&#x675F;&#x540E;&#xFF0C;onHandleIntent &#x8FD4;&#x56DE;&#xFF0C;&#x540C;&#x65F6;&#x7ED3;&#x675F;&#x4E86;&#x670D;&#x52A1;&#x3002;</p>
+<h2 id="servicelooperquit">ServiceLooper.quit</h2>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x662F;&#x6574;&#x4E2A; IntentService &#x4E2D;&#x6700;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x56E0;&#x4E3A;&#x5E73;&#x65F6;&#x6211;&#x4EEC;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#x662F;&#x4E0D;&#x5728;&#x610F;&#x8FD9;&#x79CD;&#x7EC6;&#x679D;&#x672B;&#x8282;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8C03;&#x7528;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#xFF1F;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5982;&#x679C;&#x4E0D;&#x8C03;&#x7528;&#x90A3;&#x4E48;&#xFF0C;HandlerThread &#x4F1A;&#x4E00;&#x76F4;&#x5728;&#x8FD0;&#x884C;&#xFF0C;&#x90A3;&#x4E48; HandlerThread &#x65E0;&#x6CD5;&#x9000;&#x51FA;&#xFF0C;&#x6700;&#x7EC8;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;&#x4E0A;&#x56FE;</p>
+<p><img src="service_intentservice_ml.PNG" alt="IntentService &#x5185;&#x5B58;&#x6CC4;&#x6F0F;"></p>
+<p>&#x8FD9;&#x4E2A;&#x662F;&#x6211;&#x628A; BackIntentService &#x4E2D; onDestory &#x65B9;&#x6CD5;&#x7684; super &#x65B9;&#x6CD5;&#x53BB;&#x6389;&#x540E;&#x7684;&#x5185;&#x5B58;&#x5206;&#x6790;&#x7ED3;&#x679C;&#xFF0C;&#x6B64;&#x65F6;&#x5F53; stopSelf &#x8C03;&#x7528;&#x4E4B;&#x540E;&#xFF0C;BackIntentService &#x7684;&#x5B9E;&#x4F8B;&#x4F9D;&#x7136;&#x6CA1;&#x6709;&#x88AB;&#x56DE;&#x6536;&#x3002; &#x90A3;&#x6211;&#x89C9;&#x7684;&#x6709;&#x5FC5;&#x8981;&#x597D;&#x597D;&#x770B;&#x770B; HandlerThread &#x7684;&#x903B;&#x8F91;&#x4E86;&#x3002;</p>
+<h2 id="handlerthread-&#x6E90;&#x7801;">HandlerThread &#x6E90;&#x7801;</h2>
+<pre><code class="lang-java">
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HandlerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{
+  Looper mLooper;
+  ...
+  <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+        mTid = Process.myTid();
+        Looper.prepare();
+        <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>) {
+            mLooper = Looper.myLooper();
+            notifyAll();
+        }
+        Process.setThreadPriority(mPriority);
+        onLooperPrepared();
+        Looper.loop();
+        mTid = -<span class="hljs-number">1</span>;
+    }
+    ...
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">quit</span><span class="hljs-params">()</span> </span>{
+        Looper looper = getLooper();
+        <span class="hljs-keyword">if</span> (looper != <span class="hljs-keyword">null</span>) {
+            looper.quit();
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+    ...
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;Thread &#x9700;&#x8981;&#x5B9E;&#x73B0; run &#x65B9;&#x6CD5;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x5176;&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x9996;&#x5148;&#x662F; Looper.prepare() &#x6765;&#x51C6;&#x5907; looper&#xFF0C;&#x63A5;&#x7740;&#x52A0;&#x9501;&#x6765;&#x83B7;&#x53D6; looper&#xFF0C;&#x6700;&#x540E;&#x5C31;&#x662F;&#x8FDB;&#x884C; Looper.loop() &#x7684;&#x5FAA;&#x73AF;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x770B;&#x4E0B; loop() &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">final</span> Looper me = myLooper();
+    ...
+    <span class="hljs-keyword">final</span> MessageQueue queue = me.mQueue;
+    ...
+    <span class="hljs-keyword">for</span> (;;) {
+        Message msg = queue.next(); <span class="hljs-comment">// might block</span>
+        <span class="hljs-keyword">if</span> (msg == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-comment">// No message indicates that the message queue is quitting.</span>
+            <span class="hljs-keyword">return</span>;
+        }
+        msg.target.dispatchMessage(msg);
+    }
+    ...
+}
+</code></pre>
+<p>loop &#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x5F88;&#x660E;&#x663E;&#x4E86;&#xFF0C;&#x5FAA;&#x73AF;&#x7684;&#x4ECE; Looper &#x4E2D;&#x53D6;&#x51FA;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x53D1;&#x9001;&#x5230;&#x76F8;&#x5E94;&#x7684; TargetHandler &#x4E2D;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;&#x961F;&#x5217;&#x4E2D;&#x6CA1;&#x6709;&#x4E86; message &#x76F4;&#x63A5;&#x9000;&#x51FA;&#x5C31;&#x597D;&#x4E86;&#x3002;&#x90A3;&#x4E48;&#x9000;&#x5230;&#x4E86; HandlerThread &#x7684; run &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6700;&#x540E; Thread &#x7ED3;&#x675F;&#x8FD0;&#x884C;&#x3002;&#x4E00;&#x4E2A; HandlerThread &#x4FBF;&#x7ED3;&#x675F;&#x4E86;&#x8FD0;&#x884C;&#x3002;&#x518D;&#x56DE;&#x5230;&#x6700;&#x5F00;&#x59CB; mServiceLooper.quit() &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quit</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> safe)</span> </span>{
+...
+    <span class="hljs-keyword">if</span> (safe) {
+        removeAllFutureMessagesLocked();
+    } <span class="hljs-keyword">else</span> {
+        removeAllMessagesLocked();
+    }
+...
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeAllMessagesLocked</span><span class="hljs-params">()</span> </span>{
+    Message p = mMessages;
+    <span class="hljs-keyword">while</span> (p != <span class="hljs-keyword">null</span>) {
+        Message n = p.next;
+        p.recycleUnchecked();
+        p = n;
+    }
+    mMessages = <span class="hljs-keyword">null</span>;
+}
+</code></pre>
+<p>&#x5F88;&#x6E05;&#x6670;&#xFF0C;&#x5C31;&#x662F;&#x628A; MessageQueue &#x7684;&#x6240;&#x6709; message &#x5168;&#x90FD;&#x56DE;&#x6536;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x4E0D;&#x518D;&#x542B;&#x6709;&#x4EFB;&#x4F55; msg &#xFF0C;&#x90A3;&#x4E48;&#x5728; Looper.loop() &#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x76F4;&#x63A5; return&#xFF0C;HandlerThread &#x7ED3;&#x675F;&#x4E86; run&#xFF0C;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x56DE;&#x6536;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x5728;&#x91CD;&#x5199; onDestory &#x65B9;&#x6CD5;&#x4E2D;&#x5982;&#x679C;&#x6CA1;&#x5F97;&#x8C03;&#x7528; super &#x65B9;&#x6CD5;&#xFF0C;HandlerThread &#x4F1A;&#x4E00;&#x76F4;&#x6301;&#x6709;&#x5916;&#x90E8;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#x8FD9;&#x91CC;&#x5C31;&#x662F; BackIntentService &#xFF0C;&#x6700;&#x7EC8;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
+<h2 id="&#x7ED3;&#x8BBA;">&#x7ED3;&#x8BBA;</h2>
+<p>IntentService &#x662F;&#x4EE5;&#x4E2A;&#x5728;&#x5904;&#x7406;&#x540E;&#x53F0;&#x4EFB;&#x52A1;&#x4E0A;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4F7F;&#x7528;&#x4ED6;&#x6211;&#x4EEC;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x7EBF;&#x7A0B;&#x7684;&#x5207;&#x6362;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728; onHandleIntent &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x505A;&#x8017;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#xFF1B;&#x540C;&#x6837;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x505C;&#x6B62; Service &#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5F53;&#x6CA1;&#x6709; msg &#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x7ED3;&#x675F; Service &#x670D;&#x52A1;&#x3002;&#x5F53;&#x7136;&#x4E5F;&#x6709;&#x7F3A;&#x9677;&#xFF1A;&#x4EFB;&#x52A1;&#x662F;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x80FD;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF1B;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x5728;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x662F;&#x65E0;&#x6CD5;&#x88AB;&#x6253;&#x65AD;&#x7684;&#x3002;</p>
+<h1 id="jobintentservice">JobIntentService</h1>
+<p>&#x8FD9;&#x91CC;&#x8FD8;&#x6CA1;&#x60F3;&#x597D;&#x600E;&#x4E48;&#x5199;&#xFF0C;&#x5360;&#x4E2A;&#x5751;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Android 组件 Service 基础.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Service 基础">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"date":"2017-10-18T08:23:27.000Z","tags":["基础","Android","Service","IntentService","源码"],"title":"IntentService 与 JobIntentService","level":"1.2.2","depth":2,"next":{"title":"View 的一些整理","level":"1.3","depth":1,"ref":"","articles":[{"title":"参考系与滑动","level":"1.3.1","depth":2,"path":"view/View 的一些整理 参考系与滑动.md","ref":"view/View 的一些整理 参考系与滑动.md","articles":[]},{"title":"从 NestedScrolling 到 Behavior","level":"1.3.2","depth":2,"path":"view/View 的一些整理 从 NestedScrolling 到 Behavior .md","ref":"view/View 的一些整理 从 NestedScrolling 到 Behavior .md","articles":[]},{"title":"从Debug来看工作流程","level":"1.3.3","depth":2,"path":"view/View 的一些整理 从Debug来看工作流程.md","ref":"view/View 的一些整理 从Debug来看工作流程.md","articles":[]},{"title":"从Debug来看事件分发","level":"1.3.4","depth":2,"path":"view/View 的一些整理 从Debug来看事件分发.md","ref":"view/View 的一些整理 从Debug来看事件分发.md","articles":[]},{"title":"绘制","level":"1.3.5","depth":2,"path":"view/View 的一些整理 绘制.md","ref":"view/View 的一些整理 绘制.md","articles":[]},{"title":"嵌套滑动的解决方案","level":"1.3.6","depth":2,"path":"view/View 的一些整理 嵌套滑动的解决方案.md","ref":"view/View 的一些整理 嵌套滑动的解决方案.md","articles":[]},{"title":"属性动画","level":"1.3.7","depth":2,"path":"view/View 的一些整理 属性动画.md","ref":"view/View 的一些整理 属性动画.md","articles":[]},{"title":"ZoomImageView","level":"1.3.8","depth":2,"path":"view/View 的一些整理 ZoomImageView .md","ref":"view/View 的一些整理 ZoomImageView .md","articles":[]}]},"previous":{"title":"Service 基础","level":"1.2.1","depth":2,"path":"basic/Android 组件 Service 基础.md","ref":"basic/Android 组件 Service 基础.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basic/Android 组件 IntentService 与 JobIntentService .md","mtime":"2020-05-25T01:42:48.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-25T01:44:25.886Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
