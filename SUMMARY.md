@@ -1,4 +1,9 @@
 # Summary
+
+* [JVM读书笔记](jvm/JVM读书笔记 总览.md)
+    * [自动内存管理](jvm/JVM读书笔记 自动内存管理.md)
+    * [垃圾收集器与内存分配策略](jvm/JVM读书笔记 垃圾收集器与内存分配策略.md)
+
 * Android 基础
     * [Service 基础](basic/Android 组件 Service 基础.md)
     * [IntentService 与 JobIntentService](basic/Android 组件 IntentService 与 JobIntentService .md)
