@@ -55,6 +55,25 @@ Class文件、字段表、方法表都可以携带自己的属性表集合，以
 
 #### Code
 
+Java程序方法体里面的代码经过Javac编译器处理之后，最终变为字节码指令存储在Code属性内。譬如接口或者抽象类中的方法就不存在Code属性，如果方法表有Code属性存在。
+
+#### Exceptions
+
+Exceptions属性的作用是列举出方法中可能抛出的受查异常（Checked Excepitons），也就是方法描述时在throws关键字后面列举的异常。
+
+#### LineNumberTable
+
+LineNumberTable属性用于描述Java源码行号与字节码行号（字节码的偏移量）之间的对应关系。
+
+
+#### LocalVariableTable
+
+LocalVariableTable：如果没有生成这项属性，最大的影响就是当其他人引用这个方法时，所有的参数名称都将会丢失，譬如IDE将会使用诸如arg0、arg1之类的占位符代替原有的参数名。
+
+#### ConstantValue
+
+通知虚拟机自动为静态变量赋值。
+
 
 
 
