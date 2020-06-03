@@ -3,12 +3,14 @@
 
 原先个人网站 [Arirus's Notes](https://arirus.cn) 由于某些不可说的原因暂时不提供服务，因此暂时迁出。
 
-* [JVM读书笔记](jvm/JVM读书笔记 总览.md)
-    * [自动内存管理](jvm/JVM读书笔记 自动内存管理.md)
-    * [垃圾收集器与内存分配策略](jvm/JVM读书笔记 垃圾收集器与内存分配策略.md)
-    * [类文件结构](jvm/JVM读书笔记 类文件结构.md)
-    * [虚拟机类加载机制](jvm/JVM读书笔记 虚拟机类加载机制.md)
-    * [Java内存模型与线程](jvm/JVM读书笔记 Java内存模型与线程.md)
+
+
+* [JVM读书笔记](jvm/JVM读书笔记 总览.html)
+    * [自动内存管理](jvm/JVM读书笔记 自动内存管理.html)
+    * [垃圾收集器和内存分配策略](jvm/JVM读书笔记 垃圾收集器和内存分配策略.html)
+    * [类文件结构](jvm/JVM读书笔记 类文件结构.html)
+    * [虚拟机类加载机制](jvm/JVM读书笔记 虚拟机类加载机制.html)
+    * [Java内存模型与线程](jvm/JVM读书笔记 Java内存模型与线程.html)
 
 
 * Android 基础
