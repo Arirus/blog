@@ -54,5 +54,41 @@ include ':app'
 project(':app').projectDir = new File('./app')
 ```
 
+### rootproject/build.gradle
+
+整体项目的配置，这个是整个gradle项目编译最开始的地方。
+
+其中几个主要方法有：
+
+- buildscript // 配置脚本的 classpath
+- allprojects // 配置项目及其子项目
+- respositories // 配置仓库地址，后面的依赖都会去这里配置的地址查找
+- dependencies // 配置项目的依赖
+
+最常见的写法：
+```
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+```
+
 
 
