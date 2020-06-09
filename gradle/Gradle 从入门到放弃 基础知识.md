@@ -122,6 +122,33 @@ init.gradle 文件放在 `USER_HOME/.gradle/`目录下，这样初始化的时�
 
 ## 自定义 task
 
+自定义task属于较为常用的功能之一，常用写法：
+```
+task myTask {
+    println 'myTask in configuration'
+    doLast {
+        println 'myTask in run'
+    }
+}
+
+tasks.create("mytask").doLast {
+}
+```
+
+Task 的一些重要方法分类如下：
+
+- Task 行为
+    - Task.doFirst
+    - Task.doLast
+
+- Task 依赖顺序
+    - Task.dependsOn
+    - Task.mustRunAfter
+    - Task.shouldRunAfter
+    - Task.finalizedBy
+
+- Task 是否可用
+    - Task.enabled
 
 
-
+Gradle 的基础知识差不多就是这样，在不自定义 Gradle-plugin 的前提下，目前的内容算是 Gradle 的基础知识了。
