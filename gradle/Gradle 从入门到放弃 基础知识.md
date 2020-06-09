@@ -56,7 +56,7 @@ project(':app').projectDir = new File('./app')
 
 ### rootproject/build.gradle
 
-整体项目的配置，这个是整个gradle项目编译最开始的地方。
+整体项目的配置，这个是整个gradle项目编译最开始的地方。最终编译成一个 Project 对象。
 
 其中几个主要方法有：
 
@@ -89,6 +89,39 @@ allprojects {
     }
 }
 ```
+### module/build.gradle
+
+build.gradle 是子项目的配置，对应的也是 Project 类。
+子项目和根项目的配置是差不多的，不过在子项目里可以看到有一个明显的区别，就是引用了一个插件 apply plugin "com.android.application"，后面的 android dsl 就是 application 插件的 extension。
+
+### 依赖
+
+#### implementation
+依赖项在编译时对模块可用，并且仅在运行时对模块的消费者可用。 通常用于业务层模块。
+
+#### api
+依赖项在编译时对模块可用，并且在编译时和运行时还对模块的消费者可用。 通常用在底层SDK。
+
+## init.gradle
+在 gradle 里，有一种 init.gradle 比较特殊，这种脚本会在每个项目 build 之前先被调用，可以在其中做一些整体的初始化操作，比如配置 log 输出等等。
+
+init.gradle 文件放在 `USER_HOME/.gradle/`目录下，这样初始化的时候会首先初始化到这里。
+
+## 生命周期
+
+### 初始化阶段
+初始化阶段主要做的事情是有哪些项目需要被构建，然后为对应的项目创建 Project 对象
+到此阶段，settings 读取完成，知道有多少子项目参与构建。
+
+### 配置阶段
+配置阶段主要做的事情是对上一步创建的项目进行配置，这时候会执行 build.gradle 脚本，并且会生成要执行的 task。
+到此阶段，会生产task的有向无环图。
+
+执行阶段
+执行阶段主要做的事情就是执行 task，进行主要的构建工作。
+
+## 自定义 task
+
 
 
 
