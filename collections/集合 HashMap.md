@@ -337,41 +337,5 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 
 一定要重写 hashCode 和 equals 方法。
 
-## ConcurrentHashMap
 
-整体思路是类似 HashMap 的，不过使用 CAS 和 synchronized 联合来保证线程安全。
-
-CAS 操作：
-```
-static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
-    return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
-}
-
-static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
-                                    Node<K,V> c, Node<K,V> v) {
-    return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
-}
-
-static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
-    U.putObjectVolatile(tab, ((long)i << ASHIFT) + ABASE, v);
-}
-```
-
-不像 HashTable 对整个方法进行拿锁，以put方法为例：
-当且仅当在往bucket中添加非第一个数据的时候，才会使用 synchronized 来进行拿锁。
-
-其余情况使用 CAS 操作来保证线程安全的。
-
-
-## HashTable
-
-整体思路类似 HashMap 1.7 版本。与1.8 版本 HashMap 的区别：
-- 没有使用红黑树进行数据处理
-- 线程安全，不过是使用 synchronized 来修饰方法调用来保证
-- 没有使用 二次 hash 来保证，高位也会参与到运算当中
-- 没有使用 & 的操作来获取 index，而还是 % 取余的方式
-- 扩容的时候
-    - 初始容量变成11，而不再是2的n此幂
-    - 扩容的时候，容量翻倍+1
-- 插入数据的时候，使用头插法，而非尾插法。
 
