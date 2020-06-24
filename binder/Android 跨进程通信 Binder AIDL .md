@@ -20,7 +20,7 @@ Android 使用的 Linux 内核拥有着非常多的跨进程通信机制，比�
 # Binder 
 Binder 的通信模型是传统的 Client - Server 模型，即一端向另一端进行请求，另一端进行回复。当然在这整个过程中，两个角色不是绝对的不变的。其原理大致如下：
 
-![Binder 通信模型](/img/binder.png)
+![Binder 通信模型](binder.png)
 
 有关 Binder 的通信模型网上有一个打电话的举例则是非常形象的，这里就不赘述了。因此 Binder 跨进程原理可以大致描述为以下的步骤：
 
@@ -178,7 +178,7 @@ public static CustomAidl asInterface(IBinder obj) {
 ```
 通过 Debug 信息来看，obj 就是 Binder 。
 
-![local_service_obj](/img/local_service_obj.png)
+![local_service_obj](local_service_obj.png)
 
  其实就是 CustomAidl.Stub，因为 CustomAidl.Stub 实现了 CustomAidl。因此会直接返回，我们在 BackRemoteService 中实现了 CustomAidl.Stub 的实例。所以我们可以看到对于本地服务，AIDL 会直接返回，我们实现的 CustomAidl.Stub 实例。
 
@@ -194,7 +194,7 @@ public static cn.arirus.versioncomp.ipc.CustomAidl asInterface(android.os.IBinde
 ```
 这次参数 obj 不再是一个 Binder 对象，而是一个 BinderProxy 对象。
 
-![remote_service_obj](/img/remote_service_obj.png) 
+![remote_service_obj](remote_service_obj.png) 
 
 我们知道这个 BinderProxy 对象并没有继承 CustomAidl 接口，自然判断无法通过，因此会返回一个 CustomAidl.Stub.Proxy 对象，并将 BinderProxy 传递过去。所以我们大致知道了，这个 CustomAidl.Stub.Proxy 类应该就是来处理 BinderProxy 对象的。接下来，我们来研究下这个 CustomAidl.Stub.Proxy 都做了什么事儿（以下都简写为 Proxy）。
 
@@ -307,4 +307,7 @@ Client 端方法调用完成，那么就该 Server 端接受调用了。首先�
 
 # 小结
 
-本篇中，我们从跨进程的必要性开始，引入了 Binder 的通信模型，解释了 Binder 在跨进程通信时的具体作用，以及各个角色的区别。最后通过 AIDL 的编写体会了一次完整跨进程体验。其实可以看到，Stub 就是本地 Binder，而 Proxy 就是一个辅助类，将请求参数依次写入 Parcel ，最后通过调用的形式传给了 IBinder 的 transact 方法。而S端的 Binder 通过 Binder 驱动在 onTransact 收到相应参数，读取 Parcel 中的真实参数，调用定义的方法，并将结果返回通过 _reply 返回了回去，C 端收到响应，获得结果，跨进程完毕。所以可以看到 transact 方法和 onTransact 才是 AIDL 的核心。本篇内容到此结束下篇见。
+本篇中，我们从跨进程的必要性开始，引入了 Binder 的通信模型，解释了 Binder 在跨进程通信时的具体作用，以及各个角色的区别。最后通过 AIDL 的编写体会了一次完整跨进程体验。其实可以看到，Stub 就是本地 Binder，而 Proxy 就是一个辅助类，将请求参数依次写入 Parcel ，最后通过调用的形式传给了 IBinder 的 transact 方法。而S端的 Binder 通过 Binder 驱动在 onTransact 收到相应参数，读取 Parcel 中的真实参数，调用定义的方法，并将结果返回通过 _reply 返回了回去，C 端收到响应，获得结果，跨进程完毕。所以可以看到 transact 方法和 onTransact 才是 AIDL 的核心。
+最后给出本地服务和远程服务，流程图
+![](本地服务.png)
+![](远程服务.png)
