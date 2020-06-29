@@ -9,7 +9,7 @@ title : "Android 跨进程通信 绑定 Service "
 
 上一篇中，我们分析了从 Launcher 启动一个 App 整体的流程。本篇我们就仿照上篇一篇的分析方法来分析 Service 绑定是怎样的一个过程。本篇采用的源码版本是 API 27。
 
-![跨进程绑定服务](/img/BindService.png)
+![跨进程绑定服务](BindService.png)
 
 <!--more-->
 

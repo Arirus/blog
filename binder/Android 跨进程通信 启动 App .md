@@ -7,7 +7,7 @@ title : "Android 跨进程通信 启动 App "
 # 写在最前面
 上一篇中，我们介绍 Binder 的原理，并简要说明了在应用层 Binder 的主要使用途径 AIDL 的主要写法。本篇中，就结合上一篇的理论，我们来看看如果在 Launcher 中启动一个 App 会是怎样一个流程，会进行几次跨进程的交互。下面直接给出整体的流程图，先有个概念。注意：本文是在 API 25 的源码基础上进行分析的。
 
-![启动 App.png](/img/StartActivity.png)
+![启动 App.png](StartActivity.png)
 
 <!--more-->
 

@@ -47,6 +47,7 @@ Binder 在 Java 层的分类特别细，包括接口和类有好几个，这里�
 
 - IBinder 是一个接口，它代表了一种跨进程传输的能力；只要实现了这个接口，就能将这个对象进行跨进程传递；这是驱动底层支持的；在跨进程数据流经驱动的时候，驱动会识别 IBinder 类型的数据，从而自动完成不同进程 Binder 本地对象以及 Binder 代理对象的转换。这也是为什么`远程服务`在绑定的时候和 onServiceConnected 连接建立时，返回的是一个 IBinder 这么一个抽象接口，而非 Binder。
 - IInterface 其实在上面的角色区分中不属于任何一个角色，其是一个本地 Binder 与远程 Binder 调用契约，两个 Binder 完全遵循这个契约（方法对应实现），AS 根据 IInterface 来生成相应的中间对象。
+  只有一个接口函数：检索与此接口关联的Binder对象。必须使用此对象而不是普通的强制转换，以便代理对象可以返回正确的结果。主要是通过这个函数将本地本地binder与远程binder进行内容转换给。
 - Binder 其实就是 Binder 本地对象。就是在`远程服务`绑定时，Service 返回的 IBinder。AIDL 中其实就是 Stub 对象。
 - BinderProxy Binder 的远程对象。就是在`远程服务`绑定时，onServiceConnected 接受的 IBinder。
 
