@@ -1,13 +1,15 @@
 ---
 date : 2018-12-22T14:03:00+08:00
 tags : ["Butterknife", "APT", "注解"]
-title : "从Butterknife看APT 注解"
+title : "从Butterknife看APT 注解与反射"
 
 ---
 
 # 写在最前面
 
 如果说要评选 Android 对于新人最友好的第三方库，我觉得 Butterknife 如果称第二的话，没人敢称第一。其友好在于两点：第一是，面向的功能简单，初衷就是为了替代 `findViewByid` 方法，使得更关于逻辑上的开发；第二是，使用简单，一个注解就将 View 与资源文件元素绑定了起来。我们知道，这种越接近“底层”的方法，就越难模拟，所以 Butterknife 的技术使用可以一点不简单，那么这个系列我们就来看看，对于 Butterknife 它的技术栈都用了哪些技术。
+
+虽然现在大部分原生开发已经转换到 Kotlin 上了，但是对 ButterKnife 的学习依然是有意义的。
 
 <!--more-->
 
@@ -117,7 +119,66 @@ public void onPlatform(@Platform int platform){
 ```
 这样表现的 platform 的含义会非常清楚。
 
+
+# 反射
+之前我们学习过 Java 虚拟机的相关内容，其中重要的一点，就是类在运行之前会加载到虚拟中，无论是 String Java语言自带的类，还是自己定义的类。
+
+只有加载之后，虚拟机才获取这类的相关信息，类型判断也就是这个时间之后才会确定的。
+
+我们可以利用这个特性，来动态的获取某些平时无法直接修改熟悉等。
+
+简单的来说，反射提供了一个思路，就是从类方面下手，来获取或者执行相应的操作，而不是从对象下手。可以在运行时获得程序或程序集中每一个类型的成员和成员的信息。
+
+**反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性**
+
+## 基本使用
+
+### 获取 Class 对象
+Class 对象，差不多是反射机制的入口了，常用三种方法来获取一个 Class 对象：
+```java
+public static Class<?> forName(String className) //通过名字来获取 Class，主要类名要包含完整路径。
+Class<?> clazz = Activity.class; // 直接调用 .class 方法来获取 Class
+Class<?> clazz = str.getClass(); // 调用实例的 getClass 方法
+```
+三种方法都能获得一个 Class 对象。
+
+### 获取 实例 对象
+```java
+Class<?> c = String.class;
+Object str = c.newInstance();  // 使用Class对象的newInstance()方法来创建Class对象对应类的实例
+
+//获取String所对应的Class对象
+Class<?> c = String.class;
+//获取String类带一个String参数的构造器
+Constructor constructor = c.getConstructor(String.class);
+//根据构造器创建实例
+Object obj = constructor.newInstance("23333");
+System.out.println(obj);
+```
+
+### 获取 Field 对象
+Field 对象，获取一个类中的成员变量 
+```java
+mClass.getFields(); //包括本类声明的和从父类继承的
+mClass.getDeclaredFields(); // 获取所有本类声明的变量（不问访问权限）
+```
+
+### 获取 Method 对象
+Method 对象，获取一个类中的方法
+```java
+mClass.getMethods();    //包括自己声明和从父类继承的
+mClass.getDeclaredMethods();//获取所有本类的的方法（不问访问权限）
+
+method.getReturnType(); //返回类型
+method.getParameters(); //获取并输出方法的所有参数
+```
+
+## 对私有方法/属性进行调用/修改
+
+核心思路就是调用 `setAccessible(true)`，来使其获取权限，进而可以写操作 private 类型对象和方法。
+
+
 # 小结
-本篇主要就是从定义注解入手，分析了注解，元注解等基本概念，最后给出了一种在 Android 中，常使用注解的一种方式，下篇见。
+本篇主要就是从定义注解入手，分析了注解，元注解等基本概念，最后给出了一种在 Android 中，常使用注解的一种方式，至于如何在编译/运行时处理注解，我们放到后面再说，下篇见。
 
 

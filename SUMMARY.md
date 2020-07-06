@@ -7,6 +7,14 @@
     * [虚拟机类加载机制](jvm/JVM读书笔记 虚拟机类加载机制.md)
     * [Java内存模型与线程](jvm/JVM读书笔记 Java内存模型与线程.md)
 
+
+
+* [集合](collections/集合 总览.md)
+    * [ArrayList](collections/集合 ArrayList.md)
+    * [HashMap](collections/集合 HashMap.md)
+    * [从HashMap说开来](collections/集合 从HashMap说开来.md)
+
+
 * Android 基础
     * [Service 基础](basic/Android 组件 Service 基础.md)
     * [IntentService 与 JobIntentService](basic/Android 组件 IntentService 与 JobIntentService .md)
@@ -23,9 +31,9 @@
     * [ZoomImageView](view/View 的一些整理 ZoomImageView .md)
 
 
-* 网络基础
-    * [TCP/IP HTTP](network/网络基础 TCP IP HTTP.md)
-    * [HTTPS Socket WebSocket](network/网络基础 HTTPS Socket WebSocket.md)
+* [网络基础](network/网络基础 总览.md)
+    * [HTTP 与 HTTPS](network/网络基础 HTTP 与 HTTPS.md)
+    * [TCP](network/网络基础 TCP.md)
 
 * Retrofit源码分析
     * [流程篇](retrofit/Retrofit源码分析系列 流程篇.md)
