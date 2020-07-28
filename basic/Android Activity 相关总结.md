@@ -1,0 +1,59 @@
+# Application，Task和Process的区别与联系
+
+## Application
+
+在android中，总体来说一个应用就是一组组件的集合。
+
+## Task
+task是在程序运行时，只针对activity的概念。说白了，task是一组相互关联的activity的集合，它是存在于framework层的一个概念，控制界面的跳转和返回。
+
+task是可以跨应用的，这正是task存在的一个重要原因。有的Activity，虽然不在同一个app中，但为了保持用户操作的连贯性，把他们放在同一个任务中。
+
+任务（Task）不仅可以跨应用（Application），还可以跨进程（Process）
+
+## Process
+
+在默认情况下，一个应用程序的所有组件运行在同一个进程中。但是这种情况也有例外，即，应用程序中的不同组件可以运行在不同的进程中。只需要在manifest中用process属性指定组件所运行的进程的名字。
+
+# 四种启动模式
+
+## standard
+
+标准启动模式，也是activity的默认启动模式。在这种模式下启动的activity可以被多次实例化，即在同一个任务中可以存在多个activity的实例，每个实例都会处理一个Intent对象。如果Activity A的启动模式为standard，并且A已经启动，在A中再次启动Activity A，即调用startActivity（new Intent（this，A.class）），会在A的上面再次启动一个A的实例，即当前的桟中的状态为A-->A。
+
+## singleTop
+
+如果一个以singleTop模式启动的activity的实例已经存在于任务桟的桟顶，那么再启动这个Activity时，不会创建新的实例，而是重用位于栈顶的那个实例，并且会调用该实例的onNewIntent()方法将Intent对象传递到这个实例中。
+
+如果以singleTop模式启动的activity的一个实例已经存在与任务桟中，但是不在桟顶，那么它的行为和standard模式相同，也会创建多个实例。
+
+
+## singleTask
+
+如果一个activity的启动模式为singleTask，那么系统总会在一个新任务的最底部（root）启动这个activity，并且被这个activity启动的其他activity会和该activity同时存在于这个新任务中。如果系统中已经存在这样的一个activity则会重用这个实例，并且调用他的onNewIntent()方法。
+
+- 设置了"singleTask"启动模式的Activity，它在启动的时候，会先在系统中查找属性值affinity等于它的属性值taskAffinity的任务存在；如果存在这样的任务，它就会在这个任务中启动，否则就会在新任务中启动。因此，如果我们想要设置了"singleTask"启动模式的Activity在新的任务中启动，就要为它设置一个独立的taskAffinity属性值。
+
+- 如果设置了"singleTask"启动模式的Activity不是在新的任务中启动时，它会在已有的任务中查看是否已经存在相应的Activity实例，如果存在，就会把位于这个Activity实例上面的Activity全部结束掉，即最终这个Activity实例会位于任务的堆栈顶端中。
+
+
+
+## singleInstance
+
+总是在新的任务中开启，并且这个新的任务中有且只有这一个实例，也就是说被该实例启动的其他activity会自动运行于另一个任务中。当再次启动该activity的实例时，会重用已存在的任务和实例。并且会调用这个实例的onNewIntent()方法，将Intent实例传递到该实例中。
+
+以singleInstance模式启动的Activity在整个系统中是单例的，如果在启动这样的Activiyt时，已经存在了一个实例，那么会把它所在的任务调度到前台，重用这个实例
+
+
+# TaskAffinity
+在启动模式为Standard下，单独使用TaskAffinity属性是无效的。
+
+当TaskAffinity和SingleTask启动模式配对使用时，它是具有该模式的Activity的目前任务栈的名字，待启动的Activity会运行在名字和TaskAffinity相同的任务栈中。
+
+# allowTaskReparenting
+
+allowTaskReparenting属性和TaskAffinity配合使用时，Activity可以从一个任务栈迁移到另一个任务栈。
+
+当一个应用A启动了应用B的某个Activity后，如果这个Activity的allowTaskReparenting属性设置为true，那么当应用B被启动，此Activity会直接从应用A的任务栈转移到应用B的任务栈中。
+具体点来说，现在有两个应用A和B，A启动了B的一个Activity C，然后按Home键回到桌面，然后再单击B的桌面图标，这个时候不是启动了B的主Activity，而是重新显示了已经被应用A启动的Activity C。我们也可以理解为，C从A的任务栈转移到了B的任务栈中。
+可以这么理解，由于A启动了C，这个时候C只能运行在A的任务栈中，但是C属于B应用，正常情况下，它的TaskAffinity值肯定不可能和A的任务栈相同，所以当B启动后，B会创建自己的任务栈，这个时候系统发现C原本想要的任务栈已经创建了，所以就把C从A的任务栈中转移过来了。
