@@ -40,8 +40,8 @@ log:
 ![Handler](/img/Handler.png)
 
 - Handler Looper MessageQueue 是实现 Handler 机制的基石
-- Handler 用于发送/接收一个 Message 
-- Looper 处于无限循环状态，来将 Message 送入到 MessageQueue 末尾，或者从 MessageQueue 中取出 Message
+- Handler 用于发送一个 Message 到 MessageQuene 中或者接收一个 Message 
+- Looper 处于无限循环状态，从 MessageQueue 中取出 Message
 - MessageQueue 负责自己内部的 Message 的有序排列
 
 这个模型很好理解，就像日本的旋转寿司，这里我们就不多做说明了。
@@ -61,11 +61,17 @@ public Handler(Callback callback, boolean async) {
     mAsynchronous = async;
 }
 ```
-其构造函数中，总是会先尝试获取一个 Looper，当 Looper 为null时，就会抛出异常，但是我们上面的代码并没有抛出异常，原因是我们的 Handler 是主线程中的 Handler，而主线程的 Looper 是早早的就已经初始化好了，因此不会抛出异常，同时消息队列 MessageQueue 也是与 Looper 相绑定的，此时也与 Handler 相绑定，因此可以这么说，**一个线程中，有且只有 Looper，每个 Looper 上只有一个 MessageQueue 与其绑定**。
+其构造函数中，总是会先尝试获取一个 Looper，当 Looper 为null时，就会抛出异常，但是我们上面的代码并没有抛出异常，原因是我们的 Handler 是主线程中的 Handler，而主线程的 Looper 是早早的就已经初始化好了，因此不会抛出异常。
+
+而这一切都是由 ThreadLocal 里面获取的。主线程的Looper是在 ActivityThread 的 main 函数中创建的，同时也是这时候把 Looper 存储到 ThreadLocal 里面的。 
+
+同时消息队列 MessageQueue 也是与 Looper 相绑定的，此时也与 Handler 相绑定，因此可以这么说，**一个线程中，有且只有 Looper，每个 Looper 上只有一个 MessageQueue 与其绑定**。
 
 ## 发送消息
 Handler 发送消息也很简单，Handler 支持发送 Message，也支持发送一个 Runnable，其实后者最后也是被封装成一个 Message 来进行发送的：
 ```java
+//Handler
+
 public final boolean sendMessage(Message msg)
 {
     return sendMessageDelayed(msg, 0);
@@ -91,6 +97,67 @@ private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMilli
 }
 ```
 所以最终，就是 Handler 将 Message 发送到 MessageQueue 上，完成了消息的发送。
+
+### enqueueMessage
+好的 我们来看看，在消息队列上，message 是如何入队的：
+```java
+boolean enqueueMessage(Message msg, long when) {
+    // 一个 msg 的targt是必须要有的
+    // 通过 Handler.enqueueMessage 方法我们可以知道
+    // 每个 msg 在发射的时候都会 设置一个 Handler 作为其 target
+    if (msg.target == null) {
+        throw new IllegalArgumentException("Message must have a target.");
+    }
+    if (msg.isInUse()) {
+        throw new IllegalStateException(msg + " This message is already in use.");
+    }
+
+    synchronized (this) {
+        if (mQuitting) {
+            IllegalStateException e = new IllegalStateException(
+                    msg.target + " sending message to a Handler on a dead thread");
+            Log.w(TAG, e.getMessage(), e);
+            msg.recycle();
+            return false;
+        }
+
+        msg.markInUse();
+        msg.when = when;
+        Message p = mMessages;
+        boolean needWake;
+        if (p == null || when == 0 || when < p.when) {
+            // New head, wake up the event queue if blocked.
+            msg.next = p;
+            mMessages = msg;
+            needWake = mBlocked;
+        } else {
+            // Inserted within the middle of the queue.  Usually we don't have to wake
+            // up the event queue unless there is a barrier at the head of the queue
+            // and the message is the earliest asynchronous message in the queue.
+            needWake = mBlocked && p.target == null && msg.isAsynchronous();
+            Message prev;
+            for (;;) {
+                prev = p;
+                p = p.next;
+                if (p == null || when < p.when) {
+                    break;
+                }
+                if (needWake && p.isAsynchronous()) {
+                    needWake = false;
+                }
+            }
+            msg.next = p; // invariant: p == prev.next
+            prev.next = msg;
+        }
+
+        // We can assume mPtr != 0 because mQuitting is false.
+        if (needWake) {
+            nativeWake(mPtr);
+        }
+    }
+    return true;
+}
+```
 
 ## 接受消息
 除了发送 Message，Handler 还要处理接收的消息：

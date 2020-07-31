@@ -244,7 +244,8 @@ public final View createView(String name, String prefix, AttributeSet attrs)
 - 在setContentView方法中，会通过LayoutInflater的inflate方法去加载对应的布局。
 - inflate方法中首先会调用Resources的getLayout方法去通过IO的方式去加载对应的Xml布局解析器到内存中。
 - 接着，会通过createViewFromTag根据每一个tag创建具体的View对象。
-- 它内部主要是按优先顺序为Factory2和Factory的onCreatView、createView方法进行View的创建，而createView方法内部采用了构造器反射的方式实现。
+- 它内部主要是按优先顺序为Factory2和Factory的onCreatView、createView方法进行View的创建，如果都没有的话则使用 LayoutInflater 实例的onCreatView、createView进行创建，而createView方法内部采用了构造器反射的方式实现。
 
 
+# 
 
