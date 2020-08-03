@@ -37,7 +37,7 @@ log:
 ```
 在执行 onClick 函数时，会启动一个线程来模拟下载任务，在下载任务完成之后，会通知主线程。这就是一个最简单的进程间通信。其实，Handler 的机制也很好理解。我们根据下图进行简要的说明：
 
-![Handler](/img/Handler.png)
+![Handler](Handler.png)
 
 - Handler Looper MessageQueue 是实现 Handler 机制的基石
 - Handler 用于发送一个 Message 到 MessageQuene 中或者接收一个 Message 
@@ -96,7 +96,8 @@ private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMilli
     return queue.enqueueMessage(msg, uptimeMillis);
 }
 ```
-所以最终，就是 Handler 将 Message 发送到 MessageQueue 上，完成了消息的发送。
+所以最终，就是 Handler 将 Message 发送到 MessageQueue 上，完成了消息的发送。这里在正式入队前设置了 target 属性，
+这个属性其实就是相当于设置 messgae 的接收 Handler，所以大家都是 主线程的 Handler 但是，用户自己设置的 handler 却接收不了别的事件，只能接收自己发出的 Messgae。
 
 ### enqueueMessage
 好的 我们来看看，在消息队列上，message 是如何入队的：
@@ -105,6 +106,7 @@ boolean enqueueMessage(Message msg, long when) {
     // 一个 msg 的targt是必须要有的
     // 通过 Handler.enqueueMessage 方法我们可以知道
     // 每个 msg 在发射的时候都会 设置一个 Handler 作为其 target
+    // 这个target 就是其作为接收的 Handler
     if (msg.target == null) {
         throw new IllegalArgumentException("Message must have a target.");
     }
@@ -125,15 +127,15 @@ boolean enqueueMessage(Message msg, long when) {
         msg.when = when;
         Message p = mMessages;
         boolean needWake;
+        //当前队列中没有事件，把新加入的事件插入到头部
         if (p == null || when == 0 || when < p.when) {
             // New head, wake up the event queue if blocked.
             msg.next = p;
             mMessages = msg;
             needWake = mBlocked;
         } else {
-            // Inserted within the middle of the queue.  Usually we don't have to wake
-            // up the event queue unless there is a barrier at the head of the queue
-            // and the message is the earliest asynchronous message in the queue.
+            // Inserted within the middle of the queue.  
+            // 通常来说是不需要唤醒队列的，但当当前队列被阻塞同时此messgae为异步消息时才需要唤醒
             needWake = mBlocked && p.target == null && msg.isAsynchronous();
             Message prev;
             for (;;) {
@@ -146,6 +148,7 @@ boolean enqueueMessage(Message msg, long when) {
                     needWake = false;
                 }
             }
+            //将message 插入到 prev 和 p 之间
             msg.next = p; // invariant: p == prev.next
             prev.next = msg;
         }
@@ -158,6 +161,8 @@ boolean enqueueMessage(Message msg, long when) {
     return true;
 }
 ```
+所以这里的最主要的意思是 **设置 mMessages 为当前准备处理的消息，在 next 中使用**，如果需要的话，这里会唤醒消息队列
+
 
 ## 接受消息
 除了发送 Message，Handler 还要处理接收的消息：
@@ -177,6 +182,7 @@ public void dispatchMessage(Message msg) {
 ```
 在 Looper 中，每次接受到消息，都会将 Message 分发下来。Handler 接收 Message 时会判断其内部是否封装了 Runnable，如果封装了则会直接调用其 run 方法。否则会调用 handleMessage 方法，而 handleMessage 方法就是我们每次 Handler 时会重写的方法。这样一个 Message 的接受便结束了。
 
+
 ## 内存泄漏
 细心的同学在使用 Handler 时，一定会发现会 IDE 会发出，**可能会出现内存泄漏的警告**，那我们就简单的分析下，为什么会出现内存泄漏。
 我们在实现 Handler 时，是以 Activity 的匿名内部类的形式实现的，其持有一个外部类的引用（Activity 的引用），如果我们以延时的形式来传送一个 Message 时，Message 会进入到 MessageQueue 中，延时结束时才会分发到 Handler 中，但如果在这个过程中，Activity Destroy 是无法被释放内存的，这样其实会造成内存泄漏。
@@ -193,15 +199,15 @@ HandlerActivity: Arirus run: RUN！！！！！！！
 ```
 这里我们发送 Message 时，进行了一个 30 秒的延时。之后，我们退出 Activity 并手动 GC 一下，我们来看看内存分析：
 
-![handler_leak.png](/img/handler_leak.png)
+![handler_leak.png](handler_leak.png)
 
 确实是由于 Handler 的存在，而造成了 HandlerActivity 无法被回收，造成了内存泄漏。30s 之后，所有的 Message 都已经被消化完毕，这时 HandlerActivity 才会被回收。
 
-![handler_no_leak.png](/img/handler_no_leak.png)
+![handler_no_leak.png](handler_no_leak.png)
 
 所以，对于在 Activity 中直接使用了匿名内部类，一定要小心内存泄漏的风险，不过万幸，这种泄漏类似于 Disposable 没有 dispose 一样，当完成后会继续释放，但是对于这种不可控的操作尽量还是避免。同样这也是为什么 Handler 的构造函数提供了一个 CallBack 参数的构造函数，用来避免直接实现一个内部子类。在 dispatchMessage 方法中，如果 mCallback 存在，会直接调用，就无需实现 handleMessage 方法。不过这样还是会有一个 Handler.CallBack 的匿名内部类，所以依然可能会出现内存泄漏。所以最正确的做法应该是**定义一个静态内部类或者外部类实现 Handler ，同时将 Activity 作为弱引用和 Handler 绑定在一起，当 Handler 收到 Message 时判断 Activity 的状态，再进行相应的操作**
 
-![handler_custom.png](/img/handler_custom.png)
+![handler_custom.png](handler_custom.png)
 
 以上就是 Handler 的一些基本操作，这个也是 Android 开发组直接暴漏给开发者的类，那么下面我们就看看 Handler 模型的核心 Looper。
 
@@ -253,10 +259,14 @@ public void set(T value) {
         createMap(t, value);
 }
 ```
-ThreadLocalMap 是和当前所在的线程相关联的，所以不同线程获取的 ThreadLocalMap 不是同一个，因此可以把每个线程中的局部变量保存了起来而不冲突。因此这里使用 ThreadLocal 来保存每个线程中的 Looper 是再合适不过了。当初始化结束之后，就可以获取 Looper 开启循环了，分析可以看上面提到的[Android 组件 IntentService 与 JobIntentService](https://arirus.cn/post/android-%E7%BB%84%E4%BB%B6-intentservice-%E4%B8%8E-jobintentservice-/)。
+ThreadLocalMap 是和当前所在的线程相关联的，所以不同线程获取的 ThreadLocalMap 不是同一个，因此可以把每个线程中的局部变量保存了起来而不冲突。因此这里使用 ThreadLocal 来保存每个线程中的 Looper 是再合适不过了。关于这部分内容会在**ThreadLoacl**中重点分析。当初始化结束之后，就可以获取 Looper 开启循环了，分析可以看上面提到的[Android 组件 IntentService 与 JobIntentService](https://arirus.cn/post/android-%E7%BB%84%E4%BB%B6-intentservice-%E4%B8%8E-jobintentservice-/)。
+
+那既然 Looper 一直处于循环当中，为啥不会产生 ANR，这是因为ANR产生的根本原因是不是因为主线程Looper循环，而是因为主线程中有耗时任务。
+
+那既然 Looper 一直处于循环当中，为什么不会导致CPU占用率高。因为 MessageQuene 是一个“阻塞队列”，在主线程的MessageQueue没有消息时，便阻塞在loop的queue.next()中的nativePollOnce() 方法里，在没有消息时阻塞线程并进入休眠释放cpu资源，有消息时唤醒线线程，这样不会导致CPU占用率高。  
 
 # MessageQueue
-MessageQueue 是插入和读取 Message 的单链表，插入我们就不看了，我们重点关注下读取：
+MessageQueue 是插入和读取 Message 的单链表，插入我们在上面已经简单分析了，我们重点关注下读取：
 ```java
 Message next() {
     // Return here if the message loop has already quit and been disposed.
@@ -267,23 +277,45 @@ Message next() {
             Binder.flushPendingCommands();
         }
 
+        // 阻塞方法，这里唤醒，然后尝试获取相应的 Message，等待 nextPollTimeoutMillis 这个事件来唤醒。当其为 -1，是通过入队操作的 nativeWake 来进行唤醒的。
         nativePollOnce(ptr, nextPollTimeoutMillis);
 
         synchronized (this) {
             // Try to retrieve the next message.  Return if found.
             final long now = SystemClock.uptimeMillis();
+            Message prevMsg = null;
             Message msg = mMessages;
-            ...
-            if (msg != null) {
-                ...
-                return msg;
-            } 
-            ...
-            // Process the quit message now that all pending messages have been handled.
-            if (mQuitting) {
-                dispose();
-                return null;
+            if (msg != null && msg.target == null) {
+                // 如果当前的消息是 消息屏障，那么会返回最近的一个异步消息
+                do {
+                    prevMsg = msg;
+                    msg = msg.next;
+                } while (msg != null && !msg.isAsynchronous());
             }
+            if (msg != null) {
+                if (now < msg.when) {
+                    // Next message is not ready.  Set a timeout to wake up when it is ready.
+                    // 这个时候其实就是 还不到这个消息要发送的时机，因此重新等待
+                    nextPollTimeoutMillis = (int) Math.min(msg.when - now, Integer.MAX_VALUE);
+                } else {
+                    // Got a message.
+                    mBlocked = false;
+                    if (prevMsg != null) {
+                        prevMsg.next = msg.next;
+                    } else {
+                        mMessages = msg.next;
+                    }
+                    msg.next = null;
+                    if (DEBUG) Log.v(TAG, "Returning message: " + msg);
+                    msg.markInUse();
+                    return msg;
+                }
+            } else {
+                // No more messages.
+                // -1 就是标志位，说明当前队列中没有别的消息了 
+                nextPollTimeoutMillis = -1;
+            }
+            ...
         }
     }
 }
@@ -370,11 +402,11 @@ public void onClick(View view) {
 耗时的操作确实是在子线程中进行的。上面做完了还没有结束，我们知道，HandlerThread 的 run 方法中，调用了 Looper.loop 方法，会一直循环，因此线程才不会退出，我们需要手动退出，所以我们还要在合适的时机调用:
 
 ```java
-looper.quit();
+mThread.quit();
 ```
 否则线程会一直运行就像这样：
 
-![looper_quit.png](/img/looper_quit.png)
+![looper_quit.png](looper_quit.png)
 
 
 # ActivityThread
