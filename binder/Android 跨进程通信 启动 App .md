@@ -371,3 +371,63 @@ private void handleLaunchActivity(ActivityClientRecord r, Intent customIntent, S
 # 小结
 
 本篇我们大致了解一个 Launcher 启动一个 App 的流程是怎么样的。由于不同版本在一些细节上有些小变化，例如在 API 27 时，ActivityManagerNative 就被移除了，使用了 ActivityManager 来代替，但是整体流程还是一样的。整体来说，启动过程比较复杂，代码追踪比较困难，建议一步一步进行。下篇见。
+
+对于新版本（28）之后。
+在从进入 ActivityThread main 函数之后，整个调用链路大致是这样的：
+```java
+应用进程：
+ActivityThread.mian
+|（创建 ActivityThread 和 ApplicationThread）
+ActivityThread.attach
+|（
+IActivityManager.attachApplication(mAppThread)
+| 
+ActivityManagerProxy.attachApplication(mAppThread)   
+    
+AMS进程:
+|（绑定 Application 到 AMS）
+ActivityManagerService.attachApplication
+|
+ApplicationThreadProxy.bindApplication
+
+应用进程:
+ApplicationThread.bindApplication
+| Handler通信
+AplicationThread.handlerBindApplication
+|（创建 Instrumentation）
+|（创建 Application）
+|（instrumentation.callApplicationOnCreate(app)）
+Application.onCreate
+|
+|
+ActivityStackSupervisor.attachApplicationLocked(app)
+|
+ActivityStackSupervisor.realStartActivityLocked
+|
+ClientTransaction.addCallback(LaunchActivityItem)
+|
+ActivityManagerService.getLifecycleManager().scheduleTransaction(clientTransaction)
+|
+Application.scheduleTransaction()
+|
+TransactionExecutor.execute(ClientTransaction)
+|
+ActivityThread.handleLaunchActivity
+|
+ActivityThread.performLaunchActivity {
+    //因为Activity有界面，所以其Context是ContextThemeWrapper类型，但实现类仍是ContextImpl.
+    Context appContext = createBaseContextForActivity(r, activity);
+
+    //类似Application的创建过程，通过classLoader加载到activity.
+    activity = mInstrumentation.newActivity(classLoader, 
+               component.getClassName(), r.intent);
+    // 重新获取 Application，而不是创建
+    Application app = r.packageInfo.makeApplication(false, mInstrumentation);
+
+    activity.attach(context,mInstrumentation,application,...);
+    
+    //attach后调用activity的activity方法。
+    mInstrumentation.callActivityOnCreate(activity,...)
+    
+}
+```
