@@ -191,5 +191,12 @@ Message next() {
 
 处理完IdleHandler后会将nextPollTimeoutMillis设置为0，也就是不阻塞消息队列，当然要注意这里执行的代码同样不能太耗时，因为它是同步执行的，如果太耗时肯定会影响后面的message执行。
 
+如果一个 IdleHandler 返回了 true 为什么不会造成死循环？
+
+这其实是由于 pendingIdleHandlerCount 的赋值时机，第一进入 next 方法时，会将 pendingIdleHandlerCount 赋值为 -1，如果消息队列为空或者消息执行时间还不到，那么会执行 pendingIdleHandlerCount 初始化的内容。
+
+当执行完一次 pendingIdleHandlerCount 赋值为 0，同时 nextPollTimeoutMillis 赋值为0。同时由于还在for 循环中，尝试获取第二次的队列中的消息，因为 nextPollTimeoutMillis == 0 相当于非挂起等待，直接尝试获取。如果有了Messgae会直接返回，没有的话继续往后执行，但是这一次 pendingIdleHandlerCount == 0，因此会直接开启第三次循环，但这时候 nextPollTimeoutMillis == -1或者下次唤醒间隔。
+
+唤醒之后，必然会有一个相应的 Message 会返回，最终也不再会走到 IdleHandler 的相关内容了。所以这也就是为啥只有第一次空message时会走到 IdleHandler 的处理逻辑，后面都不会了。
 
 

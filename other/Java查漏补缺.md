@@ -425,3 +425,156 @@ System.out.println(l1.getClass() == l2.getClass());
 
 # 
 # Type
+
+# 
+
+# 阻塞队列（BlockingQueue）
+
+阻塞队列就是队列，只是在一般的队列上添加了两个条件：
+
+- 当队列满了的时候不允许再添加数据
+- 当队列空了的时候不允许从中取数据
+
+在Java中，阻塞队列是通过BlockingQueue来实现的，BlockingQueue是Java.util.concurrent包下一个重要的数据结构。
+
+## ArrayBlockingQueue
+其主要成员变量为下面这些：
+```java
+/** The queued items */
+final Object[] items;
+
+/** items index for next take, poll, peek or remove */
+int takeIndex;
+
+/** items index for next put, offer, or add */
+int putIndex;
+
+/** Number of elements in the queue */
+int count;
+
+/*
+ * Concurrency control uses the classic two-condition algorithm
+ * found in any textbook.
+ */
+
+/** Main lock guarding all access */
+final ReentrantLock lock;
+
+/** Condition for waiting takes */
+private
+final Condition notEmpty;
+
+/** Condition for waiting puts */
+private
+final Condition notFull;
+```
+
+### 数据添加
+```java
+//lock -> 调用后一直阻塞到获得锁
+//tryLock -> 尝试是否能获得锁 如果不能获得立即返回
+//lockInterruptibly -> 调用后一直阻塞到获得锁 但是接受中断信号
+
+//队列满，会阻塞调用存储元素的线程
+public void put(E e) throws InterruptedException {
+    // 先检查e是不是空，如果空则抛异常
+    Objects.requireNonNull(e);
+    // 获取一个重入锁lock
+    final ReentrantLock lock = this.lock;
+    // 加锁，保证调用put方法的时候只有1个线程
+    lock.lockInterruptibly();
+    try {
+    // 如果线程中的元素数量是否等于当前数组的长度，如果相等则调用await方法等待，如果不相等则enqueue方法插入元素
+        while (count == items.length)
+            notFull.await();
+        enqueue(e);
+    } finally {
+    // 解锁
+        lock.unlock();
+    }
+}
+
+public boolean offer(E e) {
+    // 检查e是否为空
+    Objects.requireNonNull(e);
+    // 获取重入锁lock
+    final ReentrantLock lock = this.lock;
+    // 加锁
+    lock.lock();
+    try {
+        // 如果如果线程中的元素数量是否等于当前数组的长度，如果相等则调返回false，如果不相等则enqueue方法插入元素并返回true
+        if (count == items.length)
+            return false;
+        else {
+            enqueue(e);
+            return true;
+        }
+    } finally {
+        // 解锁
+        lock.unlock();
+    }
+}
+
+private void enqueue(E e) {
+    // assert lock.isHeldByCurrentThread();
+    // assert lock.getHoldCount() == 1;
+    // assert items[putIndex] == null;
+    final Object[] items = this.items;
+    items[putIndex] = e;
+    if (++putIndex == items.length) 
+        putIndex = 0;
+    count++;
+    // notEmpty 响应
+    notEmpty.signal();
+}
+```
+
+### 数据的取出
+
+```java
+public E poll() {
+    // 获取重入锁lock
+    final ReentrantLock lock = this.lock;
+    // 加锁
+    lock.lock();
+    try {
+        // 如果元素数量等于0就返回null，否则调用dequeue()方法
+        return (count == 0) ? null : dequeue();
+    } finally {
+        // 解锁
+        lock.unlock();
+    }
+}
+
+public E take() throws InterruptedException {
+    // 获取重入锁lock
+    final ReentrantLock lock = this.lock;
+    // 加锁
+    lock.lockInterruptibly();
+    try {
+        // 如果线程中的元素数量是否等于0，如果相等则调用await方法等待，如果不相等则dequeue方法删除元素
+        while (count == 0)
+            notEmpty.await();
+        return dequeue();
+    } finally {
+        // 解锁
+        lock.unlock();
+    }
+}
+
+private E dequeue() {
+    // assert lock.isHeldByCurrentThread();
+    // assert lock.getHoldCount() == 1;
+    // assert items[takeIndex] != null;
+    final Object[] items = this.items;
+    @SuppressWarnings("unchecked")
+    E e = (E) items[takeIndex];
+    items[takeIndex] = null;
+    if (++takeIndex == items.length) takeIndex = 0;
+    count--;
+    if (itrs != null)
+        itrs.elementDequeued();
+    notFull.signal();
+    return e;
+}
+```

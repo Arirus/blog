@@ -242,4 +242,21 @@ public void addView(View view, ViewGroup.LayoutParams params, Display display, W
 
 因此一个 Decor 和 ViewRootImpl 应该是一一对应的。因此 decor 和 ViewRootImpl 就这样的绑定了起来。
 
+```java
+public void setView(View view, WindowManager.LayoutParams attrs, View panelParentView) {
+    ...
+    requestLayout();    
+    ...
+}
+
+public void requestLayout() {
+    if (!mHandlingLayoutInLayoutRequest) {
+        checkThread();
+        mLayoutRequested = true;
+        scheduleTraversals();
+    }
+}
+```
+到这里就熟悉了，开始遍历进行view的布局绘制等操作了。
+
 
