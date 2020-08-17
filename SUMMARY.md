@@ -16,6 +16,7 @@
 
 
 * Android 基础
+    * [Activity 布局](basic/Android 布局相关.md)
     * [Service 基础](basic/Android 组件 Service 基础.md)
     * [IntentService 与 JobIntentService](basic/Android 组件 IntentService 与 JobIntentService .md)
 
@@ -29,11 +30,13 @@
     * [嵌套滑动的解决方案](view/View 的一些整理 嵌套滑动的解决方案.md)
     * [属性动画](view/View 的一些整理 属性动画.md)
     * [ZoomImageView](view/View 的一些整理 ZoomImageView .md)
+    * [Window PhoneWindow ViewRootImpl](view/View 的一些整理 Window PhoneWindow ViewRootImpl.md)
 
 
 * [网络基础](network/网络基础 总览.md)
     * [HTTP 与 HTTPS](network/网络基础 HTTP 与 HTTPS.md)
     * [TCP](network/网络基础 TCP.md)
+
 
 * Retrofit源码分析
     * [流程篇](retrofit/Retrofit源码分析系列 流程篇.md)
@@ -53,8 +56,11 @@
 
 
 * Android 跨线程通信
+    * [ThreadLocal](thread/Android 跨线程通信 ThreadLocal.md)
     * [Java 多线程](thread/Android 跨线程通信 Java 多线程.md)
     * [Handler](thread/Android 跨线程通信 Handler .md)
+    * [Handler番外篇](thread/Android 跨线程通信 Handler  番外篇.md)
+    
 
 
 * Android 跨进程通信
@@ -76,9 +82,14 @@
 
 
 * 从Butterknife看APT
-    * [反射](butterknife/从Butterknife看APT 反射.md)
-    * [注解](butterknife/从Butterknife看APT 注解.md)
+    * [注解与反射](butterknife/从Butterknife看APT 注解与反射.md)
+    * [反射效率](butterknife/从Butterknife看APT番外篇 反射效率.md)
+    * [Butterknife-reflect](butterknife/从Butterknife看APT butterknife-reflect.md)
+    * [Butterknife-Gradle-Plugin](butterknife/从Butterknife看APT butterknife-gradle-plugin.md)
 
+* 编译
+    * [MultiDex](compile/MultiDex 相关.md)
+    * [再看 ClassLoader](compile/再看ClassLoader.md)
 
 * 玩儿
     * [Linux基本操作](linux/玩儿 Linux基本操作.md)

@@ -1,5 +1,3 @@
-# View 的一些整理 Window PhoneWindow ViewRootImpl
-
 ## Window
 抽象类，顶级视图的容器，其子类只有一个 PhoneWindow
 ```java
