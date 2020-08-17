@@ -1,0 +1,1655 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>反射效率 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="从Butterknife看APT butterknife-reflect.html" />
+    
+    
+    <link rel="prev" href="从Butterknife看APT 注解与反射.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../jvm/JVM读书笔记 总览.html">
+            
+                <a href="../jvm/JVM读书笔记 总览.html">
+            
+                    
+                    JVM读书笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../jvm/JVM读书笔记 自动内存管理.html">
+            
+                <a href="../jvm/JVM读书笔记 自动内存管理.html">
+            
+                    
+                    自动内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../jvm/JVM读书笔记 垃圾收集器和内存分配策略.html">
+            
+                <a href="../jvm/JVM读书笔记 垃圾收集器和内存分配策略.html">
+            
+                    
+                    垃圾收集器和内存分配策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../jvm/JVM读书笔记 类文件结构.html">
+            
+                <a href="../jvm/JVM读书笔记 类文件结构.html">
+            
+                    
+                    类文件结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../jvm/JVM读书笔记 虚拟机类加载机制.html">
+            
+                <a href="../jvm/JVM读书笔记 虚拟机类加载机制.html">
+            
+                    
+                    虚拟机类加载机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../jvm/JVM读书笔记 Java内存模型与线程.html">
+            
+                <a href="../jvm/JVM读书笔记 Java内存模型与线程.html">
+            
+                    
+                    Java内存模型与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../collections/集合 总览.html">
+            
+                <a href="../collections/集合 总览.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../collections/集合 ArrayList.html">
+            
+                <a href="../collections/集合 ArrayList.html">
+            
+                    
+                    ArrayList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../collections/集合 HashMap.html">
+            
+                <a href="../collections/集合 HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../collections/集合 从HashMap说开来.html">
+            
+                <a href="../collections/集合 从HashMap说开来.html">
+            
+                    
+                    从HashMap说开来
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Android 基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../basic/Android 布局相关.html">
+            
+                <a href="../basic/Android 布局相关.html">
+            
+                    
+                    Activity 布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../basic/Android 组件 Service 基础.html">
+            
+                <a href="../basic/Android 组件 Service 基础.html">
+            
+                    
+                    Service 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                <a href="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                    
+                    IntentService 与 JobIntentService
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../view/View 的一些整理 参考系与滑动.html">
+            
+                <a href="../view/View 的一些整理 参考系与滑动.html">
+            
+                    
+                    参考系与滑动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                <a href="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                    
+                    从 NestedScrolling 到 Behavior
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                    
+                    从Debug来看工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                    
+                    从Debug来看事件分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../view/View 的一些整理 绘制.html">
+            
+                <a href="../view/View 的一些整理 绘制.html">
+            
+                    
+                    绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                <a href="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                    
+                    嵌套滑动的解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../view/View 的一些整理 属性动画.html">
+            
+                <a href="../view/View 的一些整理 属性动画.html">
+            
+                    
+                    属性动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../view/View 的一些整理 ZoomImageView .html">
+            
+                <a href="../view/View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../view/View 的一些整理 Window PhoneWindow ViewRootImpl.html">
+            
+                <a href="../view/View 的一些整理 Window PhoneWindow ViewRootImpl.html">
+            
+                    
+                    Window PhoneWindow ViewRootImpl
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../network/网络基础 总览.html">
+            
+                <a href="../network/网络基础 总览.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../network/网络基础 HTTP 与 HTTPS.html">
+            
+                <a href="../network/网络基础 HTTP 与 HTTPS.html">
+            
+                    
+                    HTTP 与 HTTPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../network/网络基础 TCP.html">
+            
+                <a href="../network/网络基础 TCP.html">
+            
+                    
+                    TCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    Retrofit源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                    
+                    Sample篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    OkHttp源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Dagger2 用法以及一些思考
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" >
+            
+                <span>
+            
+                    
+                    Android 跨线程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../thread/Android 跨线程通信 ThreadLocal.html">
+            
+                <a href="../thread/Android 跨线程通信 ThreadLocal.html">
+            
+                    
+                    ThreadLocal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../thread/Android 跨线程通信 Java 多线程.html">
+            
+                <a href="../thread/Android 跨线程通信 Java 多线程.html">
+            
+                    
+                    Java 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.3" data-path="../thread/Android 跨线程通信 Handler .html">
+            
+                <a href="../thread/Android 跨线程通信 Handler .html">
+            
+                    
+                    Handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.4" data-path="../thread/Android 跨线程通信 Handler  番外篇.html">
+            
+                <a href="../thread/Android 跨线程通信 Handler  番外篇.html">
+            
+                    
+                    Handler番外篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" >
+            
+                <span>
+            
+                    
+                    Android 跨进程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../binder/Android 跨进程通信 Parcel .html">
+            
+                <a href="../binder/Android 跨进程通信 Parcel .html">
+            
+                    
+                    Parcel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="../binder/Android 跨进程通信 Binder AIDL .html">
+            
+                <a href="../binder/Android 跨进程通信 Binder AIDL .html">
+            
+                    
+                    Binder与AIDL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.3" data-path="../binder/Android 跨进程通信 启动 App .html">
+            
+                <a href="../binder/Android 跨进程通信 启动 App .html">
+            
+                    
+                    启动 App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.4" data-path="../binder/Android 跨进程通信 绑定 Service .html">
+            
+                <a href="../binder/Android 跨进程通信 绑定 Service .html">
+            
+                    
+                    绑定 Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.5" data-path="../binder/Android 跨进程通信 手写跨进程 .html">
+            
+                <a href="../binder/Android 跨进程通信 手写跨进程 .html">
+            
+                    
+                    手写跨进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" >
+            
+                <span>
+            
+                    
+                    Rxjava朝花夕拾
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1.1" data-path="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                    
+                    概念篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.2" data-path="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                    
+                    基本操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.3" data-path="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                    
+                    进阶操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.4" data-path="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.5" data-path="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                    
+                    原理总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.6" data-path="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                    
+                    Rxjava2.X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.7" data-path="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                    
+                    背压篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" >
+            
+                <span>
+            
+                    
+                    从Butterknife看APT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.1.1" data-path="从Butterknife看APT 注解与反射.html">
+            
+                <a href="从Butterknife看APT 注解与反射.html">
+            
+                    
+                    注解与反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="12.1.2" data-path="从Butterknife看APT番外篇 反射效率.html">
+            
+                <a href="从Butterknife看APT番外篇 反射效率.html">
+            
+                    
+                    反射效率
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.3" data-path="从Butterknife看APT butterknife-reflect.html">
+            
+                <a href="从Butterknife看APT butterknife-reflect.html">
+            
+                    
+                    Butterknife-reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.4" data-path="从Butterknife看APT butterknife-gradle-plugin.html">
+            
+                <a href="从Butterknife看APT butterknife-gradle-plugin.html">
+            
+                    
+                    Butterknife-Gradle-Plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" >
+            
+                <span>
+            
+                    
+                    编译
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.2.1" data-path="../compile/MultiDex 相关.html">
+            
+                <a href="../compile/MultiDex 相关.html">
+            
+                    
+                    MultiDex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2.2" data-path="../compile/再看ClassLoader.html">
+            
+                <a href="../compile/再看ClassLoader.html">
+            
+                    
+                    再看 ClassLoader
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" >
+            
+                <span>
+            
+                    
+                    玩儿
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.3.1" data-path="../linux/玩儿 Linux基本操作.html">
+            
+                <a href="../linux/玩儿 Linux基本操作.html">
+            
+                    
+                    Linux基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3.2" data-path="../linux/玩儿 Linux常用命令.html">
+            
+                <a href="../linux/玩儿 Linux常用命令.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3.3" data-path="../linux/玩儿 Linux网络工具.html">
+            
+                <a href="../linux/玩儿 Linux网络工具.html">
+            
+                    
+                    Linux网络工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3.4" data-path="../linux/玩儿 Vim初体验.html">
+            
+                <a href="../linux/玩儿 Vim初体验.html">
+            
+                    
+                    Vim初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.1.1" data-path="../other/编码 加密与 Hash.html">
+            
+                <a href="../other/编码 加密与 Hash.html">
+            
+                    
+                    编码 加密与 Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.1.2" data-path="../other/Material Design 常用控件小结.html">
+            
+                <a href="../other/Material Design 常用控件小结.html">
+            
+                    
+                    Material Design 常用控件小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >反射效率</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;">&#x5199;&#x5728;&#x6700;&#x524D;&#x9762;</h1>
+<p>&#x8FD9;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x5176;&#x5B9E;&#x662F;&#x8BA1;&#x5212;&#x4E4B;&#x5916;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x5F00;&#x59CB;&#x6CA1;&#x60F3;&#x8981;&#x6DF1;&#x7A76;&#x53CD;&#x5C04;&#x6548;&#x7387;&#x7684;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x7FFB;&#x4E86; ButterKnife &#x9879;&#x76EE;&#x6587;&#x4EF6;&#x7ED3;&#x6784;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x5982;&#x4E0B;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code class="lang-java">.
+&#x251C;&#x2500;&#x2500; build.gradle
+&#x251C;&#x2500;&#x2500; butterknife
+&#x2502;   &#x251C;&#x2500;&#x2500; build
+&#x2502;   &#x251C;&#x2500;&#x2500; build.gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; butterknife.butterknife.iml
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle.properties
+&#x2502;   &#x251C;&#x2500;&#x2500; proguard-rules.txt
+&#x2502;   &#x2514;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; butterknife-annotations
+&#x2502;   &#x251C;&#x2500;&#x2500; build
+&#x2502;   &#x251C;&#x2500;&#x2500; build.gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; butterknife-annotations.iml
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; butterknife-compiler
+&#x2502;   &#x251C;&#x2500;&#x2500; build
+&#x2502;   &#x251C;&#x2500;&#x2500; build.gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; butterknife-compiler.iml
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; butterknife-gradle-plugin
+&#x2502;   &#x251C;&#x2500;&#x2500; build.gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; butterknife-gradle-plugin.iml
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; butterknife-reflect
+&#x2502;   &#x251C;&#x2500;&#x2500; README.md
+&#x2502;   &#x251C;&#x2500;&#x2500; build
+&#x2502;   &#x251C;&#x2500;&#x2500; build.gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; butterknife-reflect.iml
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle.properties
+&#x2502;   &#x251C;&#x2500;&#x2500; proguard-rules.txt
+&#x2502;   &#x2514;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; butterknife-runtime
+&#x2502;   &#x251C;&#x2500;&#x2500; build
+&#x2502;   &#x251C;&#x2500;&#x2500; build.gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; butterknife-runtime.iml
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle.properties
+&#x2502;   &#x2514;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; gradle
+&#x2502;   &#x251C;&#x2500;&#x2500; gradle-mvn-push.gradle
+&#x2502;   &#x2514;&#x2500;&#x2500; wrapper
+&#x251C;&#x2500;&#x2500; gradle.properties
+&#x251C;&#x2500;&#x2500; gradlew
+&#x251C;&#x2500;&#x2500; gradlew.bat
+&#x251C;&#x2500;&#x2500; local.properties
+&#x251C;&#x2500;&#x2500; sample
+&#x2502;   &#x251C;&#x2500;&#x2500; app
+&#x2502;   &#x251C;&#x2500;&#x2500; library
+&#x2502;   &#x2514;&#x2500;&#x2500; sample.iml
+&#x251C;&#x2500;&#x2500; settings.gradle
+&#x2514;&#x2500;&#x2500; website
+</code></pre>
+<p>&#x6838;&#x5FC3;&#x7684;&#x5DE5;&#x7A0B;&#x5E93;&#x6709;&#x8FD9;&#x4E2A;&#x51E0;&#x4E2A;&#xFF1A;<code>butterknife</code>&#xFF0C;<code>butterknife-annotations</code>&#xFF0C;<code>butterknife-compiler</code>&#xFF0C;<code>butterknife-gradle-plugin</code>&#xFF0C;<code>butterknife-reflect</code>&#xFF0C;<code>butterknife-runtime</code>&#xFF0C;<code>sample.app</code>&#xFF0C;<code>sample.library</code> &#x8FD9;&#x4E2A;&#x51E0;&#x4E2A;&#x3002;&#x5176;&#x4E2D;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x5982;&#x4E0B;&#xFF1A;
+<img src="butterknife-struct.png" alt=""></p>
+<p>&#x8FD9;&#x91CC;&#x9762;&#x53EA;&#x6709; <code>butterknife-runtime</code> &#x5E93;&#xFF0C;&#x6CA1;&#x6709;&#x5728;&#x5F15;&#x7528;&#x94FE;&#x4E2D;&#x3002;&#x800C;&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x5E93;&#x6709;&#x76F8;&#x5E94;&#x7684; README&#xFF0C;&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#xFF1A;</p>
+<blockquote>
+<p>&#x901A;&#x5E38;&#x7684; butterknife &#x4F7F;&#x7528;&#x7F16;&#x8BD1;&#x65F6;&#x6CE8;&#x89E3;&#xFF0C;&#x751F;&#x6210;&#x4E2D;&#x95F4;&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#x3002;&#x4F46;&#x662F; butterknife-runtime &#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6027;&#x80FD;&#x4F1A;&#x5DEE;&#x3002;</p>
+</blockquote>
+<p>&#x90A3;&#x4E48;&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;&#x4E3A;&#x5565;&#x53CD;&#x5C04;&#x7684;&#x65F6;&#x5019;&#x6027;&#x80FD;&#x4F1A;&#x5DEE;&#xFF1F;&#x672C;&#x7BC7;&#x6211;&#x4EEC;&#x6765;&#x5927;&#x81F4;&#x770B;&#x770B;&#x3002;&#x672C;&#x7BC7;&#x6240;&#x6709;&#x7684; Java &#x6E90;&#x7801;&#x5206;&#x6790;&#x90FD;&#x662F;&#x7528;&#x7684; 1.8 &#x7684;&#x6E90;&#x7801;&#x3002;</p>
+<h1 id="&#x83B7;&#x53D6;&#x65B9;&#x6CD5;">&#x83B7;&#x53D6;&#x65B9;&#x6CD5;</h1>
+<p>&#x4E0A;&#x7BC7;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x8BF4;&#x8FC7;&#x53CD;&#x5C04;&#x83B7;&#x53D6;&#x4E00;&#x4E2A; <code>Method</code> &#x5BF9;&#x8C61;&#x662F;&#x600E;&#x6837;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function">Method <span class="hljs-title">getMethod</span><span class="hljs-params">(String name, Class&lt;?&gt;... parameterTypes)</span></span>;
+
+<span class="hljs-function">Method <span class="hljs-title">getDeclaredMethod</span><span class="hljs-params">(String name, Class&lt;?&gt;... parameterTypes)</span></span>;
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x83B7;&#x53D6; &#x81EA;&#x5DF1; &#x548C; &#x7236;&#x7C7B; &#x6240;&#x6709; <code>public</code> &#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x83B7;&#x53D6;&#x81EA;&#x5DF1;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x5C31;&#x5206;&#x5F00;&#x6765;&#x770B;&#x770B;&#x3002;</p>
+<h2 id="getmethod">getMethod</h2>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> Method <span class="hljs-title">getMethod</span><span class="hljs-params">(String name, Class&lt;?&gt;... parameterTypes)</span>
+    <span class="hljs-keyword">throws</span> NoSuchMethodException, SecurityException </span>{
+    <span class="hljs-comment">//&#x6821;&#x9A8C;&#x6743;&#x9650;</span>
+    checkMemberAccess(Member.PUBLIC, Reflection.getCallerClass(), <span class="hljs-keyword">true</span>);
+    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x65B9;&#x6CD5;</span>
+    Method method = getMethod0(name, parameterTypes, <span class="hljs-keyword">true</span>);
+    <span class="hljs-keyword">if</span> (method == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchMethodException(getName() + <span class="hljs-string">&quot;.&quot;</span> + name + argumentTypesToString(parameterTypes));
+    }
+    <span class="hljs-keyword">return</span> method;
+}
+</code></pre>
+<p>&#x7B80;&#x5355;&#x7C97;&#x66B4;&#xFF0C;&#x5148;&#x6821;&#x9A8C;&#x6743;&#x9650;&#x540E;&#x83B7;&#x53D6;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x770B;&#x83B7;&#x53D6;&#x65B9;&#x6CD5;&#x7684;&#x76F8;&#x5173;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> Method <span class="hljs-title">getMethod0</span><span class="hljs-params">(String name, Class&lt;?&gt;[] parameterTypes, <span class="hljs-keyword">boolean</span> includeStaticMethods)</span> </span>{
+    MethodArray interfaceCandidates = <span class="hljs-keyword">new</span> MethodArray(<span class="hljs-number">2</span>);
+    Method res =  privateGetMethodRecursive(name, parameterTypes, includeStaticMethods, interfaceCandidates);
+    <span class="hljs-keyword">if</span> (res != <span class="hljs-keyword">null</span>)
+        <span class="hljs-keyword">return</span> res;
+
+    <span class="hljs-comment">// Not found on class or superclass directly</span>
+    interfaceCandidates.removeLessSpecifics();
+    <span class="hljs-keyword">return</span> interfaceCandidates.getFirst(); <span class="hljs-comment">// may be null</span>
+}
+</code></pre>
+<p>&#x5206;&#x4E86;&#x4E24;&#x6B65;&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;method&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5BF9;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x67E5;&#x91CD;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>&#x770B;&#x4E0B; privateGetMethodRecursive &#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-java">
+<span class="hljs-function"><span class="hljs-keyword">private</span> Method <span class="hljs-title">privateGetMethodRecursive</span><span class="hljs-params">(String name,
+        Class&lt;?&gt;[] parameterTypes,
+        <span class="hljs-keyword">boolean</span> includeStaticMethods,
+        MethodArray allInterfaceCandidates)</span> </span>{
+
+    Method res;
+    <span class="hljs-comment">// Search declared public methods</span>
+    <span class="hljs-keyword">if</span> ((res = searchMethods(privateGetDeclaredMethods(<span class="hljs-keyword">true</span>),
+                                name,
+                                parameterTypes)) != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">if</span> (includeStaticMethods || !Modifier.isStatic(res.getModifiers()))
+            <span class="hljs-keyword">return</span> res;
+    }
+    <span class="hljs-comment">// Search superclass&apos;s methods</span>
+    <span class="hljs-keyword">if</span> (!isInterface()) {
+        Class&lt;? <span class="hljs-keyword">super</span> T&gt; c = getSuperclass();
+        <span class="hljs-keyword">if</span> (c != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">if</span> ((res = c.getMethod0(name, parameterTypes, <span class="hljs-keyword">true</span>)) != <span class="hljs-keyword">null</span>) {
+                <span class="hljs-keyword">return</span> res;
+            }
+        }
+    }
+    <span class="hljs-comment">// Search superinterfaces&apos; methods</span>
+    Class&lt;?&gt;[] interfaces = getInterfaces();
+    <span class="hljs-keyword">for</span> (Class&lt;?&gt; c : interfaces)
+        <span class="hljs-keyword">if</span> ((res = c.getMethod0(name, parameterTypes, <span class="hljs-keyword">false</span>)) != <span class="hljs-keyword">null</span>)
+            allInterfaceCandidates.add(res);
+    <span class="hljs-comment">// Not found</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+}
+</code></pre>
+<p>&#x5206;&#x4E86;&#x4E09;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
+<pre><code>- &#x67E5;&#x627E;&#x81EA;&#x5DF1;&#x7684; public &#x65B9;&#x6CD5;
+- &#x5982;&#x679C;&#x4E0D;&#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x540C;&#x65F6;&#x6709;&#x7236;&#x7C7B;&#xFF0C;&#x67E5;&#x627E;&#x7236;&#x7C7B;&#x7684;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x9012;&#x5F52;&#x56DE;&#x5230; getMethod0
+- &#x5982;&#x679C;&#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x67E5;&#x627E;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x653E;&#x5230;&#x5019;&#x9009;&#x6570;&#x7EC4;&#x4E2D;&#x3002;
+</code></pre><p>&#x5148;&#x770B;&#x7B2C;&#x4E00;&#x4E2A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6; declaredPublicMethods&#xFF0C;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x61D2;&#x542F;&#x52A8;&#x3002;</span>
+<span class="hljs-keyword">private</span> Method[] privateGetDeclaredMethods(<span class="hljs-keyword">boolean</span> publicOnly) {
+    checkInitted();
+    Method[] res;
+    ReflectionData&lt;T&gt; rd = reflectionData();
+    <span class="hljs-keyword">if</span> (rd != <span class="hljs-keyword">null</span>) {
+        res = publicOnly ? rd.declaredPublicMethods : rd.declaredMethods;
+        <span class="hljs-keyword">if</span> (res != <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> res;
+    }
+    <span class="hljs-comment">// No cached value available; request value from VM</span>
+    res = Reflection.filterMethods(<span class="hljs-keyword">this</span>, getDeclaredMethods0(publicOnly));
+    <span class="hljs-keyword">if</span> (rd != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">if</span> (publicOnly) {
+            rd.declaredPublicMethods = res;
+        } <span class="hljs-keyword">else</span> {
+            rd.declaredMethods = res;
+        }
+    }
+    <span class="hljs-keyword">return</span> res;
+}
+
+
+<span class="hljs-comment">//&#x6821;&#x9A8C;&#x51FD;&#x6570;&#x7B7E;&#x540D;&#x662F;&#x5426; &#x5B8C;&#x5168;&#x4E00;&#x76F4;</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Method <span class="hljs-title">searchMethods</span><span class="hljs-params">(Method[] methods,
+                                    String name,
+                                    Class&lt;?&gt;[] parameterTypes)</span>
+</span>{
+    Method res = <span class="hljs-keyword">null</span>;
+    String internedName = name.intern();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; methods.length; i++) {
+        Method m = methods[i];
+        <span class="hljs-keyword">if</span> (m.getName() == internedName
+            &amp;&amp; arrayContentsEq(parameterTypes, m.getParameterTypes())
+            &amp;&amp; (res == <span class="hljs-keyword">null</span>
+                || res.getReturnType().isAssignableFrom(m.getReturnType())))
+            res = m;
+    }
+
+    <span class="hljs-keyword">return</span> (res == <span class="hljs-keyword">null</span> ? res : getReflectionFactory().copyMethod(res));
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x81EA;&#x5DF1;&#x7684; public &#x65B9;&#x6CD5;&#x90FD;&#x5DF2;&#x7ECF;&#x627E;&#x5230;&#x3002;&#x6CE8;&#x610F;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; method &#x7684;&#x62F7;&#x8D1D;&#x3002;&#x8FD9;&#x91CC;&#x62F7;&#x8D1D;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x7684;&#x5C31;&#x662F; Method.copy &#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x6709;copy&#x51FA;&#x6765;&#x7684; method &#x548C;&#x539F; method &#x5171;&#x7528;&#x540C;&#x4E00;&#x4E2A; MethodAccessor&#x3002;</p>
+<p>2&#xFF0C;3 &#x6D41;&#x7A0B;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#x3002;&#x4E0D;&#x8FC7;&#x5982;&#x679C;&#x5355;&#x5355;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x6709;&#x4E2A;&#x53BB;&#x91CD;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x731C;&#x6D4B;&#x5927;&#x6982;&#x662F; &#x7531;&#x4E8E;&#x5B50;&#x7C7B;&#x548C;&#x7236;&#x7C7B;&#x6709;&#x76F8;&#x540C;&#x7684;&#x7B7E;&#x540D;&#x7684;&#x51FD;&#x6570;&#x5427;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x8BF4;&#x4E0B; <code>getDeclaredMethod</code>&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> Method <span class="hljs-title">getDeclaredMethod</span><span class="hljs-params">(String name, Class&lt;?&gt;... parameterTypes)</span>
+    <span class="hljs-keyword">throws</span> NoSuchMethodException, SecurityException </span>{
+    checkMemberAccess(Member.DECLARED, Reflection.getCallerClass(), <span class="hljs-keyword">true</span>);
+    Method method = searchMethods(privateGetDeclaredMethods(<span class="hljs-keyword">false</span>), name, parameterTypes);
+    <span class="hljs-keyword">if</span> (method == <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchMethodException(getName() + <span class="hljs-string">&quot;.&quot;</span> + name + argumentTypesToString(parameterTypes));
+    }
+    <span class="hljs-keyword">return</span> method;
+}
+</code></pre>
+<p>&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E86; <code>searchMethods</code>&#xFF0C;&#x76F4;&#x63A5;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x770B;&#xFF0C;&#x5C31;&#x770B;&#x8FD9;&#x4E2A;&#x7C7B;&#x81EA;&#x5DF1;&#x7684; method&#x3002;&#x8FD4;&#x56DE;&#x67E5;&#x627E;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x56E0;&#x6B64; &#x4E00;&#x4E2A;Method&#x7684;&#x83B7;&#x53D6;&#x8FC7;&#x7A0B;&#x5927;&#x81F4;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-java">getMethod{
+    checkMemberAccess()
+    getMethod0{
+        privateGetMethodRecursive{
+            <span class="hljs-comment">// &#x67E5;&#x627E;&#x672C;&#x8EAB;</span>
+            searchMethods(Method.PUBLIC)
+
+            <span class="hljs-comment">// &#x67E5;&#x627E;&#x7236;&#x7C7B;</span>
+            getSuperclass().getMethod0()
+
+            <span class="hljs-comment">// &#x67E5;&#x627E;&#x63A5;&#x53E3;</span>
+            getInterfaces().getMethod0()
+        }
+    }
+}
+</code></pre>
+<h1 id="&#x8C03;&#x7528;&#x65B9;&#x6CD5;">&#x8C03;&#x7528;&#x65B9;&#x6CD5;</h1>
+<p>Method &#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x8BF4;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x4E3A; <code>Method#invoke</code>&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x91CC;&#x7684;&#x601D;&#x8DEF;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object obj, Object... args)</span>
+    <span class="hljs-keyword">throws</span> IllegalAccessException, IllegalArgumentException,
+        InvocationTargetException
+</span>{
+    <span class="hljs-comment">// accessableObject &#x7684;&#x719F;&#x6089;&#xFF0C;setAccessable &#x65F6;&#x4F1A;&#x8BBE;&#x7F6E;&#x8FD9;&#x91CC;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5426;&#x5219;&#x8981;&#x67E5;&#x770B;&#x5176;&#x6743;&#x9650;&#x3002;</span>
+    <span class="hljs-keyword">if</span> (!override) {
+        <span class="hljs-keyword">if</span> (!Reflection.quickCheckMemberAccess(clazz, modifiers)) {
+            Class&lt;?&gt; caller = Reflection.getCallerClass();
+            checkAccess(caller, clazz, obj, modifiers);
+        }
+    }
+    MethodAccessor ma = methodAccessor;             <span class="hljs-comment">// read volatile</span>
+
+    <span class="hljs-comment">// &#x83B7;&#x53D6; MethodAccessor&#xFF0C;&#x7531;&#x5176;&#x6765;&#x771F;&#x6B63;&#x8FDB;&#x884C;&#x8C03;&#x7528;</span>
+    <span class="hljs-keyword">if</span> (ma == <span class="hljs-keyword">null</span>) {
+        ma = acquireMethodAccessor();
+    }
+    <span class="hljs-keyword">return</span> ma.invoke(obj, args);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> MethodAccessor <span class="hljs-title">acquireMethodAccessor</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// First check to see if one has been created yet, and take it</span>
+    <span class="hljs-comment">// if so</span>
+    MethodAccessor tmp = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">if</span> (root != <span class="hljs-keyword">null</span>) tmp = root.getMethodAccessor();
+    <span class="hljs-keyword">if</span> (tmp != <span class="hljs-keyword">null</span>) {
+        methodAccessor = tmp;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Otherwise fabricate one and propagate it up to the root</span>
+        tmp = reflectionFactory.newMethodAccessor(<span class="hljs-keyword">this</span>);
+        setMethodAccessor(tmp);
+    }
+
+    <span class="hljs-keyword">return</span> tmp;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> MethodAccessor <span class="hljs-title">newMethodAccessor</span><span class="hljs-params">(Method var1)</span> </span>{
+    checkInitted();
+    <span class="hljs-keyword">if</span> (noInflation &amp;&amp; !ReflectUtil.isVMAnonymousClass(var1.getDeclaringClass())) {
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">new</span> MethodAccessorGenerator())
+            .generateMethod(var1.getDeclaringClass(), 
+                            var1.getName(), 
+                            var1.getParameterTypes(), 
+                            var1.getReturnType(), 
+                            var1.getExceptionTypes(), 
+                            var1.getModifiers());
+    } <span class="hljs-keyword">else</span> {
+        NativeMethodAccessorImpl var2 = <span class="hljs-keyword">new</span> NativeMethodAccessorImpl(var1);
+        DelegatingMethodAccessorImpl var3 = <span class="hljs-keyword">new</span> DelegatingMethodAccessorImpl(var2);
+        var2.setParent(var3);
+        <span class="hljs-keyword">return</span> var3;
+    }
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4E00;&#x5171;&#x6709;&#x4E09;&#x79CD; MethodAccessor&#x3002;<code>MethodAccessorImpl</code>&#xFF0C;<code>NativeMethodAccessorImpl</code>&#xFF0C;<code>DelegatingMethodAccessorImpl</code>&#x3002;
+&#x91C7;&#x7528;&#x54EA;&#x79CD; MethodAccessor &#x6839;&#x636E; noInflation &#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;noInflation &#x9ED8;&#x8BA4;&#x503C;&#x4E3A; false&#xFF0C;&#x53EA;&#x6709;&#x6307;&#x5B9A;&#x4E86; sun.reflect.noInflation &#x5C5E;&#x6027;&#x4E3A; true&#xFF0C;&#x624D;&#x4F1A; &#x91C7;&#x7528; MethodAccessorImpl&#x3002;
+&#x6240;&#x4EE5;&#x9ED8;&#x8BA4;&#x4F1A;&#x8C03;&#x7528; NativeMethodAccessorImpl&#x3002;</p>
+<p>&#x800C;&#x5728; NativeMethodAccessorImpl &#x4E2D;&#xFF0C;invoke &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java">    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object var1, Object[] var2)</span> <span class="hljs-keyword">throws</span> IllegalArgumentException, InvocationTargetException </span>{
+        <span class="hljs-keyword">if</span> (++<span class="hljs-keyword">this</span>.numInvocations &gt; ReflectionFactory.inflationThreshold() 
+                &amp;&amp; !ReflectUtil.isVMAnonymousClass(<span class="hljs-keyword">this</span>.method.getDeclaringClass())) {
+            MethodAccessorImpl var3 = (MethodAccessorImpl)(<span class="hljs-keyword">new</span> MethodAccessorGenerator())
+                .generateMethod(<span class="hljs-keyword">this</span>.method.getDeclaringClass(), 
+                                <span class="hljs-keyword">this</span>.method.getName(), 
+                                <span class="hljs-keyword">this</span>.method.getParameterTypes(), 
+                                <span class="hljs-keyword">this</span>.method.getReturnType(), 
+                                <span class="hljs-keyword">this</span>.method.getExceptionTypes(), 
+                                <span class="hljs-keyword">this</span>.method.getModifiers());
+            <span class="hljs-keyword">this</span>.parent.setDelegate(var3);
+        }
+
+        <span class="hljs-keyword">return</span> invoke0(<span class="hljs-keyword">this</span>.method, var1, var2);
+    }
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x5F53;&#x8C03;&#x7528;&#x6B21;&#x6570; &#x5927;&#x4E8E; <code>ReflectionFactory.inflationThreshold</code> &#x65F6;&#x4F1A;&#x4F7F;&#x7528; Java &#x7684; <code>MethodAccessorImpl</code>&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x4F7F;&#x7528; <code>NativeMethodAccessorImpl</code>&#x3002;&#x8FD9;&#x662F;&#x7531;&#x4E8E;&#xFF1A;</p>
+<blockquote>
+<p>Java &#x7248;&#x672C;&#x7684; MethodAccessorImpl &#x8C03;&#x7528;&#x6548;&#x7387;&#x6BD4; Native &#x7248;&#x672C;&#x8981;&#x5FEB; 20 &#x500D;&#x4EE5;&#x4E0A;&#xFF0C;&#x4F46;&#x662F; Java &#x7248;&#x672C;&#x52A0;&#x8F7D;&#x65F6;&#x8981;&#x6BD4; Native &#x591A;&#x6D88;&#x8017; 3-4 &#x500D;&#x8D44;&#x6E90;&#xFF0C;&#x6240;&#x4EE5;&#x9ED8;&#x8BA4;&#x4F1A;&#x8C03;&#x7528; Native &#x7248;&#x672C;&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;&#x6B21;&#x6570;&#x8D85;&#x8FC7; 15 &#x6B21;&#x4EE5;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x9009;&#x62E9;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x7684; Java &#x7248;&#x672C;&#x3002;</p>
+</blockquote>
+<h1 id="&#x5C0F;&#x7ED3;">&#x5C0F;&#x7ED3;</h1>
+<p>&#x4E86;&#x89E3;&#x4E86;&#x53CD;&#x5C04;&#x7684;&#x539F;&#x7406;&#x4EE5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x53CD;&#x5C04;&#x6548;&#x7387;&#x4F4E;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<h2 id="methodinvoke-&#x65B9;&#x6CD5;&#x4F1A;&#x5BF9;&#x53C2;&#x6570;&#x505A;&#x5C01;&#x88C5;&#x548C;&#x89E3;&#x5C01;&#x64CD;&#x4F5C;">Method#invoke &#x65B9;&#x6CD5;&#x4F1A;&#x5BF9;&#x53C2;&#x6570;&#x505A;&#x5C01;&#x88C5;&#x548C;&#x89E3;&#x5C01;&#x64CD;&#x4F5C;</h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;invoke &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x662F; Object[] &#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x662F;&#x7B80;&#x5355;&#x7C7B;&#x578B;&#x7684;&#x8BDD;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6B64;&#x8F6C;&#x5316;&#x6210; Object &#x7C7B;&#x578B;&#xFF0C;&#x4F8B;&#x5982; long ,&#x5728; javac compile &#x7684;&#x65F6;&#x5019; &#x7528;&#x4E86;Long.valueOf() &#x8F6C;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x5927;&#x91CF;&#x4E86;&#x751F;&#x6210;&#x4E86;Long &#x7684; Object, &#x540C;&#x65F6; &#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x662F;Object[]&#x6570;&#x503C;,&#x90A3;&#x8FD8;&#x9700;&#x8981;&#x989D;&#x5916;&#x5C01;&#x88C5;object&#x6570;&#x7EC4;&#x3002;
+&#x800C;&#x5728;&#x4E0A;&#x9762; MethodAccessorGenerator#emitInvoke &#x65B9;&#x6CD5;&#x91CC;&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x751F;&#x6210;&#x7684;&#x5B57;&#x8282;&#x7801;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x53C2;&#x6570;&#x6570;&#x7EC4;&#x62C6;&#x89E3;&#x5F00;&#x6765;&#xFF0C;&#x628A;&#x53C2;&#x6570;&#x6062;&#x590D;&#x5230;&#x6CA1;&#x6709;&#x88AB; Object[] &#x5305;&#x88C5;&#x524D;&#x7684;&#x6837;&#x5B50;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x8981;&#x5BF9;&#x53C2;&#x6570;&#x505A;&#x6821;&#x9A8C;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x6D89;&#x53CA;&#x5230;&#x4E86;&#x89E3;&#x5C01;&#x64CD;&#x4F5C;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x53CD;&#x5C04;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x56E0;&#x4E3A;&#x5C01;&#x88C5;&#x548C;&#x89E3;&#x5C01;&#xFF0C;&#x4EA7;&#x751F;&#x4E86;&#x989D;&#x5916;&#x7684;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5185;&#x5B58;&#x6D6A;&#x8D39;&#xFF0C;&#x5F53;&#x8C03;&#x7528;&#x6B21;&#x6570;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x91CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD8;&#x4F1A;&#x5BFC;&#x81F4; GC&#x3002;</p>
+<h2 id="&#x9700;&#x8981;&#x68C0;&#x67E5;&#x65B9;&#x6CD5;&#x53EF;&#x89C1;&#x6027;">&#x9700;&#x8981;&#x68C0;&#x67E5;&#x65B9;&#x6CD5;&#x53EF;&#x89C1;&#x6027;</h2>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x53CD;&#x5C04;&#x65F6;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x90FD;&#x5FC5;&#x987B;&#x68C0;&#x67E5;&#x65B9;&#x6CD5;&#x7684;&#x53EF;&#x89C1;&#x6027;&#xFF08;&#x5728; Method.invoke &#x91CC;&#xFF09;</p>
+<h2 id="&#x9700;&#x8981;&#x6821;&#x9A8C;&#x53C2;&#x6570;">&#x9700;&#x8981;&#x6821;&#x9A8C;&#x53C2;&#x6570;</h2>
+<p>&#x53CD;&#x5C04;&#x65F6;&#x4E5F;&#x5FC5;&#x987B;&#x68C0;&#x67E5;&#x6BCF;&#x4E2A;&#x5B9E;&#x9645;&#x53C2;&#x6570;&#x4E0E;&#x5F62;&#x5F0F;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x5339;&#x914D;&#x6027;&#xFF08;&#x5728;NativeMethodAccessorImpl.invoke0 &#x91CC;&#x6216;&#x8005;&#x751F;&#x6210;&#x7684; Java &#x7248; MethodAccessor.invoke &#x91CC;&#xFF09;&#xFF1B;</p>
+<h2 id="&#x53CD;&#x5C04;&#x65B9;&#x6CD5;&#x96BE;&#x4EE5;&#x5185;&#x8054;">&#x53CD;&#x5C04;&#x65B9;&#x6CD5;&#x96BE;&#x4EE5;&#x5185;&#x8054;</h2>
+<p>Method#invoke &#x5C31;&#x50CF;&#x662F;&#x4E2A;&#x72EC;&#x6728;&#x6865;&#x4E00;&#x6837;&#xFF0C;&#x5404;&#x5904;&#x7684;&#x53CD;&#x5C04;&#x8C03;&#x7528;&#x90FD;&#x8981;&#x6324;&#x8FC7;&#x53BB;&#xFF0C;&#x5728;&#x8C03;&#x7528;&#x70B9;&#x4E0A;&#x6536;&#x96C6;&#x5230;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x5C31;&#x4F1A;&#x5F88;&#x4E71;&#xFF0C;&#x5F71;&#x54CD;&#x5185;&#x8054;&#x7A0B;&#x5E8F;&#x7684;&#x5224;&#x65AD;&#xFF0C;&#x4F7F;&#x5F97; Method.invoke() &#x81EA;&#x8EAB;&#x96BE;&#x4EE5;&#x88AB;&#x5185;&#x8054;&#x5230;&#x8C03;&#x7528;&#x65B9;&#x3002;&#x53C2;&#x89C1; <a href="https://www.iteye.com/blog/rednaxelafx-548536" target="_blank">https://www.iteye.com/blog/rednaxelafx-548536</a></p>
+<h2 id="jit-&#x65E0;&#x6CD5;&#x4F18;&#x5316;">JIT &#x65E0;&#x6CD5;&#x4F18;&#x5316;</h2>
+<p>&#x5728; JavaDoc &#x4E2D;&#x63D0;&#x5230;&#xFF1A;</p>
+<p>Because reflection involves types that are dynamically resolved, certain Java virtual machine optimizations can not be performed. Consequently, reflective operations have slower performance than their non-reflective counterparts, and should be avoided in sections of code which are called frequently in performance-sensitive applications.</p>
+<p>&#x56E0;&#x4E3A;&#x53CD;&#x5C04;&#x6D89;&#x53CA;&#x5230;&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x3002;</p>
+<p>ok&#xFF0C;&#x672C;&#x7BC7;&#x53EA;&#x662F;&#x7C97;&#x6D45;&#x7684;&#x5206;&#x6790;&#x4E86; &#x53CD;&#x5C04; &#x6548;&#x7387;&#x4E3A;&#x4EC0;&#x4E48;&#x6BD4;&#x8F83;&#x6162;&#xFF0C;&#x5F88;&#x591A;&#x5185;&#x5BB9;&#x53C2;&#x8003;&#x4E86;&#xFF1A;<a href="https://github.com/5A59/android-training/blob/master/jvm-art/java%E5%8F%8D%E5%B0%84%E4%B8%BA%E4%BB%80%E4%B9%88%E6%85%A2.md" target="_blank">https://github.com/5A59/android-training/blob/master/jvm-art/java%E5%8F%8D%E5%B0%84%E4%B8%BA%E4%BB%80%E4%B9%88%E6%85%A2.md</a> &#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x5728;&#x6B64;&#x8868;&#x793A;&#x611F;&#x8C22;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="从Butterknife看APT 注解与反射.html" class="navigation navigation-prev " aria-label="Previous page: 注解与反射">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="从Butterknife看APT butterknife-reflect.html" class="navigation navigation-next " aria-label="Next page: Butterknife-reflect">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"反射效率","level":"12.1.2","depth":2,"next":{"title":"Butterknife-reflect","level":"12.1.3","depth":2,"path":"butterknife/从Butterknife看APT butterknife-reflect.md","ref":"butterknife/从Butterknife看APT butterknife-reflect.md","articles":[]},"previous":{"title":"注解与反射","level":"12.1.1","depth":2,"path":"butterknife/从Butterknife看APT 注解与反射.md","ref":"butterknife/从Butterknife看APT 注解与反射.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"butterknife/从Butterknife看APT番外篇 反射效率.md","mtime":"2020-07-07T03:08:56.006Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-17T03:40:02.913Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

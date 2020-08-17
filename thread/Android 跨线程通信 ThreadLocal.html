@@ -1,0 +1,1423 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ThreadLocal · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Android 跨线程通信 Java 多线程.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../jvm/JVM读书笔记 总览.html">
+            
+                <a href="../jvm/JVM读书笔记 总览.html">
+            
+                    
+                    JVM读书笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../jvm/JVM读书笔记 自动内存管理.html">
+            
+                <a href="../jvm/JVM读书笔记 自动内存管理.html">
+            
+                    
+                    自动内存管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../jvm/JVM读书笔记 垃圾收集器和内存分配策略.html">
+            
+                <a href="../jvm/JVM读书笔记 垃圾收集器和内存分配策略.html">
+            
+                    
+                    垃圾收集器和内存分配策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../jvm/JVM读书笔记 类文件结构.html">
+            
+                <a href="../jvm/JVM读书笔记 类文件结构.html">
+            
+                    
+                    类文件结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../jvm/JVM读书笔记 虚拟机类加载机制.html">
+            
+                <a href="../jvm/JVM读书笔记 虚拟机类加载机制.html">
+            
+                    
+                    虚拟机类加载机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../jvm/JVM读书笔记 Java内存模型与线程.html">
+            
+                <a href="../jvm/JVM读书笔记 Java内存模型与线程.html">
+            
+                    
+                    Java内存模型与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../collections/集合 总览.html">
+            
+                <a href="../collections/集合 总览.html">
+            
+                    
+                    集合
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../collections/集合 ArrayList.html">
+            
+                <a href="../collections/集合 ArrayList.html">
+            
+                    
+                    ArrayList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../collections/集合 HashMap.html">
+            
+                <a href="../collections/集合 HashMap.html">
+            
+                    
+                    HashMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../collections/集合 从HashMap说开来.html">
+            
+                <a href="../collections/集合 从HashMap说开来.html">
+            
+                    
+                    从HashMap说开来
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Android 基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../basic/Android 布局相关.html">
+            
+                <a href="../basic/Android 布局相关.html">
+            
+                    
+                    Activity 布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../basic/Android 组件 Service 基础.html">
+            
+                <a href="../basic/Android 组件 Service 基础.html">
+            
+                    
+                    Service 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                <a href="../basic/Android 组件 IntentService 与 JobIntentService .html">
+            
+                    
+                    IntentService 与 JobIntentService
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    View 的一些整理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../view/View 的一些整理 参考系与滑动.html">
+            
+                <a href="../view/View 的一些整理 参考系与滑动.html">
+            
+                    
+                    参考系与滑动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                <a href="../view/View 的一些整理 从 NestedScrolling 到 Behavior .html">
+            
+                    
+                    从 NestedScrolling 到 Behavior
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看工作流程.html">
+            
+                    
+                    从Debug来看工作流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                <a href="../view/View 的一些整理 从Debug来看事件分发.html">
+            
+                    
+                    从Debug来看事件分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../view/View 的一些整理 绘制.html">
+            
+                <a href="../view/View 的一些整理 绘制.html">
+            
+                    
+                    绘制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                <a href="../view/View 的一些整理 嵌套滑动的解决方案.html">
+            
+                    
+                    嵌套滑动的解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../view/View 的一些整理 属性动画.html">
+            
+                <a href="../view/View 的一些整理 属性动画.html">
+            
+                    
+                    属性动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.8" data-path="../view/View 的一些整理 ZoomImageView .html">
+            
+                <a href="../view/View 的一些整理 ZoomImageView .html">
+            
+                    
+                    ZoomImageView
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.9" data-path="../view/View 的一些整理 Window PhoneWindow ViewRootImpl.html">
+            
+                <a href="../view/View 的一些整理 Window PhoneWindow ViewRootImpl.html">
+            
+                    
+                    Window PhoneWindow ViewRootImpl
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../network/网络基础 总览.html">
+            
+                <a href="../network/网络基础 总览.html">
+            
+                    
+                    网络基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../network/网络基础 HTTP 与 HTTPS.html">
+            
+                <a href="../network/网络基础 HTTP 与 HTTPS.html">
+            
+                    
+                    HTTP 与 HTTPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../network/网络基础 TCP.html">
+            
+                <a href="../network/网络基础 TCP.html">
+            
+                    
+                    TCP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    Retrofit源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                <a href="../retrofit/Retrofit源码分析系列 Sample篇.html">
+            
+                    
+                    Sample篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    OkHttp源码分析
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 流程篇.html">
+            
+                    
+                    流程篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                <a href="../okhttp/OkHttp源码分析系列 自定义篇.html">
+            
+                    
+                    自定义篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    Dagger2 用法以及一些思考
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 基础篇.html">
+            
+                    
+                    基础篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 进阶篇.html">
+            
+                    
+                    进阶篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                <a href="../dagger/Dagger2 用法以及一些思考 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" >
+            
+                <span>
+            
+                    
+                    Android 跨线程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="9.1.1" data-path="Android 跨线程通信 ThreadLocal.html">
+            
+                <a href="Android 跨线程通信 ThreadLocal.html">
+            
+                    
+                    ThreadLocal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="Android 跨线程通信 Java 多线程.html">
+            
+                <a href="Android 跨线程通信 Java 多线程.html">
+            
+                    
+                    Java 多线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.3" data-path="Android 跨线程通信 Handler .html">
+            
+                <a href="Android 跨线程通信 Handler .html">
+            
+                    
+                    Handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.4" data-path="Android 跨线程通信 Handler  番外篇.html">
+            
+                <a href="Android 跨线程通信 Handler  番外篇.html">
+            
+                    
+                    Handler番外篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" >
+            
+                <span>
+            
+                    
+                    Android 跨进程通信
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../binder/Android 跨进程通信 Parcel .html">
+            
+                <a href="../binder/Android 跨进程通信 Parcel .html">
+            
+                    
+                    Parcel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="../binder/Android 跨进程通信 Binder AIDL .html">
+            
+                <a href="../binder/Android 跨进程通信 Binder AIDL .html">
+            
+                    
+                    Binder与AIDL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.3" data-path="../binder/Android 跨进程通信 启动 App .html">
+            
+                <a href="../binder/Android 跨进程通信 启动 App .html">
+            
+                    
+                    启动 App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.4" data-path="../binder/Android 跨进程通信 绑定 Service .html">
+            
+                <a href="../binder/Android 跨进程通信 绑定 Service .html">
+            
+                    
+                    绑定 Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.5" data-path="../binder/Android 跨进程通信 手写跨进程 .html">
+            
+                <a href="../binder/Android 跨进程通信 手写跨进程 .html">
+            
+                    
+                    手写跨进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" >
+            
+                <span>
+            
+                    
+                    Rxjava朝花夕拾
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1.1" data-path="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 概念篇.html">
+            
+                    
+                    概念篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.2" data-path="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 基本操作符篇.html">
+            
+                    
+                    基本操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.3" data-path="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 进阶操作符篇.html">
+            
+                    
+                    进阶操作符篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.4" data-path="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 应用篇.html">
+            
+                    
+                    应用篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.5" data-path="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 原理总览.html">
+            
+                    
+                    原理总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.6" data-path="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 Rxjava2.X.html">
+            
+                    
+                    Rxjava2.X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.1.7" data-path="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                <a href="../rxjava/Rxjava朝花夕拾 背压.html">
+            
+                    
+                    背压篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" >
+            
+                <span>
+            
+                    
+                    从Butterknife看APT
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.1.1" data-path="../butterknife/从Butterknife看APT 注解与反射.html">
+            
+                <a href="../butterknife/从Butterknife看APT 注解与反射.html">
+            
+                    
+                    注解与反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.2" data-path="../butterknife/从Butterknife看APT番外篇 反射效率.html">
+            
+                <a href="../butterknife/从Butterknife看APT番外篇 反射效率.html">
+            
+                    
+                    反射效率
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.3" data-path="../butterknife/从Butterknife看APT butterknife-reflect.html">
+            
+                <a href="../butterknife/从Butterknife看APT butterknife-reflect.html">
+            
+                    
+                    Butterknife-reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.1.4" data-path="../butterknife/从Butterknife看APT butterknife-gradle-plugin.html">
+            
+                <a href="../butterknife/从Butterknife看APT butterknife-gradle-plugin.html">
+            
+                    
+                    Butterknife-Gradle-Plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" >
+            
+                <span>
+            
+                    
+                    编译
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.2.1" data-path="../compile/MultiDex 相关.html">
+            
+                <a href="../compile/MultiDex 相关.html">
+            
+                    
+                    MultiDex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2.2" data-path="../compile/再看ClassLoader.html">
+            
+                <a href="../compile/再看ClassLoader.html">
+            
+                    
+                    再看 ClassLoader
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" >
+            
+                <span>
+            
+                    
+                    玩儿
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.3.1" data-path="../linux/玩儿 Linux基本操作.html">
+            
+                <a href="../linux/玩儿 Linux基本操作.html">
+            
+                    
+                    Linux基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3.2" data-path="../linux/玩儿 Linux常用命令.html">
+            
+                <a href="../linux/玩儿 Linux常用命令.html">
+            
+                    
+                    Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3.3" data-path="../linux/玩儿 Linux网络工具.html">
+            
+                <a href="../linux/玩儿 Linux网络工具.html">
+            
+                    
+                    Linux网络工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3.4" data-path="../linux/玩儿 Vim初体验.html">
+            
+                <a href="../linux/玩儿 Vim初体验.html">
+            
+                    
+                    Vim初体验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" >
+            
+                <span>
+            
+                    
+                    其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.1.1" data-path="../other/编码 加密与 Hash.html">
+            
+                <a href="../other/编码 加密与 Hash.html">
+            
+                    
+                    编码 加密与 Hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.1.2" data-path="../other/Material Design 常用控件小结.html">
+            
+                <a href="../other/Material Design 常用控件小结.html">
+            
+                    
+                    Material Design 常用控件小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ThreadLocal</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x8BB2;&#x5230; Handler &#x6216;&#x8005; Java &#x7684;&#x5185;&#x5B58;&#x6A21;&#x578B;&#xFF0C;&#x90A3;&#x4E48;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x4E0D;&#x80FD;&#x4E0D;&#x63D0;&#xFF0C;&#x90A3;&#x5C31;&#x662F; ThreadLocal&#x3002;</p>
+<p>&#x6700;&#x65E9;&#x63A5;&#x89E6; ThreadLocal &#x662F;&#x5728; Looper &#x4E2D;&#xFF0C;&#x5176;&#x6709;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> ThreadLocal&lt;Looper&gt; sThreadLocal = <span class="hljs-keyword">new</span> ThreadLocal&lt;Looper&gt;();
+</code></pre>
+<p>&#x5728;&#x5176;&#x8D77;&#x59CB;&#x65B9;&#x6CD5;&#xFF1A;prepare &#x4E2D;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">prepare</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> quitAllowed)</span> </span>{
+    <span class="hljs-keyword">if</span> (sThreadLocal.get() != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Only one Looper may be created per thread&quot;</span>);
+    }
+    sThreadLocal.set(<span class="hljs-keyword">new</span> Looper(quitAllowed));
+}
+</code></pre>
+<p>&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x65B0;&#x4EA7;&#x751F;&#x4E00;&#x4E2A; Looper &#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x5230; sThreadLocal &#x4E2D;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x5927;&#x81F4;&#x53EF;&#x4EE5;&#x6709;&#x4E2A;&#x731C;&#x6D4B;&#x3002;&#x65E2;&#x7136;&#x80FD;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x662F;&#x72EC;&#x4E00;&#x4EFD;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x4E48;<code>&#x5FC5;&#x7136;&#x662F;&#x4E00;&#x4E2A; Map &#x4E14; key &#x4E3A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;</code>&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x5F53;&#x4E2D;&#xFF0C;handler &#x5F88;&#x591A; &#x4F46;&#x662F;&#xFF0C; Looper &#x548C; MessageQuene &#x662F;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x90A3;&#x7528; ThreadLocal &#x6765;&#x5B58;&#x50A8; Looper &#x662F;&#x518D;&#x5408;&#x9002;&#x4E0D;&#x8FC7;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#x5728; Looper &#x8FDB;&#x884C;&#x6784;&#x9020;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5176;&#x5BF9;&#x5E94; <code>Thread</code> &#x548C; <code>MessageQuene</code> &#x90FD;&#x4F1A;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x521B;&#x5EFA;&#x5E76;&#x4E0E; <code>Looper</code> &#x7ED1;&#x5B9A;&#x5230;&#x4E00;&#x8D77;&#x3002;&#x66F4;&#x80FD;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x7684;&#x731C;&#x60F3;&#x3002;</p>
+<p>&#x518D;&#x770B;&#x4E0B; get &#x548C; set &#x65B9;&#x6CD5;&#x4E2D;&#x90FD;&#x6709;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>{
+    Thread t = Thread.currentThread();
+    <span class="hljs-comment">//&#x83B7;&#x53D6; map</span>
+    ThreadLocalMap map = getMap(t);
+    <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x7ED3;&#x70B9;&#x4E0A;&#x7684;&#x503C;</span>
+        ThreadLocalMap.Entry e = map.getEntry(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">&quot;unchecked&quot;</span>)
+            T result = (T)e.value;
+            <span class="hljs-keyword">return</span> result;
+        }
+    }
+    <span class="hljs-comment">// &#x5F53;&#x83B7;&#x53D6;&#x5931;&#x8D25;&#x65F6; &#x8FD4;&#x56DE;&#x521D;&#x59CB;&#x503C; &#x7531;&#x5B50;&#x7C7B;&#x6765;&#x5B9A;&#x4E49;</span>
+    <span class="hljs-keyword">return</span> setInitialValue();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(T value)</span> </span>{
+    Thread t = Thread.currentThread();
+    <span class="hljs-comment">//&#x83B7;&#x53D6; map</span>
+    ThreadLocalMap map = getMap(t);
+    <span class="hljs-keyword">if</span> (map != <span class="hljs-keyword">null</span>)
+        map.set(<span class="hljs-keyword">this</span>, value);
+    <span class="hljs-keyword">else</span>
+        createMap(t, value);
+}
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; ThreadLocalMap </span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createMap</span><span class="hljs-params">(Thread t, T firstValue)</span> </span>{
+    t.threadLocals = <span class="hljs-keyword">new</span> ThreadLocalMap(<span class="hljs-keyword">this</span>, firstValue);
+}
+</code></pre>
+<p>ThreadLocalMap &#x662F;&#x5728; Thread &#x4E2D;&#x5DF2;&#x7ECF;&#x5B9A;&#x4E49;&#x597D;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x4E0B; Thread &#x4E2D;&#xFF0C;&#x5173;&#x4E8E; ThreadLoaclMap &#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Thread</span>
+
+<span class="hljs-comment">/* ThreadLocal values pertaining to this thread. This map is maintained
+    * by the ThreadLocal class. */</span>
+ThreadLocal.ThreadLocalMap threadLocals = <span class="hljs-keyword">null</span>;
+
+<span class="hljs-comment">/*
+    * InheritableThreadLocal values pertaining to this thread. This map is
+    * maintained by the InheritableThreadLocal class.
+    */</span>
+ThreadLocal.ThreadLocalMap inheritableThreadLocals = <span class="hljs-keyword">null</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init2</span><span class="hljs-params">(Thread parent)</span> </span>{
+    <span class="hljs-keyword">this</span>.contextClassLoader = parent.getContextClassLoader();
+    <span class="hljs-keyword">this</span>.inheritedAccessControlContext = AccessController.getContext();
+    <span class="hljs-keyword">if</span> (parent.inheritableThreadLocals != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">this</span>.inheritableThreadLocals = ThreadLocal.createInheritedMap(
+                parent.inheritableThreadLocals);
+    }
+}
+</code></pre>
+<p>Thread &#x4E2D;&#x5B58;&#x5728; threadLocals inheritableThreadLocals &#x4E24;&#x4E2A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x540E;&#x8005;&#x5728;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x7EE7;&#x627F;&#x4E8E;&#x7236;&#x7EBF;&#x7A0B;&#x3002;&#x800C;&#x524D;&#x8005;&#x5219;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p>&#x771F;&#x6B63;&#x7684;&#x521D;&#x59CB;&#x5316;&#x5728;&#x4E8E;&#xFF1A;ThreadLocalMap.createMap &#x65B9;&#x6CD5;&#x3002;&#x81F3;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5927;&#x81F4;&#x753B;&#x51FA; &#x6574;&#x4E2A; ThreadLocal &#x662F;&#x600E;&#x4E48;&#x6210;&#x4E3A;&#x5B9E;&#x73B0;&#x7EBF;&#x7A0B;&#x552F;&#x4E00;&#x6570;&#x636E;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x3002;
+<img src="threadlocal.png" alt=""></p>
+<p>&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#x5C31;&#x662F;<code>&#x8BFB;&#x53D6;&#x4E00;&#x4E2A; ThreadLocal &#x65F6;&#xFF0C;&#x53BB; Thread &#x4E2D;&#x627E;&#x5230; ThreadLocalMap &#xFF0C;&#x8BFB;&#x53D6;&#x8FD9;&#x4E2A; ThreadLocal &#x548C;&#x5176;&#x76F8;&#x5E94;&#x7684; value&#x3002;</code></p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x6709;&#x4E00;&#x79CD;&#x8BF4;&#x6CD5;&#x5728;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x4F7F;&#x7528; ThreadLocal &#x53EF;&#x80FD;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x95EE;&#x9898;&#x3002;Entry&#x7EE7;&#x627F;&#x4E86;WeakReference<threadlocal<?>&gt;&#xFF0C;&#x5373;Entry&#x7684;key&#x662F;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;key&apos;&#x4F1A;&#x5728;&#x5783;&#x573E;&#x56DE;&#x6536;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x56DE;&#x6536;&#x6389;&#xFF0C; &#x800C;key&#x5BF9;&#x5E94;&#x7684;value&#x5219;&#x4E0D;&#x4F1A;&#x88AB;&#x56DE;&#x6536;&#xFF0C; &#x8FD9;&#x6837;&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x79CD;&#x73B0;&#x8C61;&#xFF1A;key&#x4E3A;null&#xFF0C;value&#x6709;&#x503C;&#x3002;&#x4F46;&#x5176;&#x5B9E;&#x5728; <code>expungeStaleEntry</code> &#x4E2D;&#xFF0C;&#x5224;&#x65AD;&#x5982;&#x679C; staleSlot &#x4F4D;&#x7F6E;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x4F1A;&#x81EA;&#x52A8;&#x6765;&#x91CA;&#x653E;&#x5185;&#x5B58;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6211;&#x770B;&#x6765;&#x662F;&#x4E0D;&#x4F1A;&#x90A3;&#x4E48;&#x5BB9;&#x6613;&#x53D1;&#x751F;&#x7684;&#x3002;&#x5047;&#x5982;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A; ThreadLocalMap&#xFF0C;&#x540C;&#x65F6;set&#x6709;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x662F;&#x597D;&#x957F;&#x65F6;&#x95F4;&#x4E4B;&#x540E;&#x90FD;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x53D1;&#x751F;GC&#x4E4B;&#x540E;&#xFF0C;&#x90A3;&#x4E48;&#x8FD8;&#x662F;&#x4F1A;&#x53D1;&#x751F;&#x6CC4;&#x6F0F;&#x7684;&#x3002;</threadlocal<?></p>
+<p>&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x5F71;&#x54CD;&#x4E0D;&#x5927;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Android 跨线程通信 Java 多线程.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Java 多线程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"date":"2018-12-14T09:18:12.000Z","tags":["底层","Android","跨进程通信"],"title":"ThreadLocal","level":"9.1.1","depth":2,"next":{"title":"Java 多线程","level":"9.1.2","depth":2,"path":"thread/Android 跨线程通信 Java 多线程.md","ref":"thread/Android 跨线程通信 Java 多线程.md","articles":[]},"previous":{"title":"Android 跨线程通信","level":"9.1","depth":1,"ref":"","articles":[{"title":"ThreadLocal","level":"9.1.1","depth":2,"path":"thread/Android 跨线程通信 ThreadLocal.md","ref":"thread/Android 跨线程通信 ThreadLocal.md","articles":[]},{"title":"Java 多线程","level":"9.1.2","depth":2,"path":"thread/Android 跨线程通信 Java 多线程.md","ref":"thread/Android 跨线程通信 Java 多线程.md","articles":[]},{"title":"Handler","level":"9.1.3","depth":2,"path":"thread/Android 跨线程通信 Handler .md","ref":"thread/Android 跨线程通信 Handler .md","articles":[]},{"title":"Handler番外篇","level":"9.1.4","depth":2,"path":"thread/Android 跨线程通信 Handler  番外篇.md","ref":"thread/Android 跨线程通信 Handler  番外篇.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"thread/Android 跨线程通信 ThreadLocal.md","mtime":"2020-07-31T07:35:44.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-17T03:40:02.913Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
