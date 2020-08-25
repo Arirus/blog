@@ -247,5 +247,4 @@ public final View createView(String name, String prefix, AttributeSet attrs)
 - 它内部主要是按优先顺序为Factory2和Factory的onCreatView、createView方法进行View的创建，如果都没有的话则使用 LayoutInflater 实例的onCreatView、createView进行创建，而createView方法内部采用了构造器反射的方式实现。
 
 
-# 
 
