@@ -7,6 +7,37 @@ title : "View 的一些整理 绘制"
 
 好了，本篇开始就是 View 绘制相关的内容，因为这里东西比较多且比较杂，因此不免会出现罗列 API 的情况，我们会挑一些重要的 API 来进行说明，对于非重要的 API 有个印象就好。
 
+# Paint 颜色绘制
+
+Paint 的颜色主要是有三种方式来进行绘制：
+- Paint 直接设置颜色
+    - Paint.setColor/ARGB() 
+    - 使用 Shader
+        - TileMode：CLAMP（平铺），MIRROR（镜像），REPEAT（重复）
+        - PorterDuff.Mode 17种（alhpa 合成 12，混合 5）
+        - LinearGradient
+            LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, Shader.TileMode tile)
+        - RadialGradient 
+            RadialGradient(float centerX, float centerY, float radius, int centerColor, int edgeColor, TileMode tileMode)
+        - SweepGradient 
+            SweepGradient(float cx, float cy, int color0, int color1)
+        - BitmapShader  
+            BitmapShader(Bitmap bitmap, Shader.TileMode tileX, Shader.TileMode tileY)
+        - ComposeShader
+            ComposeShader(Shader shaderA, Shader shaderB, PorterDuff.Mode mode)
+- setColorFilter 设置颜色过滤
+    - LightingColorFilter
+        线性的增加某一部分的颜色
+    - BlendModeColorFilter
+        新添加的，类似 PorterDuffColorFilter
+    - PorterDuffColorFilter
+        使用一个指定的颜色和一种指定的 PorterDuff.Mode 来与绘制对象进行合成
+    - ColorMatrixColorFilter
+        ColorMatrix 这个类，内部是一个 4x5 的矩阵，单独调制每个色值
+- setXfermode(Xfermode xfermode)
+    设置绘制内容与View中已有的内容的混合计算方式
+    
+
 # Canvas 图形绘制
 Canvas（画布）是我们绘制 View 的最重要的两个类之一，我们绘制的图像都是显示在其上面。下面是规范图形常用的 API：
 ```java

@@ -146,3 +146,94 @@ public void scheduleDrawable(@NonNull Drawable who, @NonNull Runnable what, long
 这也是帧动画的原理了。
 
 
+# Tint
+其核心在于使用 PorterDuffMode 来混合两个颜色和图形。其底层主要还是用到 ColorFilter。
+
+## Drawable Tint
+```java
+//Tint 相关设置到这里
+@Override
+public void setTintList(ColorStateList tint) {
+    final BitmapState state = mBitmapState;
+    if (state.mTint != tint) {
+        state.mTint = tint;
+        mBlendModeFilter = updateBlendModeFilter(mBlendModeFilter, tint,
+                    mBitmapState.mBlendMode);
+        invalidateSelf();
+    }
+}
+
+@Override
+public void setTintBlendMode(@NonNull BlendMode blendMode) {
+    final BitmapState state = mBitmapState;
+    if (state.mBlendMode != blendMode) {
+        state.mBlendMode = blendMode;
+        mBlendModeFilter = updateBlendModeFilter(mBlendModeFilter, mBitmapState.mTint,
+                blendMode);
+        invalidateSelf();
+    }
+}
+
+//最后会在 View 中进行调用。仅仅会重绘脏区域
+@Override
+public void invalidateDrawable(@NonNull Drawable drawable) {
+    if (verifyDrawable(drawable)) {
+        final Rect dirty = drawable.getDirtyBounds();
+        final int scrollX = mScrollX;
+        final int scrollY = mScrollY;
+
+        invalidate(dirty.left + scrollX, dirty.top + scrollY,
+                dirty.right + scrollX, dirty.bottom + scrollY);
+        rebuildOutline();
+    }
+}
+
+// 重绘之后，首先会绘制背景
+private void drawBackground(Canvas canvas) {
+    final Drawable background = mBackground;
+    if (background == null) {
+        return;
+    }
+    ...
+    setBackgroundBounds();
+    ...
+    background.draw(canvas);
+}
+
+// 最后会回到 Drawable 中进行绘制
+public void draw(Canvas canvas) {
+    ...
+    if (mBlendModeFilter != null && paint.getColorFilter() == null) {
+        paint.setColorFilter(mBlendModeFilter);
+        clearColorFilter = true;
+    } else {
+        clearColorFilter = false;
+    }
+    ...
+}
+```
+
+## View Tint
+视图中的也类似，以ImageView为例：
+```java
+private void applyImageTint() {
+    if (mDrawable != null && (mHasDrawableTint || mHasDrawableBlendMode)) {
+        mDrawable = mDrawable.mutate();
+
+        if (mHasDrawableTint) {
+            mDrawable.setTintList(mDrawableTintList);
+        }
+
+        if (mHasDrawableBlendMode) {
+            mDrawable.setTintBlendMode(mDrawableBlendMode);
+        }
+
+        ...
+    }
+}
+```
+
+## mutate
+简单讲讲，其实就是如果多个控件使用同一个Drawable，如果其中一个控件的Drawable发生改变，其他所有的Drawable都会发生改变。如果使用Drawable.mutate()，就可以从Drawable里新建一个不可变的实例，那么当这个Drawable发生改变时，不会导致其他的Drawable发生改变。
+
+
