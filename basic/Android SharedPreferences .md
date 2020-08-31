@@ -377,7 +377,51 @@ SP 不支持多进程访问。
 # MMKV 原理
 
 ## 内存映射
-mmap（memory mapping），将文件映射到一块内存区域中，
+mmap（memory mapping），将文件映射到一块内存区域中，在内存中进行写数据，会由系统直接写到文件当中。由于是系统内核上的操作，因此会直接反映到文件上，不会担心由于crash导致丢失数据。
 
+## 写入优化
+
+使用 protobuf 来写入，每次写入的时候，都是在内存尾部 append 数据。更新的时候由后面的值来覆盖前面的值。
+
+## 空间增长
+
+以内存 pagesize 为单位申请空间，在空间用尽之前都是 append 模式；当 append 到文件末尾时，进行文件重整、key 排重，尝试序列化保存排重结果；排重后空间还是不够用的话，将文件扩大一倍，直到空间足够。
+
+## 多进程访问
+
+ - 使用 ContentProvider。Binder 的 CS 模型慢，因为还要通过 Binder 的转换，使用 BinderProxy 操作进行会有较大的延迟。
+ - 增加进程锁
+    - FileLock：基于文件描述符的文件锁是天然 robust，缺点是不支持递归加锁，也不支持读写锁升级/降级，需要自行实现
+
+### 进程同步
+- 状态同步
+    - 写指针的同步：把最新的写指针位置也写到 mmap 内存中
+    - 内存重整的感知：使用一个单调递增的序列号
+    - 内存增长的感知：通过查询文件大小来获得
+
+```java
+void checkLoadData() {
+    if (m_sequence != mmapSequence()) {
+        m_sequence = mmapSequence();
+        if (m_size != fileSize()) {
+            m_size = fileSize();
+            // 处理内存增长
+        } else {
+            // 处理内存重整
+        }
+    } else if (m_actualSize != mmapActualSize()) {
+        auto lastPosition = m_actualSize;
+        m_actualSize = mmapActualSize();
+        // 处理写指针增长
+    } else {
+        // 什么也没发生
+        return;
+    }
+}
+```
+- 文件锁采用增加读写锁计数器方式来进行修改。
+
+
+# SP 多进程使用 ContentProvider
 
 
