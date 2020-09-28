@@ -1,0 +1,176 @@
+
+
+////////////////////////
+Node head;
+Node pre;
+public static Node treeToDoublyList(Node root){
+    if (root == null) return
+    DFS(root)
+
+    head.left = pre
+    pre.right = head
+
+    return head
+
+}
+
+public static void DFS(Node root){
+    if(root == null )return
+    DFS(root.left)
+
+    if(pre!=null){
+        pre.right = cur
+    }else{
+        head = cur
+    }
+
+    cur.left = pre
+    pre = cur
+
+    DFS(root.right)
+
+}
+////////////////////////
+public static stack reverse(Stack<Integer> stack){
+    if(stack == null || stack.size <= 1) return stack   ; 
+
+    int bottomEle = getBottom(stack);
+    stack = reverse(stack)
+
+    stack.push(bottomEle)
+
+    return stack
+
+}
+
+public stack Integer getBottom(Stack<Integer> stack){
+    int Integer value = stack.pop()
+    if(stack.isEmpty()) return value
+    else{
+        int bottomEle = getBottom(stack)
+        stack.push(value)
+        return bottomEle;
+    }
+}
+////////////////////////
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode pA = headA, pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+    }
+}
+
+////////////////////////
+
+public static ListNode reverse(ListNode head){
+    if(head == null || head.next == null) return head;
+
+    ListNode newHead = reverse(head.next)
+
+    head.next.next = head
+
+    head.next = null
+
+    return newHead
+
+}
+
+public static ListNode reverse(ListNode node){
+    if(node == null || node.next == null) return node;
+
+    ListNode mid = node
+
+    ListNode head = node
+
+    ListNode tail = null
+
+    while(head!=null){
+        head = head.next
+
+        mid.next = tail
+
+        tail = mid
+
+        mid = head
+    }
+
+    return tail
+
+
+}
+
+/////////////////////////
+
+public static boolean isBalance(TreeNode root){
+    if(root == null ) return true
+
+    if(!isBalance(root.left)) return false
+    if(!isBalance(root.right)) return false
+
+    int leftDepth = depth(root.left)
+    int rightDepth = depth(root.right)
+
+    return Math.abs(leftDepth-rightDepth)>1:true:false
+
+}
+
+public static int depth(TreeNode root){
+    if(root == null) return 0
+    return 1+max(depth(root.left),depth(root.right))
+}
+
+///////////////////////////
+
+public static int depth(TreeNode root){
+    if(root == null) return 0;
+
+    Quene<TreeNode> quene = new LinkedList<>();
+    int depth = 0;
+
+    quene.offer(root)
+
+    while(!quene.isEmpty()){
+        depth++;
+        int queneLength = quene.size();
+        while(queneLength -- >0){
+            TreeNode temp = quene.poll();
+            if(temp.left != null)
+                quene.offer(temp.left)
+
+            if(temp.right !=null)
+                quene.offer(temp.right)    
+        }
+    }
+
+    return depth++;
+
+
+}
+
+///////////////
+
+public boolean isSymmetric(TreeNode root) {
+    
+}
+
+public boolean check(TreeNode p,TreeNode q){
+    if(p == null && q == null) return true
+    if(p == null || q == null )return false
+
+    return p.value == q.value && check(p.left ,q.right)
+}
+
+//////////////////////////////////
+
+public boolean func(TreeNode root){
+
+}
+
+public boolean fun(TreeNode root,int min,int max){
+    if(root == null)
+        return true;
+}

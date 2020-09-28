@@ -236,6 +236,8 @@ public abstract class ResponseCallBack extends Binder implements ICallBack {
   @Override
   protected boolean onTransact(int code, @NonNull Parcel data, @Nullable Parcel reply, int flags)
       throws RemoteException {
+
+        
     this.onResponse(data.readString());
     return true;
   }
