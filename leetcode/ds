@@ -1,0 +1,115 @@
+// 前序遍历 中序遍历
+
+public static void func(TreeNode root){
+    if(root == null) return ;
+
+    Stack<TreeNode> stack = new Stack();
+
+    TreeNode index = root;
+
+    while(index!=null||!stack.isEmpty()){
+        while(index!=null){
+            stack.push(index);
+            index = index.left;
+        }
+        if(!stack.isEmpty()){
+            index = stack.pop();
+            index = index.right;
+        }
+    }
+}
+
+// 后序遍历
+
+public static void func(TreeNode root){
+    if(root == null)  return;
+
+    Stack<TreeNode> stack = new Stack();
+
+    TreeNode index = root;
+    TreeNode last = root;
+
+    while(index!=null||!stack.isEmpty()){
+        while(index!=null){
+            stack.push(index);
+            index = index.left;
+        }
+
+        index = stack.peek();
+
+        if(index.right == null || index.right==last){
+            stack.pop();
+            last = index;
+            index = null;
+        }else{
+            index = index.right;
+        }
+    }
+
+}
+
+
+public static void quickSort(int[] arr,int left, int right){
+    if(left>= right) return;
+
+
+    int pivot = getPivot(arr,left,right);
+    quickSort(arr, left, pivot-1);
+    quickSort(arr,pivot+1,right);
+}
+
+public static int getPivot(int[] arr, int left,int right){
+    int value = arr[left];
+
+    int i = left;
+    int j = right;
+
+
+    while(i<j){
+        while(i<j && arr[i]<=value)
+            i++;
+        while(i<j && arr[j]>=value)
+            j--;
+
+        swap(arr,i,j);
+    }
+
+    swap(arr,i,left);
+
+    return i;
+}
+
+public static sort(int[] arr,int left, int right){
+    int mid = left+(right-left)>>1;
+    sort(arr,left,mid);
+    sort(arr,mid+1,right);
+
+    merge(arr,left,mid,right);
+}
+
+public static merge(int[] arr, int left, int mid, int right){
+    int[] temp = new int[right-left+1];
+
+    int i = left;
+    int j = mid+1;
+    int t =0 ;
+
+    while(i<=mid && j<=right){
+        temp[t++] = arr[i]>arr[j]?arr[j++]:arr[i++];
+    }
+
+    while(i<=mid){
+        temp[t++] = arr[i++];
+    }
+
+    while(j<=right){
+        temp[t++] = arr[j++];
+    }
+
+    t = 0;
+
+    while(left<=right){
+        arr[]
+    }
+
+}
