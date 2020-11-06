@@ -8,6 +8,10 @@
     * [Java内存模型与线程](jvm/JVM读书笔记 Java内存模型与线程.md)
 
 
+* [Kotlin核心编程]
+    * [基础语法](kotlin/Kotlin 核心编程 基础语法.md)
+
+
 
 * [集合](collections/集合 总览.md)
     * [ArrayList](collections/集合 ArrayList.md)
