@@ -54,6 +54,10 @@ include ':app'
 project(':app').projectDir = new File('./app')
 ```
 
+settings.gradle  文件负责管理各个 subProjects，本身并不是 project ，因此没有 tasks
+
+kts 这里貌似有bug，需要 standalone script 才可以正常识别kotlin 相关语法
+
 ### rootproject/build.gradle
 
 整体项目的配置，这个是整个gradle项目编译最开始的地方。最终编译成一个 Project 对象。
