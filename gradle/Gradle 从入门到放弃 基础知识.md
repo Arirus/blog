@@ -46,6 +46,7 @@ settings.gradle 是负责配置项目的脚本，我们通过它来支持多少�
 - include(projectPaths)          //给定的project加到build 列表中，不过都子一级别的project
 - includeFlat(projectNames)      //给定的project加到build 列表中，不过都兄弟级别的project
 - project(projectDir)            //跟进一个给定路径返回project
+- includeBuild(project) // 用于外部库作为依赖添加进来
 
 
 如果想指定子模块的位置，可以使用 project 方法获取 Project 对象，设置其 projectDir 参数
@@ -121,8 +122,69 @@ init.gradle 文件放在 `USER_HOME/.gradle/`目录下，这样初始化的时�
 配置阶段主要做的事情是对上一步创建的项目进行配置，这时候会执行 build.gradle 脚本，并且会生成要执行的 task。
 到此阶段，会生产task的有向无环图。
 
-执行阶段
+
+### 执行阶段
 执行阶段主要做的事情就是执行 task，进行主要的构建工作。
+
+### 流程图
+
+```
+.                                //根目录
+├── app                          // app
+│   ├── build
+│   └──build.gradle             
+├── build
+├── build.gradle                 // rootProject 的 build.
+├── buildSrc                     // buildSrc 库
+│   ├── build
+│   └──build.gradle
+├── plugin                      // plugin 库
+│   ├── build
+│   └──build.gradle
+└── settings.gradle              // 根Setting
+```
+在 setting 中，和4个build.gradle文件中配置完log
+
+``` java
+// setings 文件初始化
+*** settings settingsEvaluated settings 'Plugin'
+*** settings projectsLoaded build 'Plugin'
+
+// buildSrc configuration 
+> Configure project :buildSrc
+// buildSrc 执行
+*** buildSrc afterProject  project ':buildSrc'
+*** buildSrc afterEvaluate  project ':buildSrc'
+
+> Task :buildSrc:compileKotlin UP-TO-DATE
+...
+> Task :buildSrc:build UP-TO-DATE
+
+// rootProject configuration 
+> Configure project :
+*** rootBuild afterProject root project 'Plugin'
+*** rootBuild afterEvaluate root project 'Plugin'
+
+// app configuration 
+> Configure project :app
+*** rootBuild beforeProject project ':app'
+*** rootBuild beforeEvaluate project ':app'
+// android extension 开始
+*** Android Extension start
+*** rootBuild afterProject project ':app'
+*** rootBuild afterEvaluate project ':app'
+
+// plugin configuration 
+> Configure project :plugin
+*** rootBuild beforeProject project ':plugin'
+*** rootBuild beforeEvaluate project ':plugin'
+
+
+*** rootBuild afterProject project ':plugin'
+*** rootBuild afterEvaluate project ':plugin'
+*** settings projectsEvaluated build 'Plugin'
+// 完成
+```
 
 ## 自定义 task
 
