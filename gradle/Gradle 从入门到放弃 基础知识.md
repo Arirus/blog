@@ -186,6 +186,34 @@ init.gradle 文件放在 `USER_HOME/.gradle/`目录下，这样初始化的时�
 // 完成
 ```
 
+基本流程简单来说：
+初始化阶段：
+    setting.gradle 执行，settingsEvaluated 和 projectsLoaded 回调收到。
+**注意：**优先 buildSrc ，afterProject 和 afterEvaluate 回调收到。buildSrc 会直接进行构建，进行build。
+配置阶段：
+    先进行根工程的 beforeProject beforeEvaluate 和 afterProject afterEvaluate。中间进行 build.gradel 的配置
+    遍历 subProject，执行 beforeProject beforeEvaluate 和 afterProject afterEvaluate。中间进行 build.gradel 的配置
+    最后 settings projectsEvaluated 收到回调。此时 taskGraph 建立完毕。
+执行阶段：
+    Gradle.taskGraphBeforeTask 和 Gradle.taskGraphAfterTask  收到回调。中间会进行 task.doAction 的执行。
+    Gradle.buildFinish 回调
+
+
+使用
+```java
+gradle.taskGraph.beforeTask {Task task ->
+    task.doFirst {
+        task.ext.beginOfTask = System.currentTimeMillis()
+    }
+
+    task.doLast {
+        println "执行阶段，$task 耗时：${System.currentTimeMillis() - task.ext.beginOfTask} ms"
+    }
+}
+打印出每个任务的执行耗时。
+```
+
+
 ## 自定义 task
 
 自定义task属于较为常用的功能之一，常用写法：
