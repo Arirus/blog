@@ -29,3 +29,19 @@
 
 ## Android 内存优化
 
+内存低的原因：Java GC 回收，线程会冻结，影响性能。内存泄漏。内存抖动。OOM
+
+方案
+    - 合适的代码设计，数据结构
+    - 对象池和缓存池使用
+    - 避免内存泄漏 和 内存抖动
+    - 资源未关闭，监听器未反注册
+    - 内部类持有外部类的引用（Handler相关问题，如持有 Activty 对象）
+    - static Activity；View
+    - 图片加载优化
+      - 选择合适的像素格式
+      - 资源文件目录，hdpi越高 占用内存越大
+      - BitmapFactory Options 使用，inSampleSize；inJustDecodeBound
+      - 大图监控（Glide.onResourceRady）
+      - 重复图片检测
+      - 线上Bitmap 监控
