@@ -1,3 +1,18 @@
+## Annonation Processor Tool && kapt
+注解处理技术，可以在编译之前，使用apt来生成class代码，参与编译就像原生java代码一样。
+如果项目代码中有kotlin代码，那么需要使用kapt 来代替 annotationProcessor 
+使用apt/kapt 需要在META-INF.services 中声明使用的 /META-INF/services/javax.annotation.processing.Processor，可以在自定义的 MyProcessor ，其继承于 Processor。这样的我们的注解处理器就能处理，我们的自定义 Processor
+
+核心：
+定义注解 定义注解处理器
+增加META-INF/services/javax.annotation.processing.Processor 文件中的声明
+在对应类使用注解进行修饰
+
+
+
+
+# SPI库
+
 ## 结构
 include ':annotations'  注解层  定义ServiceProvider注解 无额外依赖
 include ':registry'  定义了 ServiceRegistry 用来作为 stub ，方便loader在编译时期进行依赖  无额外依赖。生成的ServiceRegistry 维护了一个hashmap key 是 ServiceProvider 声明的接口，value 是 所有实现的组成的set，同时还维护了一个hashmap，key是 实现类，value 是一个callable的接口，返回一个实现类的对象
