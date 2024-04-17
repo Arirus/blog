@@ -1,11 +1,15 @@
 ## Annonation Processor Tool && kapt
 注解处理技术，可以在编译之前，使用apt来生成class代码，参与编译就像原生java代码一样。
+
 如果项目代码中有kotlin代码，那么需要使用kapt 来代替 annotationProcessor 
+
 使用apt/kapt 需要在META-INF.services 中声明使用的 /META-INF/services/javax.annotation.processing.Processor，可以在自定义的 MyProcessor ，其继承于 Processor。这样的我们的注解处理器就能处理，我们的自定义 Processor
 
 核心：
 定义注解 定义注解处理器
+
 增加META-INF/services/javax.annotation.processing.Processor 文件中的声明
+
 在对应类使用注解进行修饰
 
 
