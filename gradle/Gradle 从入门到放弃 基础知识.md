@@ -44,7 +44,7 @@
 settings.gradle 是负责配置项目的脚本，我们通过它来支持多少个项目一起编译。
 常用方法是有这些
 - include(projectPaths)          //给定的project加到build 列表中，不过都子一级别的project
-- includeFlat(projectNames)      //给定的project加到build 列表中，不过都兄弟级别的project
+- includeFlat(projectNames)      //给定的project加到build 列表中，不过都兄弟级别的project 7.2.2 版本已经标记为作废
 - project(projectDir)            //跟进一个给定路径返回project
 - includeBuild(project) // 用于外部库作为依赖添加进来
 
@@ -118,10 +118,53 @@ init.gradle 文件放在 `USER_HOME/.gradle/`目录下，这样初始化的时�
 初始化阶段主要做的事情是有哪些项目需要被构建，然后为对应的项目创建 Project 对象
 到此阶段，settings 读取完成，知道有多少子项目参与构建。
 
+但有的时候会遇到同时引入了 AAR 和源码的情况，我们可以使用 include + project，结合一些其他的配置，来实现 AAR 和源码的快速切换，具体步骤如下：
+```java
+//步骤一：在 settings.gradle 中引入源码工程
+include ':test'
+project(':test').projectDir = file('当前工程的绝对路径')
+
+//步骤二：在根 build.gradle 下进行如下配置
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            dependencySubstitution {
+                substitute module("com.dream:test") with project(':test')
+            }
+        }
+    }
+}
+
+// 或者 使用 includeBuild
+includeBuild('../TheOneSDKGlobal/TheOneSDKGlobal') {
+    dependencySubstitution {
+        substitute module('com.xiaoju.nova:the-one-globalsdk') with project(':TheOneSDKGlobal')
+    }
+}
+```
+
 ### 配置阶段
 配置阶段主要做的事情是对上一步创建的项目进行配置，这时候会执行 build.gradle 脚本，并且会生成要执行的 task。
 到此阶段，会生产task的有向无环图。
 
+**除 Task 的 Action 中编写的代码都会被执行**
+
+配置阶段完成后，整个工程的 Task 依赖关系都确定了，我们可以通过 Gradle  对象的 getTaskGraph 方法访问 Task ,对应的类为 TaskExecutionGraph
+
+```java
+gradle.taskGraph.beforeTask { task ->
+
+    println("--- task name ${task.name} ${task.description}")
+
+    task.inputs.files.each { fileTemp -> println 'input file:' + fileTemp.absolutePath
+    }
+
+    println '---------------------------------------------------'
+    task.outputs.files.each { fileTemp -> println 'output file:' + fileTemp.absolutePath
+    }
+
+}
+```
 
 ### 执行阶段
 执行阶段主要做的事情就是执行 task，进行主要的构建工作。
@@ -193,7 +236,12 @@ init.gradle 文件放在 `USER_HOME/.gradle/`目录下，这样初始化的时�
 配置阶段：
     先进行根工程的 beforeProject beforeEvaluate 和 afterProject afterEvaluate。中间进行 build.gradel 的配置
     遍历 subProject，执行 beforeProject beforeEvaluate 和 afterProject afterEvaluate。中间进行 build.gradel 的配置
-    最后 settings projectsEvaluated 收到回调。此时 taskGraph 建立完毕。
+    最后 settings projectsEvaluated 收到回调。此时 taskGraph 建立完毕。Gradle.taskGraphWhenReady 回调。
+
+beforeProject 与 beforeEvaluate 区别：
+    1、Gradle 对象的 beforeProject，afterProject 方法针对项目下的所有工程，即每个工程的 build.gradle 执行前后都会收到这两个方法的回调
+    2、Project 对象的 beforeEvaluate ，afterEvaluate 方法针对当前工程，即当前工程的 build.gradle 执行前后会收到这两个方法的回调
+
 执行阶段：
     Gradle.taskGraphBeforeTask 和 Gradle.taskGraphAfterTask  收到回调。中间会进行 task.doAction 的执行。
     Gradle.buildFinish 回调
@@ -212,37 +260,5 @@ gradle.taskGraph.beforeTask {Task task ->
 }
 打印出每个任务的执行耗时。
 ```
-
-
-## 自定义 task
-
-自定义task属于较为常用的功能之一，常用写法：
-```
-task myTask {
-    println 'myTask in configuration'
-    doLast {
-        println 'myTask in run'
-    }
-}
-
-tasks.create("mytask").doLast {
-}
-```
-
-Task 的一些重要方法分类如下：
-
-- Task 行为
-    - Task.doFirst
-    - Task.doLast
-
-- Task 依赖顺序
-    - Task.dependsOn
-    - Task.mustRunAfter
-    - Task.shouldRunAfter
-    - Task.finalizedBy
-
-- Task 是否可用
-    - Task.enabled
-
 
 Gradle 的基础知识差不多就是这样，在不自定义 Gradle-plugin 的前提下，目前的内容算是 Gradle 的基础知识了。
